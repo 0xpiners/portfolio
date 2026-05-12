@@ -168,6 +168,118 @@ const html = `<!DOCTYPE html>
     .toolbar__icon-group .toolbar__icon-btn + .toolbar__icon-btn {
       border-left: 1px solid #4a7cc7;
     }
+
+    /* ── Layout ────────────────────────────────────────── */
+    .workspace {
+      display: flex;
+      height: calc(100vh - 70px); /* subtract title-bar + toolbar */
+    }
+
+    .main-content {
+      flex: 1;
+      background: #1a1a1a;
+    }
+
+    /* ── Library sidebar ───────────────────────────────── */
+    .library {
+      width: 200px;
+      min-width: 200px;
+      background: #1e1e1e;
+      border-right: 1px solid #111;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    .library__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #2b2b2b;
+      padding: 5px 8px;
+      border-bottom: 1px solid #111;
+    }
+
+    .library__title {
+      font-size: 13px;
+      color: #c8c8c8;
+    }
+
+    .library__close {
+      background: transparent;
+      border: none;
+      color: #888;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0 2px;
+      line-height: 1;
+      border-radius: 2px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .library__close:hover { background: #c0392b; color: #fff; }
+
+    .library__search {
+      display: flex;
+      align-items: center;
+      background: #141414;
+      border-bottom: 1px solid #111;
+      padding: 4px 6px;
+      gap: 5px;
+    }
+
+    .library__search svg { flex-shrink: 0; color: #666; }
+
+    .library__search input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 12px;
+      color: #c8c8c8;
+      min-width: 0;
+    }
+
+    .library__search input::placeholder { color: #555; }
+
+    .library__search-arrow {
+      color: #555;
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+
+    .library__tree {
+      padding: 6px 0;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .tree-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      font-size: 12px;
+      color: #c8c8c8;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .tree-item:hover { background: #2a2a2a; }
+
+    .tree-item__toggle {
+      width: 12px;
+      font-size: 11px;
+      color: #888;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .tree-item__icon { flex-shrink: 0; display: flex; align-items: center; }
+
+    .tree-item--child {
+      padding-left: 28px;
+    }
   </style>
 </head>
 <body>
@@ -246,6 +358,61 @@ const html = `<!DOCTYPE html>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 5a3 3 0 100 6A3 3 0 008 5zm0 1.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/><path d="M8 1l-.9 1.6a5.5 5.5 0 00-1.5.6L4 2.7l-1.3 1.3.9 1.6a5.5 5.5 0 00-.6 1.5L1.5 8l.5 1.9 1.6-.9c.4.23.95.45 1.5.6L5.5 11l1.3 1.3 1.6-.9c.5.23 1 .45 1.5.6l.5 1.5h1.9l.9-1.6c.5-.15 1.05-.37 1.5-.6l1.6.9 1.3-1.3-.9-1.6c.23-.5.45-1 .6-1.5L14.5 8l-.5-1.9-1.6.9a5.5 5.5 0 00-1.5-.6L10.5 5 9.2 3.7l-1.6.9A5.5 5.5 0 008 4V1z" fill="none" stroke="currentColor" stroke-width="1.1"/></svg>
       </button>
     </div>
+  </div>
+
+  <!-- Workspace: sidebar + main -->
+  <div class="workspace">
+
+    <!-- Library sidebar -->
+    <aside class="library">
+      <div class="library__header">
+        <span class="library__title">Library</span>
+        <button class="library__close" title="Close">&#x2715;</button>
+      </div>
+
+      <div class="library__search">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M11.742 10.344a6.5 6.5 0 10-1.397 1.398l3.85 3.85a1 1 0 001.415-1.415l-3.868-3.833zm-5.242 1.156a5 5 0 110-10 5 5 0 010 10z"/>
+        </svg>
+        <input type="text" placeholder="Type here to search" />
+        <span class="library__search-arrow">&#9660;</span>
+      </div>
+
+      <div class="library__tree">
+        <!-- My Computer -->
+        <div class="tree-item">
+          <span class="tree-item__toggle">&#8722;</span>
+          <span class="tree-item__icon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <rect x="1" y="2" width="14" height="10" rx="1" stroke="#a0a0a0" stroke-width="1.2"/>
+              <rect x="5" y="12" width="6" height="1.2" fill="#a0a0a0"/>
+              <rect x="3" y="13.2" width="10" height="1" fill="#a0a0a0"/>
+            </svg>
+          </span>
+          My Computer
+        </div>
+
+        <!-- Red VM (child) -->
+        <div class="tree-item tree-item--child">
+          <span class="tree-item__icon">
+            <!-- VM icon: monitor with green play arrow -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <rect x="1" y="2" width="11" height="8" rx="1" stroke="#a0a0a0" stroke-width="1.1"/>
+              <rect x="3.5" y="10" width="4" height="1" fill="#a0a0a0"/>
+              <rect x="2" y="11" width="7" height="0.8" fill="#a0a0a0"/>
+              <!-- green play badge -->
+              <rect x="9" y="7" width="7" height="7" rx="1" fill="#1e1e1e"/>
+              <polygon points="10.5,8.2 10.5,12.8 14.5,10.5" fill="#3cb371"/>
+            </svg>
+          </span>
+          Red
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content area -->
+    <main class="main-content"></main>
+
   </div>
 
 </body>
