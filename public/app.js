@@ -1017,6 +1017,7 @@ const projects = [
 	{ title: 'Smalito', description: 'URL shortener deployed on Cloudflare\'s edge. Supports user accounts with email verification, a link dashboard with click analytics, and uses D1, KV, and R2 — zero origin server.', tags: ['TypeScript', 'Cloudflare Workers', 'D1', 'KV'], url: 'https://github.com/0xpiners/smalito', date: '2026', status: 'live', category: 'web' },
 	{ title: 'FoodShop', description: 'Microservices food store with Angular frontend backed by two independent REST APIs for order management and inventory. Orchestrated with Docker Compose.', tags: ['JavaScript', 'Angular', 'Docker', 'Microservices'], url: 'https://github.com/0xpiners/FoodShop', date: '2026', status: 'archived', category: 'web' },
 	{ title: 'What Did I Learn Today', description: 'Daily learning journal web app for logging, tagging, and reviewing things learned each day. Builds a searchable personal knowledge base over time.', tags: ['TypeScript', 'Web'], url: 'https://github.com/0xpiners/what-did-i-learn-today', date: '2025', status: 'wip', category: 'web' },
+	{ title: 'Portfolio', description: 'Interactive portfolio built as a Cloudflare Workers app with a custom desktop-style UI, tabbed navigation, and dedicated sections for projects, resume, and CTF work. Designed to feel like a retro operating system while staying fully web-native.', tags: ['JavaScript', 'Cloudflare Workers', 'Frontend'], url: 'https://github.com/0xpiners/portfolio', date: '2026', status: 'live', category: 'web' },
 	{ title: 'ISCTE Flight System v2', description: 'Client-server flight control system for an Operating Systems course. A server process manages all flight and passenger data; client processes connect, issue commands, and receive real-time updates. Explores IPC, process synchronisation, and concurrent file access.', tags: ['C', 'Systems', 'IPC', 'Concurrency'], url: 'https://github.com/0xpiners/IscteFlight-2', date: '2023', status: 'archived', category: 'systems' },
 	{ title: 'ISCTE Flight System v1', description: 'Bash-based flight management CLI with a menu-driven interface for booking flights, registering passengers, and checking flight status. Data is persisted to flat files.', tags: ['Bash', 'CLI', 'Systems'], url: 'https://github.com/0xpiners/IscteFligth-1', date: '2023', status: 'archived', category: 'systems' },
 	{ title: 'Trackfolio', description: 'Java desktop application for tracking and managing a personal investment portfolio — add assets, record transactions, and monitor current value over time.', tags: ['Java', 'Finance', 'Desktop'], url: 'https://github.com/0xpiners/Trackfolio', date: '2024', status: 'archived', category: 'tools' },
@@ -1052,7 +1053,7 @@ function buildProjCards(list) {
 			</div>
 			<div class="proj-card__footer">
 				<span class="proj-card__date">${p.date}</span>
-				<button class="proj-card__open" data-idx="${p._idx ?? i}">View details</button>
+				<button class="proj-card__open" data-idx="${p._idx ?? i}">Read description</button>
 			</div>
 		</div>`).join('');
 }

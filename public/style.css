@@ -1378,7 +1378,7 @@ body {
 	flex-direction: column;
 	font-family: 'Ubuntu', 'Segoe UI', sans-serif;
 	overflow: hidden;
-	background: linear-gradient(135deg, #1a2a4a 0%, #0d1a2e 100%);
+	background: #0d1a2e url('/images/parrot/peakpx.jpg') center center / cover no-repeat;
 }
 .parrot-area {
 	flex: 1;
@@ -1501,10 +1501,12 @@ body {
 /* ── Project cards ─────────────────────────────────── */
 .proj-onion-page {
 	padding: 16px;
-	overflow-y: auto;
+	overflow: hidden;
 	height: 100%;
 	box-sizing: border-box;
 	color: #e0e0e0;
+	display: flex;
+	flex-direction: column;
 }
 .proj-onion-header { margin-bottom: 12px; }
 .proj-onion-logo-name { font-size: 18px; font-weight: 600; color: #fff; }
@@ -1519,14 +1521,36 @@ body {
 .proj-filter-tab:hover { border-color: #555; color: #fff; }
 .proj-filter-tab.active { background: #2a2a2a; color: #fff; border-color: #555; }
 .proj-onion-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+	display: flex;
+	flex-direction: column;
 	gap: 12px;
+	width: 100%;
+	max-width: 100%;
+	flex: 1;
+	min-height: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-right: 6px;
+	scroll-snap-type: y proximity;
+	scrollbar-gutter: stable;
+}
+.proj-onion-grid::-webkit-scrollbar {
+	width: 8px;
+}
+.proj-onion-grid::-webkit-scrollbar-thumb {
+	background: #333;
+	border-radius: 999px;
+}
+.proj-onion-grid::-webkit-scrollbar-track {
+	background: #121212;
 }
 .proj-card {
 	background: #1a1a1a; border: 1px solid #2a2a2a;
 	border-radius: 6px; padding: 14px;
 	display: flex; flex-direction: column; gap: 8px;
+	min-height: 156px;
+	width: 100%;
+	scroll-snap-align: start;
 }
 .proj-card:hover { border-color: #444; }
 .proj-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
@@ -1554,10 +1578,10 @@ body {
 .proj-card__open:hover { background: #2a2a2a; color: #fff; }
 
 .proj-modal {
-	position: absolute; inset: 0;
+	position: fixed; inset: 0;
 	background: rgba(0,0,0,0.65);
 	display: flex; align-items: center; justify-content: center;
-	z-index: 999;
+	z-index: 5000;
 }
 .proj-modal__box {
 	background: #1c1c1c; border: 1px solid #2e2e2e;
