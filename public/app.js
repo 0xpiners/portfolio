@@ -3,7 +3,6 @@ const tabs = [
 	{ id: 'home', label: 'Home', icon: 'computer' },
 	{ id: 'projects', label: 'Projects', icon: 'vm' },
 	{ id: 'resume', label: 'Resume', icon: 'vm' },
-	{ id: 'contact', label: 'Contact', icon: 'vm' },
 	{ id: 'ctfs', label: 'CTFs', icon: 'vm' },
 ];
 let openTabs = ['home'];
@@ -178,7 +177,6 @@ const screenColors = {
 	projects: { bg: '#0d1a0f', fg: '#3cb371' },
 	resume: { bg: '#130d1a', fg: '#a06eff' },
 	ctfs: { bg: '#1a0d0d', fg: '#e74c3c' },
-	contact: { bg: '#1a100d', fg: '#e08c3a' },
 };
 
 function openGridView() {
@@ -428,7 +426,7 @@ document.getElementById('termClose').addEventListener('click', () => {
 const termCmds = {
 	help: 'Available commands: help, whoami, ls, clear, exit',
 	whoami: 'piners — security researcher & developer',
-	ls: 'home/  projects/  resume/  ctfs/  contact/',
+	ls: 'home/  projects/  resume/  ctfs/',
 	'ls -la': 'drwxr-xr-x  piners  home/\ndrwxr-xr-x  piners  projects/\ndrwxr-xr-x  piners  ctfs/\n-rw-r--r--  piners  resume.pdf',
 	pwd: '/home/piners',
 	date: () => new Date().toString(),
@@ -1003,6 +1001,226 @@ function bringToFront(win) {
 	}
 })();
 
+// ── Projects data ──────────────────────────────────────
+const projects = [
+	{ title: 'DepChain', description: 'Permissioned replicated blockchain with 4 nodes and HotStuff-style Byzantine fault-tolerant consensus. Integrates the EVM via Hyperledger Besu, deploys an ISTCoin ERC-20 token at genesis, and builds a full authenticated networking stack from UDP up through perfect links and authenticated channels.', tags: ['Java', 'Blockchain', 'BFT', 'EVM'], url: 'https://github.com/0xpiners/depchain', date: '2026', status: 'live', category: 'distributed' },
+	{ title: 'Simple Onion Router Network', description: 'Three-component onion routing network: relay nodes, users, and a registry mapping node IDs to RSA public keys. Users wrap messages in layers of RSA encryption and route them through a chain — each node peels one layer without learning source or destination.', tags: ['TypeScript', 'Node.js', 'Cryptography', 'Networking'], url: 'https://github.com/0xpiners/Simple-onion-router-network', date: '2026', status: 'live', category: 'security' },
+	{ title: 'DeathNode', description: 'Cryptographic peer-to-peer reporting platform where all communication is end-to-end encrypted with AES-256-GCM. Access is invitation-only via signed tokens, transport is secured with TLS mutual authentication, and each service runs in an isolated VM.', tags: ['Java', 'Security', 'P2P', 'AES-256', 'TLS'], url: 'https://github.com/0xpiners/DeathNode', date: '2025', status: 'live', category: 'security' },
+	{ title: 'Vulnerability Assessment — BLACKHOLE Inc.', description: 'Full penetration test against fictitious company BLACKHOLE Inc., following PTES methodology. Discovered and exploited SSTI leading to RCE (CVE-2022-29078) and a sudo misconfiguration for privilege escalation to root (CVE-2023-22809).', tags: ['Pentesting', 'PTES', 'Burp Suite', 'SQLMap', 'Nmap'], url: 'https://github.com/0xpiners/Vulnerability-Assessment-ISCTE', date: '2025', status: 'archived', category: 'security' },
+	{ title: 'MISP API CLI', description: 'Command-line interface for the MISP open-source threat intelligence platform. Lets analysts manage users, sync feeds, query and create events, and schedule cronjobs directly from the terminal.', tags: ['Python', 'Shell', 'MISP', 'Threat Intelligence'], url: 'https://github.com/0xpiners/MISP_API_CLI', date: '2025', status: 'wip', category: 'security' },
+	{ title: 'AES-GCM Encryption', description: 'Minimal Python script demonstrating authenticated encryption with AES-GCM using pycryptodome. Shows key derivation, encryption, and decryption with integrity verification.', tags: ['Python', 'Cryptography', 'AES-GCM'], url: 'https://github.com/0xpiners/AES_GCM', date: '2024', status: 'archived', category: 'security' },
+	{ title: 'Password Manager', description: 'Local password manager in Python with encrypted storage. Lets users add, retrieve, and manage credentials for multiple accounts with a master-password-based vault.', tags: ['Python', 'Cryptography', 'Security'], url: 'https://github.com/0xpiners/Password-manager', date: '2024', status: 'archived', category: 'security' },
+	{ title: 'Caesar Cipher GUI', description: 'Tkinter desktop app for encoding, decoding, and brute-forcing Caesar cipher messages. Includes all 25 shift variants in the brute-force view.', tags: ['Python', 'Cryptography', 'Tkinter', 'GUI'], url: 'https://github.com/0xpiners/Caesar_cipher_GUI', date: '2023', status: 'archived', category: 'security' },
+	{ title: 'Ben-Or Consensus Algorithm', description: 'TypeScript implementation of the Ben-Or randomized Byzantine consensus protocol. Each process runs independent coin-flip rounds to reach agreement even when up to ⌊(n−1)/5⌋ nodes are faulty.', tags: ['TypeScript', 'Distributed Systems', 'BFT', 'Consensus'], url: 'https://github.com/0xpiners/Ben-Or-decentralized-consensus-algorithm', date: '2026', status: 'archived', category: 'distributed' },
+	{ title: 'Event Queue Application', description: 'Dockerized event-driven system with Nginx reverse proxy, Redis message broker, and Go-based producer/consumer services. Demonstrates queue depth monitoring and backpressure handling.', tags: ['Go', 'Redis', 'Nginx', 'Docker'], url: 'https://github.com/0xpiners/Event-queue-application', date: '2024', status: 'archived', category: 'distributed' },
+	{ title: 'Torrent Workshop', description: 'Hands-on BitTorrent workshop walking through downloading files via magnet links and inspecting swarm behaviour. Explores trackers, peers, and piece verification.', tags: ['Networking', 'P2P', 'BitTorrent'], url: 'https://github.com/0xpiners/Torrent-workshop', date: '2024', status: 'archived', category: 'distributed' },
+	{ title: 'Smalito', description: 'URL shortener deployed on Cloudflare\'s edge. Supports user accounts with email verification, a link dashboard with click analytics, and uses D1, KV, and R2 — zero origin server.', tags: ['TypeScript', 'Cloudflare Workers', 'D1', 'KV'], url: 'https://github.com/0xpiners/smalito', date: '2026', status: 'live', category: 'web' },
+	{ title: 'FoodShop', description: 'Microservices food store with Angular frontend backed by two independent REST APIs for order management and inventory. Orchestrated with Docker Compose.', tags: ['JavaScript', 'Angular', 'Docker', 'Microservices'], url: 'https://github.com/0xpiners/FoodShop', date: '2026', status: 'archived', category: 'web' },
+	{ title: 'What Did I Learn Today', description: 'Daily learning journal web app for logging, tagging, and reviewing things learned each day. Builds a searchable personal knowledge base over time.', tags: ['TypeScript', 'Web'], url: 'https://github.com/0xpiners/what-did-i-learn-today', date: '2025', status: 'wip', category: 'web' },
+	{ title: 'ISCTE Flight System v2', description: 'Client-server flight control system for an Operating Systems course. A server process manages all flight and passenger data; client processes connect, issue commands, and receive real-time updates. Explores IPC, process synchronisation, and concurrent file access.', tags: ['C', 'Systems', 'IPC', 'Concurrency'], url: 'https://github.com/0xpiners/IscteFlight-2', date: '2023', status: 'archived', category: 'systems' },
+	{ title: 'ISCTE Flight System v1', description: 'Bash-based flight management CLI with a menu-driven interface for booking flights, registering passengers, and checking flight status. Data is persisted to flat files.', tags: ['Bash', 'CLI', 'Systems'], url: 'https://github.com/0xpiners/IscteFligth-1', date: '2023', status: 'archived', category: 'systems' },
+	{ title: 'Trackfolio', description: 'Java desktop application for tracking and managing a personal investment portfolio — add assets, record transactions, and monitor current value over time.', tags: ['Java', 'Finance', 'Desktop'], url: 'https://github.com/0xpiners/Trackfolio', date: '2024', status: 'archived', category: 'tools' },
+	{ title: 'Space Invaders AI', description: 'Space Invaders agent trained through a genetic algorithm — no hand-coded rules. A population of neural networks plays the game; the best performers reproduce and mutate each generation.', tags: ['Java', 'Neural Networks', 'Genetic Algorithm', 'AI'], url: 'https://github.com/0xpiners/Space-Invaders-AI', date: '2024', status: 'archived', category: 'ai' },
+	{ title: 'Flappy Phoenix', description: 'Flappy Bird reimagined as a phoenix with mid-air enemies and collectible power-ups. Built in Android Studio with custom sprite animations.', tags: ['Java', 'Android', 'Game'], url: 'https://github.com/0xpiners/Flappyphoenix', date: '2024', status: 'archived', category: 'ai' },
+	{ title: 'Roguelike Game', description: 'Procedural roguelike dungeon crawler with multi-level dungeons, hostile enemies, and loot drops. Each run is unique; the player must manage health and inventory to reach the deepest floor.', tags: ['Java', 'Game', 'Roguelike', 'Procedural'], url: 'https://github.com/0xpiners/Roguelike-game', date: '2023', status: 'archived', category: 'ai' },
+	{ title: 'Sokoban', description: 'Classic Sokoban puzzle game in Java — navigate a warehouse worker and push crates onto their target spots. Features custom level layouts.', tags: ['Java', 'Game', 'Puzzle'], url: 'https://github.com/0xpiners/Sokoban', date: '2023', status: 'archived', category: 'ai' },
+	{ title: 'Sudoku', description: 'Playable Sudoku game with input validation and puzzle generation, built in Java using the PandionJ teaching framework.', tags: ['Java', 'Game', 'Puzzle'], url: 'https://github.com/0xpiners/Sudoku', date: '2023', status: 'archived', category: 'ai' },
+	{ title: 'Termo', description: 'Portuguese-language Wordle clone. Guess the hidden 5-letter word in six tries; correct letters turn green, misplaced letters turn yellow.', tags: ['Java', 'Game', 'Wordle'], url: 'https://github.com/0xpiners/Termo', date: '2023', status: 'archived', category: 'ai' },
+	{ title: 'Auto Attendance Bot', description: 'Android app that automates the daily attendance check-in flow on the Leonardo De Vinci University portal. Navigates the login form and submits presence without manual interaction.', tags: ['Java', 'Android', 'Automation'], url: 'https://github.com/0xpiners/AutoAttendanceLeonardDeVinciUniversity', date: '2024', status: 'archived', category: 'tools' },
+	{ title: 'Todo List CLI', description: 'Lightweight command-line todo app in Python. Add, complete, and delete tasks from the terminal; tasks persist between sessions in a local file.', tags: ['Python', 'CLI', 'Productivity'], url: 'https://github.com/0xpiners/Todo-list-application', date: '2023', status: 'archived', category: 'tools' },
+];
+
+const PROJ_FILTERS = [
+	{ id: 'all', label: 'All' },
+	{ id: 'security', label: 'Cyber & Security' },
+	{ id: 'distributed', label: 'Distributed & Networking' },
+	{ id: 'web', label: 'Web' },
+	{ id: 'systems', label: 'Systems' },
+	{ id: 'ai', label: 'AI & Games' },
+	{ id: 'tools', label: 'Tools' },
+];
+
+function buildProjCards(list) {
+	return list.map((p, i) => `
+		<div class="proj-card" data-idx="${p._idx ?? i}">
+			<div class="proj-card__header">
+				<span class="proj-card__title">${p.title}</span>
+				<span class="proj-card__status proj-card__status--${p.status}">${p.status}</span>
+			</div>
+			<div class="proj-card__tags">
+				${p.tags.slice(0, 4).map(t => `<span class="proj-card__tag">${t}</span>`).join('')}
+			</div>
+			<div class="proj-card__footer">
+				<span class="proj-card__date">${p.date}</span>
+				<button class="proj-card__open" data-idx="${p._idx ?? i}">View details</button>
+			</div>
+		</div>`).join('');
+}
+
+function openProjModal(p) {
+	document.querySelector('.proj-modal')?.remove();
+	const modal = document.createElement('div');
+	modal.className = 'proj-modal';
+	modal.innerHTML = `
+		<div class="proj-modal__box">
+			<div class="proj-modal__header">
+				<div>
+					<div class="proj-modal__title">${p.title}</div>
+					<div class="proj-modal__meta">${p.date} &nbsp;&middot;&nbsp; <span class="proj-card__status proj-card__status--${p.status}">${p.status}</span></div>
+				</div>
+				<button class="proj-modal__close">&#x2715;</button>
+			</div>
+			<p class="proj-modal__desc">${p.description}</p>
+			<div class="proj-card__tags proj-modal__tags">
+				${p.tags.map(t => `<span class="proj-card__tag">${t}</span>`).join('')}
+			</div>
+			<div class="proj-modal__actions">
+				${p.url
+					? `<a class="proj-modal__link" href="${p.url}" target="_blank">Open on GitHub &rarr;</a>`
+					: '<span class="proj-modal__link proj-modal__link--na">Private</span>'}
+			</div>
+		</div>`;
+	document.getElementById('projOnionContent').appendChild(modal);
+	modal.addEventListener('click', e => {
+		if (e.target === modal || e.target.closest('.proj-modal__close')) modal.remove();
+	});
+}
+
+function renderProjects() {
+	const container = document.getElementById('projOnionContent');
+	if (!container) return;
+	const indexed = projects.map((p, i) => ({ ...p, _idx: i }));
+	const filterTabs = PROJ_FILTERS.map(f =>
+		`<button class="proj-filter-tab${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}">${f.label}</button>`
+	).join('');
+	container.innerHTML = `
+		<div class="proj-onion-header">
+			<div class="proj-onion-logo-name">Projects</div>
+			<div class="proj-onion-logo-sub">${projects.length} repos</div>
+		</div>
+		<div class="proj-filter-bar">${filterTabs}</div>
+		<div class="proj-onion-grid" id="projGrid">${buildProjCards(indexed)}</div>`;
+
+	const bar = container.querySelector('.proj-filter-bar');
+	const grid = container.querySelector('#projGrid');
+	bar.addEventListener('click', e => {
+		const btn = e.target.closest('.proj-filter-tab');
+		if (!btn) return;
+		bar.querySelectorAll('.proj-filter-tab').forEach(b => b.classList.remove('active'));
+		btn.classList.add('active');
+		const f = btn.dataset.filter;
+		const filtered = f === 'all' ? indexed : indexed.filter(p => p.category === f);
+		grid.innerHTML = buildProjCards(filtered);
+	});
+	container.addEventListener('click', e => {
+		const btn = e.target.closest('.proj-card__open');
+		if (!btn) return;
+		openProjModal(projects[+btn.dataset.idx]);
+	});
+}
+
+// ── Parrot OS clock ────────────────────────────────────
+function updateParrotClock() {
+	const el = document.getElementById('parrotClock');
+	if (!el) return;
+	const now = new Date();
+	const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+	const h = String(now.getHours()).padStart(2, '0');
+	const m = String(now.getMinutes()).padStart(2, '0');
+	el.textContent = days[now.getDay()] + ' ' + h + ':' + m;
+}
+updateParrotClock();
+setInterval(updateParrotClock, 10000);
+
+// ── Parrot OS Tor Browser window ───────────────────────
+(function () {
+	const win = document.getElementById('parrotTorBrowser');
+	const titlebar = document.getElementById('parrotTorTitlebar');
+	const taskbtn = document.getElementById('parrotTorTaskbtn');
+	if (!win || !taskbtn) return;
+
+	function minimize() { win.style.display = 'none'; taskbtn.classList.remove('active'); }
+	function restore() { win.style.display = ''; taskbtn.classList.add('active'); }
+	function close() { win.style.display = 'none'; taskbtn.style.display = 'none'; }
+
+	document.getElementById('parrotTorMin').addEventListener('click', minimize);
+	document.getElementById('parrotTorClose').addEventListener('click', close);
+	document.getElementById('iconParrotTor').addEventListener('dblclick', () => { taskbtn.style.display = ''; restore(); });
+	taskbtn.addEventListener('click', () => (win.style.display === 'none' ? restore() : minimize()));
+
+	const refreshBtn = document.getElementById('parrotTorRefresh');
+	const loadingBar = document.getElementById('parrotLoadingBar');
+	const pageContent = document.getElementById('projOnionContent');
+	if (refreshBtn && loadingBar && pageContent) {
+		refreshBtn.addEventListener('click', () => {
+			loadingBar.style.display = 'block';
+			loadingBar.style.width = '0%';
+			pageContent.style.opacity = '0.3';
+			setTimeout(() => { loadingBar.style.width = '30%'; }, 100);
+			setTimeout(() => { loadingBar.style.width = '70%'; }, 500);
+			setTimeout(() => {
+				loadingBar.style.width = '100%';
+				pageContent.style.opacity = '1';
+				toast('Page reloaded.');
+				setTimeout(() => { loadingBar.style.display = 'none'; loadingBar.style.width = '0%'; }, 300);
+			}, 900);
+		});
+	}
+
+	const omnibox = document.getElementById('parrotTorOmnibox');
+	if (omnibox) {
+		omnibox.addEventListener('click', () => {
+			const url = omnibox.querySelector('.tor-omnibox__url').innerText.trim();
+			navigator.clipboard.writeText(url).then(() => {
+				toast('Onion link copied!');
+				omnibox.style.background = '#1a2a1a';
+				setTimeout(() => { omnibox.style.background = ''; }, 200);
+			});
+		});
+	}
+
+	let saved = { l: '80px', t: '0px', w: '700px', h: '430px' };
+	document.getElementById('parrotTorMax').addEventListener('click', () => {
+		if (win.classList.contains('parrot-maximized')) {
+			win.classList.remove('parrot-maximized');
+			win.style.left = saved.l; win.style.top = saved.t;
+			win.style.width = saved.w; win.style.height = saved.h;
+		} else {
+			saved = { l: win.style.left || '80px', t: win.style.top || '0px', w: win.style.width || '700px', h: win.style.height || '430px' };
+			win.classList.add('parrot-maximized');
+			win.style.left = win.style.top = win.style.width = win.style.height = '';
+		}
+	});
+
+	let dragging = false, ox = 0, oy = 0;
+	titlebar.addEventListener('mousedown', e => {
+		if (e.target.closest('.parrot-ctrl')) return;
+		e.preventDefault();
+		if (win.classList.contains('parrot-maximized')) {
+			win.classList.remove('parrot-maximized');
+			win.style.left = saved.l; win.style.top = saved.t;
+			win.style.width = saved.w; win.style.height = saved.h;
+		}
+		dragging = true;
+		const areaRect = document.getElementById('parrotArea').getBoundingClientRect();
+		const winRect = win.getBoundingClientRect();
+		ox = e.clientX - winRect.left;
+		oy = e.clientY - winRect.top;
+		win.style.left = winRect.left - areaRect.left + 'px';
+		win.style.top = winRect.top - areaRect.top + 'px';
+		win.style.userSelect = 'none';
+	});
+	document.addEventListener('mousemove', e => {
+		if (!dragging) return;
+		const area = document.getElementById('parrotArea');
+		const areaRect = area.getBoundingClientRect();
+		win.style.left = Math.max(0, Math.min(area.clientWidth - win.offsetWidth, e.clientX - areaRect.left - ox)) + 'px';
+		win.style.top = Math.max(0, Math.min(area.clientHeight - win.offsetHeight, e.clientY - areaRect.top - oy)) + 'px';
+	});
+	document.addEventListener('mouseup', () => { dragging = false; win.style.userSelect = ''; });
+})();
+
 // ── Init ───────────────────────────────────────────────
 renderTabs();
+renderProjects();
 switchTab('home');

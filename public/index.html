@@ -162,19 +162,6 @@
 						Resume
 					</div>
 
-					<div class="tree-item tree-item--child" data-tab="contact">
-						<span class="tree-item__icon">
-							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<rect x="1" y="2" width="11" height="8" rx="1" stroke="#a0a0a0" stroke-width="1.1" />
-								<rect x="3.5" y="10" width="4" height="1" fill="#a0a0a0" />
-								<rect x="2" y="11" width="7" height="0.8" fill="#a0a0a0" />
-								<rect x="9" y="7" width="7" height="7" rx="1" fill="#1e1e1e" />
-								<polygon points="10.5,8.2 10.5,12.8 14.5,10.5" fill="#3cb371" />
-							</svg>
-						</span>
-						Contact
-					</div>
-
 					<div class="tree-item tree-item--child" data-tab="ctfs">
 						<span class="tree-item__icon">
 							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -506,16 +493,79 @@
 					</div>
 				</div>
 
-				<div class="vm-screen" id="screen-projects" style="background: #0d1a0f">
-					<div class="vm-bg">
-						<div class="vm-bg__col" style="color: #3cb371"></div>
-						<div class="vm-bg__col" style="color: #3cb371"></div>
-						<div class="vm-bg__col" style="color: #3cb371"></div>
+				<div class="vm-screen" id="screen-projects">
+					<div class="parrot-desktop">
+						<div class="parrot-area" id="parrotArea">
+							<div class="parrot-icon" style="top:16px;left:16px" id="iconParrotTor">
+								<div class="parrot-icon__img">
+									<img src="/images/tor/Tor_Browser_icon.svg.png" style="width:32px;height:32px" alt="Tor" />
+								</div>
+								<div class="parrot-icon__label">Tor Browser</div>
+							</div>
+							<div class="parrot-window parrot-maximized" id="parrotTorBrowser">
+								<div class="parrot-titlebar" id="parrotTorTitlebar">
+									<div class="parrot-titlebar__icon">
+										<img src="/images/tor/Tor_Browser_icon.svg.png" style="width:14px;height:14px" alt="Tor" />
+									</div>
+									<div class="parrot-titlebar__title">Projects &#x2014; 0xpiners &#x2014; Tor Browser</div>
+									<div class="parrot-titlebar__btns">
+										<button class="parrot-ctrl" id="parrotTorMin">&#x2013;</button>
+										<button class="parrot-ctrl" id="parrotTorMax">&#x25A1;</button>
+										<button class="parrot-ctrl parrot-ctrl--close" id="parrotTorClose">&#x2715;</button>
+									</div>
+								</div>
+								<div class="tor-shell">
+									<div class="tor-tabstrip">
+										<div class="tor-tab tor-tab--active">
+											<svg width="12" height="12" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a"/><ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe"/><ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#b07eec"/><path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371"/><path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c"/><path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c"/></svg>
+											<span class="tor-tab__title">Projects &#x2014; 0xpiners</span>
+											<span class="tor-tab__close">&#x2715;</span>
+										</div>
+										<button class="tor-newtab">+</button>
+									</div>
+									<div class="tor-navbar">
+										<div class="tor-navbtns">
+											<button class="tor-navbtn" disabled>&#9664;</button>
+											<button class="tor-navbtn" disabled>&#9654;</button>
+											<button class="tor-navbtn" id="parrotTorRefresh">&#8635;</button>
+										</div>
+										<div class="tor-omnibox" id="parrotTorOmnibox" title="Click to copy" style="cursor:pointer">
+											<svg width="13" height="13" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a"/><ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe"/><ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#b07eec"/><path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371"/><path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c"/><path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c"/></svg>
+											<span class="tor-omnibox__url">projectsxqb2tz7wadr4mcnqc7ywzaeqp35sgzyxa5imhnsggfxnu5rkv.onion</span>
+										</div>
+										<div class="tor-navbar__actions">
+											<button class="tor-navbtn" title="New Identity">
+												<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 14l2.5-5.5L11 2l3 3-6.5 6.5L2 14z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M9.5 2.5l3 3" stroke="currentColor" stroke-width="1.3"/></svg>
+											</button>
+											<button class="tor-navbtn" title="Security Settings">
+												<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L2.5 4v4C2.5 11 5 13.5 8 14.5c3-1 5.5-3.5 5.5-6.5V4L8 1.5z" stroke="currentColor" stroke-width="1.2"/></svg>
+											</button>
+											<button class="tor-navbtn tor-navbtn--menu">&#9776;</button>
+										</div>
+									</div>
+									<div class="tor-content" style="background:#080b14">
+										<div class="tor-loading-bar" id="parrotLoadingBar"></div>
+										<div class="proj-onion-page" id="projOnionContent"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="parrot-panel">
+							<button class="parrot-appbtn">Applications</button>
+							<button class="parrot-appbtn">Places</button>
+							<div class="parrot-panel-sep"></div>
+							<button class="parrot-taskbtn active" id="parrotTorTaskbtn">
+								<img src="/images/tor/Tor_Browser_icon.svg.png" style="width:13px;height:13px" alt="Tor" />
+								<span>Projects &#x2014; Tor Browser</span>
+							</button>
+							<div class="parrot-systray">
+								<span class="parrot-clock" id="parrotClock"></span>
+							</div>
+						</div>
 					</div>
-					<div class="placeholder" style="color: #3cb371">Hello World — Projects</div>
-				</div>
+					</div>
 
-				<div class="vm-screen" id="screen-resume" style="background: #130d1a">
+					<div class="vm-screen" id="screen-resume" style="background: #130d1a">
 					<div class="vm-bg">
 						<div class="vm-bg__col" style="color: #a06eff"></div>
 						<div class="vm-bg__col" style="color: #a06eff"></div>
@@ -523,18 +573,9 @@
 					</div>
 					<iframe
 						src="/resume/David_Pinheiro_Resume.pdf"
-						style="position: relative; z-index: 10; width: 100%; height: 100%; border: none"
+						style="position: relative; z-index: 10; flex: 1; width: 100%; border: none"
 						title="Resume"
 					></iframe>
-				</div>
-
-				<div class="vm-screen" id="screen-contact" style="background: #1a100d">
-					<div class="vm-bg">
-						<div class="vm-bg__col" style="color: #e08c3a"></div>
-						<div class="vm-bg__col" style="color: #e08c3a"></div>
-						<div class="vm-bg__col" style="color: #e08c3a"></div>
-					</div>
-					<div class="placeholder" style="color: #e08c3a">Hello World — Contact</div>
 				</div>
 				<div class="vm-screen" id="screen-ctfs" style="background: #1a0d0d">
 					<div class="vm-bg">
