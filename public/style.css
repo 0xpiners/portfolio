@@ -2029,6 +2029,26 @@ body {
 	color: #383838;
 	letter-spacing: 0.5px;
 }
+.ctf-writeup-page__newtab {
+	margin-left: auto;
+	background: none;
+	border: 1px solid #2a2a2a;
+	color: #555;
+	cursor: pointer;
+	padding: 4px 12px;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 11px;
+	border-radius: 2px;
+	transition:
+		color 0.15s,
+		border-color 0.15s;
+	letter-spacing: 0.3px;
+	white-space: nowrap;
+}
+.ctf-writeup-page__newtab:hover {
+	color: #fff;
+	border-color: #555;
+}
 .ctf-writeup-page__inner {
 	max-width: 780px;
 	width: 100%;
@@ -2745,6 +2765,75 @@ body {
 .hb-ctf-item__meta {
 	font-size: 13px;
 	color: #888;
+}
+
+/* ── Inline Writeup Markdown ── */
+.writeup-container {
+	max-width: 800px;
+	margin: 20px auto;
+	padding: 30px 40px;
+	border-left: 2px solid #ef4444;
+	border-right: 2px solid #ef4444;
+	background-color: #111;
+	box-sizing: border-box;
+	text-align: left;
+	color: #e0e0e0;
+	font-family: 'Roboto Mono', monospace;
+	line-height: 1.6;
+}
+.writeup-container h1,
+.writeup-container h2,
+.writeup-container h3 {
+	color: #ef4444;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+.writeup-container h1 {
+	font-size: 1.8em;
+	border-bottom: 1px solid #333;
+	padding-bottom: 10px;
+}
+.writeup-container h2 {
+	font-size: 1.4em;
+}
+.writeup-container a {
+	color: #ef4444;
+	text-decoration: none;
+}
+.writeup-container a:hover {
+	text-decoration: underline;
+}
+.writeup-container img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 4px;
+	margin: 20px 0;
+	border: 1px solid #333;
+}
+.writeup-container code {
+	background-color: #1a1a1a;
+	padding: 2px 6px;
+	border-radius: 4px;
+	color: #fca5a5;
+}
+.writeup-container pre {
+	background-color: #1a1a1a;
+	padding: 16px;
+	border-radius: 6px;
+	overflow-x: auto;
+	border: 1px solid #333;
+}
+.writeup-container pre code {
+	background-color: transparent;
+	padding: 0;
+	color: #e0e0e0;
+}
+.writeup-container blockquote {
+	border-left: 4px solid #ef4444;
+	margin: 0;
+	padding: 10px 20px;
+	background-color: #1a1a1a;
+	color: #aaa;
 }
 
 /* ── Sidebar (hidden, kept for HTML compat) ── */

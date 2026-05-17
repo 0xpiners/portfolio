@@ -10,15 +10,15 @@ Want to play a game? As you use more of the shell, you might be interested in ho
 `ssh -p 51571 ctf-player@atlas.picoctf.net` Using the password `1ad5be0d`. Accept the fingerprint with `yes`, and `ls` once connected to begin. Remember, in a shell, passwords are hidden!
 
 ![[Pasted image 20251112193453.png]]
-So we have a .sh file, lets see whats inside.
+So we have a .sh file, let's see what's inside.
 ![[Pasted image 20251112193511.png]]
-Lets also see what happens when we run it.
+Let's also see what happens when we run it.
 ![[Pasted image 20251112193540.png]]
-Ok so its basically a guessing game and we have 10 guesses. Lets always add half between the lower and higher(initially the lower will be 0 and higher 100)
+Ok so it's basically a guessing game and we have 10 guesses. Let's always pick the midpoint between the lower and upper bounds (initially lower will be 0 and upper will be 1000).
 
 ![[Pasted image 20251112200207.png]]
 
-==FLAG===
+## FLAG
 ```
 picoCTF{g00d_gu355_3af33d18}
 ```

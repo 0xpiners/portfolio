@@ -3,32 +3,32 @@
 
 #### Description
 
-In a bustling city where innovation meets finance, Pico Bank has emerged as a beacon of cutting-edge security. Promising state-of-the-art protection for your assets, the bank claims its mobile application is impervious to all forms of cyber threats. Pico Bank’s tagline, "Security Beyond the Limits," echoes through its high-tech marketing campaigns, assuring users of their utmost safety. As a cybersecurity enthusiast, your mission is to test these bold claims. You’ve been hired by a secretive organization to put Pico Bank’s mobile app through a rigorous security assessment. The flag might be in one or more locations, and additional information reveals that a Pico Bank user’s credentials were leaked in an unusual way. Your task is to crack the username and password based on the following profile information: His name is Alex Johnson with the email johnson@picobank.com, Date of Birth: March 14, 1990, Last Transaction Amount: $345.67, Pet name: tricky, and Favorite Color: Blue. To perform this challenge, you can use any Android emulator. Some examples include [Genymotion Android Emulator](https://www.genymotion.com/product-desktop/download/) or [Android Studio](https://developer.android.com/studio). Access the Pico Bank Website [Pico Bank Website](http://amiable-citadel.picoctf.net:57765/) and download the application.
+In a bustling city where innovation meets finance, Pico Bank has emerged as a beacon of cutting-edge security. Promising state-of-the-art protection for your assets, the bank claims its mobile application is impervious to all forms of cyber threats. Pico Bank's tagline, "Security Beyond the Limits," echoes through its high-tech marketing campaigns, assuring users of their utmost safety. As a cybersecurity enthusiast, your mission is to test these bold claims. You've been hired by a secretive organization to put Pico Bank's mobile app through a rigorous security assessment. The flag might be in one or more locations, and additional information reveals that a Pico Bank user's credentials were leaked in an unusual way. Your task is to crack the username and password based on the following profile information: His name is Alex Johnson with the email johnson@picobank.com, Date of Birth: March 14, 1990, Last Transaction Amount: $345.67, Pet name: tricky, and Favorite Color: Blue. To perform this challenge, you can use any Android emulator. Some examples include [Genymotion Android Emulator](https://www.genymotion.com/product-desktop/download/) or [Android Studio](https://developer.android.com/studio). Access the Pico Bank Website [Pico Bank Website](http://amiable-citadel.picoctf.net:57765/) and download the application.
 
 (I used waydroid as emulator for the android app)
 
-![[Pasted image 20251113131740.png]]When we visit the website we see this app which we can download.
-![[Pasted image 20251113131816.png]]Lets decompile it using apktool -d
+![[Pasted image 20251113131740.png]]When we visit the website, we see this app, which we can download.
+![[Pasted image 20251113131816.png]]Let's decompile it using `apktool -d`.
 ![[Pasted image 20251113231324.png]]
-Lets open all files using subl.
+Let's open all files using subl.
 
-After exploring a bit we found some classes that sound interesting.
+After exploring a bit, we found some classes that sound interesting.
 ![[Pasted image 20251113231453.png]]
 1. Login
 2. OTP
 3. Transaction
 
-Lets see what we can find.
-Lets start with the login class.
-We can see some atributes
+Let's see what we can find.
+Let's start with the Login class.
+We can see some attributes:
 1. loginButton
 2. passwordEditText
 3. usernameEditText
 ![[Pasted image 20251113231614.png]]
 Here we have the constructor of the class.
 We can ignore the locals 0 and line 15.
-Ele chama o constructor da superclasse, neste caso o AppCompactActivity.
-Basicamente é:
+It calls the constructor of the superclass, in this case AppCompactActivity.
+Basically it's:
 ```
 class Login extends AppCompactActivity {
 
@@ -40,7 +40,7 @@ class Login extends AppCompactActivity {
 
 ![[Pasted image 20251113231857.png]]
 
-Then we have the onCreate method, it translates so something like this.
+Then we have the onCreate method, which translates to something like this.
 ![[Pasted image 20251113232601.png]]
 ```bash
 protected void onCreate(Bundle savedInstanceState) {
@@ -56,24 +56,24 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-We see that when we login, it creates a new Login$1 instance.
-Lets look at the method onClick of the Login$1 class (inner class).
+We see that when we log in, it creates a new Login$1 instance.
+Let's look at the method onClick of the Login$1 class (inner class).
 ![[Pasted image 20251113234336.png]]
-Lets take a closer look to the password and username checks
+Let's take a closer look at the password and username checks.
 
-This gets the password (access$100 gets the password input)
+This gets the password (access$100 gets the password input):
 ![[Pasted image 20251113235545.png]]
-This gets the username (access$000 gets the username input)
+This gets the username (access$000 gets the username input):
 ![[Pasted image 20251113235631.png]]
 
-Then they compare values
+Then they compare values.
 
-They compare the const string johnson (v2) with v0, that we saw previouly it was the username.
+They compare the const string "johnson" (v2) with v0, which we saw previously was the username.
 ![[Pasted image 20251113235749.png]]
-Same with the password
+Same with the password:
 ![[Pasted image 20251113235824.png]]
-We can see both the password and username are hard coded.
-This translates to something like this.
+We can see both the password and username are hardcoded.
+This translates to something like this:
 ```bash
 public void onClick(View v) {
     String username = this.usernameEditText.getText().toString();
@@ -90,38 +90,38 @@ public void onClick(View v) {
 ```
 ![[Pasted image 20251114000108.png]]
 ![[Pasted image 20251114000121.png]]
-Ok we managed to login.
+Ok, we managed to log in.
 ![[Pasted image 20251114000209.png]]
-So we saw that if the login is successful, it doesnt go the cond_0, which is the incorrect creds toast prompt.
-After correct creds we startActivity(intent), which is the class OTP.
-Lets see it.
+So we saw that if the login is successful, it doesn't go to cond_0, which is the incorrect credentials toast prompt.
+After correct credentials, we call startActivity(intent), which leads to the OTP class.
+Let's look at it.
 
 
-We can see 4 attributes to the class OTP.
-1. all 4 digits of the otp code
-2. RequestQueue
-3. Submit button
+We can see 4 attributes in the OTP class:
+1. All 4 digits of the OTP code.
+2. RequestQueue.
+3. Submit button.
 ![[Pasted image 20251114000350.png]]
-We can see some "getters" for each otpDigit
+We can see some "getters" for each otpDigit.
 ![[Pasted image 20251114000457.png]]
 
-Lets check this non sythentic method
+Let's check this non-synthetic method.
 ![[Pasted image 20251114000550.png]]It verifies the OTP code.
-It basically does this.
-1. First creates the string containing the url server.
-2. Then it creates the endpoint, which is /verify-otp
-3. Then it gets the OTP code from R.string.otp_value
-4. Checks with the user
+It basically does this:
+1. First creates the string containing the server URL.
+2. Then it creates the endpoint, which is /verify-otp.
+3. Then it gets the OTP code from R.string.otp_value.
+4. Compares it with the user input.
 
-Compares value of p1 (argument passed to verifyOTP) and v2 (hard coded OTP code)
+Comparing the value of p1 (argument passed to verifyOTP) and v2 (hardcoded OTP code):
 ![[Pasted image 20251114001003.png]]
 
-Lets get that OTP code from resources strings.
+Let's get that OTP code from resources/strings.
 ![[Pasted image 20251114001120.png]]We got it.
 The code is **9673**.
 
-Its important to mention what happens when the OTP code is correct.
-Basically it prepares a json to send to the server url.
+It's important to mention what happens when the OTP code is correct.
+Basically, it prepares a JSON payload to send to the server URL.
 Something like this:
 ```bash
 {
@@ -130,8 +130,8 @@ Something like this:
 ```
 ![[Pasted image 20251114001256.png]]
 
-We can assume the server url is the one provided in the challenge.
-Lets send a curl requests with that otp code.
+We can assume the server URL is the one provided in the challenge.
+Let's send a curl request with that OTP code.
 ![[Pasted image 20251114001524.png]]
 
 We got one part of the flag.
@@ -140,18 +140,18 @@ We got one part of the flag.
 s3cur3d_m0b1l3_l0g1n_56fd4e6b}
 ```
 
-We also got an hint.
-**The other part of the flag is hidden in the app**
+We also got a hint.
+**The other part of the flag is hidden in the app.**
 
-Lets also put the correct otp code on the app to see what happens.
+Let's also put the correct OTP code in the app to see what happens.
 ![[Pasted image 20251114001648.png]]![[Pasted image 20251114001655.png]]
 We got a bunch of transactions.
 We got another hint.
-**Investigate the transaction history for unusual data**
+**Investigate the transaction history for unusual data.**
 
-Lets see Transactions class
+Let's see the Transactions class.
 ![[Pasted image 20251114001922.png]]
-![[Pasted image 20251114001937.png]]Nothing special, just the constructor and getters, something like this.
+![[Pasted image 20251114001937.png]]Nothing special, just the constructor and getters, something like this:
 ```bash
 public class Transaction {
     private String amount;
@@ -174,14 +174,14 @@ public class Transaction {
 
 ```
 
-After looking at the transactions, I noticed they were only 1's and 0's, it looks like binary.
+After looking at the transactions, I noticed they were only 1's and 0's — it looks like binary.
 
-I appended all binary amounts (from most recent to the oldest) and used a tool online to decode it.
+I appended all the binary amounts (from most recent to oldest) and used an online tool to decode them.
 ![[Pasted image 20251114003037.png]]
 
 Nice. We got the final part of the flag.
 
-==FLAG==
+## FLAG
 ```
 picoCTF{1_l13d_4b0ut_b31ng_s3cur3d_m0b1l3_l0g1n_56fd4e6b}
 ```

@@ -7,15 +7,15 @@ Can you find the flag in the file? This would be really tedious to look through 
 
 ![[Pasted image 20251119205646.png]]
 
-When we cat the file, we get a lot of nonsense.
+When we `cat` the file, we get a lot of nonsense.
 ![[Pasted image 20251119205722.png]]
 
-Lets use grep to find the flag.
+Let's use grep to find the flag.
 
 ![[Pasted image 20251119205827.png]]
-We can see in red the flag.
+We can see the flag highlighted in red.
 
-==FLAG==
+## FLAG
 ```flag
 picoCTF{grep_is_good_to_find_things_9C6Ef2F7}
 ```

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Writeup — piners.sh</title>
+		<link rel="icon" href="/images/random/bash.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="/style.css?v=45" />
+		<style>
+			/* override the portfolio's global overflow: hidden */
+			html,
+			body {
+				overflow: auto !important;
+				height: auto !important;
+			}
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				background: #0a0a0a;
+				color: #ccc;
+				font-family: 'Roboto Mono', monospace;
+				min-height: 100vh;
+			}
+			.standalone-topbar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 12px 40px;
+				border-bottom: 1px solid #181818;
+				position: sticky;
+				top: 0;
+				background: #0a0a0a;
+				z-index: 10;
+			}
+			.standalone-topbar__brand {
+				font-size: 12px;
+				color: #444;
+				letter-spacing: 0.5px;
+				text-decoration: none;
+				transition: color 0.15s;
+			}
+			.standalone-topbar__brand:hover {
+				color: #999;
+			}
+			.standalone-topbar__slug {
+				font-size: 11px;
+				color: #2a2a2a;
+				letter-spacing: 0.5px;
+			}
+			.standalone-page {
+				max-width: 860px;
+				margin: 0 auto;
+				padding: 0 40px 80px;
+			}
+			.standalone-status {
+				text-align: center;
+				padding: 80px 0;
+				color: #444;
+				font-size: 13px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="standalone-topbar">
+			<a href="/" class="standalone-topbar__brand">&#9664; piners.sh</a>
+			<span class="standalone-topbar__slug" id="topbarSlug"></span>
+		</div>
+		<div class="standalone-page">
+			<div id="writeupContent"><div class="standalone-status">Loading writeup…</div></div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<script>
+			(async function () {
+				const params = new URLSearchParams(location.search);
+				const markdownPath = params.get('path');
+				const title = params.get('title') || '';
+				const event = params.get('event') || '';
+				const date = params.get('date') || '';
+				const tags = (params.get('tags') || '').split(',').filter(Boolean);
+
+				const container = document.getElementById('writeupContent');
+				const slug = title
+					.toLowerCase()
+					.replace(/\s+/g, '-')
+					.replace(/[^a-z0-9-]/g, '')
+					.replace(/-+/g, '-')
+					.replace(/^-|-$/g, '');
+
+				if (title) document.title = title + ' — piners.sh';
+				document.getElementById('topbarSlug').textContent = slug
+					? 'ctfsxqb2tz7waddrcmnqc7ywzaeqp35sgzyxa5imhnsggfxnu5rkv.onion / ' + slug
+					: '';
+
+				if (!markdownPath) {
+					container.innerHTML = '<div class="standalone-status">No writeup specified.</div>';
+					return;
+				}
+
+				try {
+					const res = await fetch(markdownPath);
+					if (!res.ok) throw new Error(res.statusText);
+					let md = await res.text();
+					const basePath = markdownPath.substring(0, markdownPath.lastIndexOf('/'));
+					const encodedBase = basePath.split('/').map((s) => encodeURIComponent(s)).join('/');
+					md = md.replace(/!\[\[(.*?)\]\]/g, (_, fn) => `![${fn}](${encodedBase}/Images/${encodeURIComponent(fn)})`);
+					md = md.replace(/!\[(.*?)\]\((?!https?:\/\/|\/)(.*?)\)/g, (_, alt, src) => {
+						const encodedSrc = src.split('/').map((s) => encodeURIComponent(decodeURIComponent(s))).join('/');
+						return `![${alt}](${encodedBase}/${encodedSrc})`;
+					});
+					const bodyHtml = marked.parse(md);
+
+					container.innerHTML = `
+						<div class="ctf-writeup-page__header">
+							<div>
+								<div class="ctf-writeup-page__title">${title}</div>
+								<div class="ctf-writeup-page__meta">${event}${date ? ' &nbsp;&middot;&nbsp; ' + date : ''}</div>
+							</div>
+							<div class="ctf-writeup-page__badges">
+								${tags.map((t) => `<span class="proj-card__tag">${t}</span>`).join('')}
+							</div>
+						</div>
+						<div class="ctf-writeup__body">${bodyHtml}</div>`;
+				} catch (err) {
+					container.innerHTML = `<div class="standalone-status" style="color:#ef4444;">Failed to load writeup: ${err.message}</div>`;
+				}
+			})();
+		</script>
+	</body>
+</html>

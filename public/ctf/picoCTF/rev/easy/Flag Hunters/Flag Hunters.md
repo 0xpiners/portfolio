@@ -12,7 +12,9 @@ Additional details will be available after launching your challenge instance.
 We get this file:
 ![[Pasted image 20251023161107.png]]
 
-![[Pasted image 20251103153141.png]]==FLAG==
+![[Pasted image 20251103153141.png]]
+
+## FLAG
 ```
 picoCTF{70637h3r_f0r3v3r_c373964d}
 ```

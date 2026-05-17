@@ -10,9 +10,9 @@ Your mission is to enter Dr. Evil's laboratory and retrieve the blueprints for h
 
 When inspecting the file, we see this:
 ![[Pasted image 20251031112448.png]]
-This one we can see the flag in plaintext, nothing to say
+The flag is in plain text here, nothing more to say.
 
-==FLAG==
+## FLAG
 ```
 picoCTF{w4rm1ng_Up_w1tH_jAv4_eec0716b713}
 ```

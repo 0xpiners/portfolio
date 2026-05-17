@@ -7,10 +7,10 @@ Can you find the flag in [file](https://jupiter.challenges.picoctf.org/static/fa
 
 ![[Pasted image 20251112225236.png]]
 
-Lets use the command strings to find all strings on the executable.
+Let's use the command `strings` to find all strings in the executable.
 ![[Pasted image 20251112225325.png]]
 
-==FLAG==
+## FLAG
 ```
 picoCTF{5tRIng5_1T_7f766a23}
 ```

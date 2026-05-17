@@ -8,19 +8,19 @@ Find the flag being held on this server to get ahead of the competition [http://
 
 ![[Pasted image 20251026161732.png]]
 
-The description of this challenge is aHEAD, giving us an hint about the HEAD method of http.
+The description of this challenge is aHEAD, giving us a hint about the HEAD method of HTTP.
 
-Also I didnt find anything useful in the cookies and source code.
+Also, I didn't find anything useful in the cookies or source code.
 
-After that I decided see the requests being made using mitmproxy.
+After that I decided to inspect the requests being made using mitmproxy.
 
 ![[Pasted image 20251026162345.png]]
 
-I noticed that whenver we Choose Red, we made a *POST* request, and whenever we choose Blue we made a *GET* request.
+I noticed that whenever we choose Red, we make a *POST* request, and whenever we choose Blue we make a *GET* request.
 
-Because of the name of the challenge (*aHEAD*) , I tried to change the request method do HEAD and we got the flag
+Because of the name of the challenge (*aHEAD*), I tried to change the request method to HEAD and we got the flag.
 ![[Pasted image 20251026162514.png]]
-==FLAG==
+## FLAG
 ```
 picoCTF{r3j3ct_th3_du4l1ty_6ef27873}
 ```

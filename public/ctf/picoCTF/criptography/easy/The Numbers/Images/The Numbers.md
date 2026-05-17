@@ -10,11 +10,11 @@ The numbers... what do they mean? [numbers.png](https://challenge-files.picoctf.
 This is what we see when we open the image.
 ![[Pasted image 20251119210401.png]]
 
-This just looks the indexes of the alphabet. Lets get the correspodent letters.
+These just look like indexes of the alphabet. Let's get the corresponding letters.
 
 ![[Pasted image 20251119210533.png]]
 
-==FLAG==
+## FLAG
 ```flag
 picoCTF{thenumbersmason}
 ```

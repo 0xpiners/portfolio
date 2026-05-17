@@ -9,11 +9,11 @@ The web project was rushed and no security assessment was done. Can you read the
 
 This is the website in question.
 
-The first thing I did was seeing requets made when visiting the site.
-![[Pasted image 20260304222736.png]]I saw some interesting custom js files (detailsCheck.js and xmlDetailsCheckPayload.js)
+The first thing I did was look at the requests made when visiting the site.
+![[Pasted image 20260304222736.png]]I saw some interesting custom JS files (`detailsCheck.js` and `xmlDetailsCheckPayload.js`).
 
 detailsCheck.js
-What this file does is basically adds an event listener to all submit forms and then goes straight to checkDetails function. This functions makes a post request to /data (whic is this.getAttribute("action), if you inspect the html elements) with the data from that form. It then calls the function payload to prepare the data.
+What this file does is basically add an event listener to all submit forms and then call the `checkDetails` function. This function makes a POST request to `/data` (which is `this.getAttribute("action")`, if you inspect the HTML elements) with the data from that form. It then calls the `payload` function to prepare the data.
 ```js
 document.querySelectorAll('.detailForm').forEach(item => {
     item.addEventListener("submit", function(e) {
@@ -44,7 +44,7 @@ function checkDetails(method, path, data) {
 ```
 
 xmlDetailsCheckPayload.js
-This just prepares the xml string for the post requests.
+This just prepares the XML string for the POST requests.
 ```js
 window.contentType = 'application/xml';
 
@@ -65,12 +65,12 @@ function payload(data) {
 
 ```
 
-Investigating the post request
-![[Pasted image 20260304223118.png]]This was the information getting parsed.
+Investigating the POST request:
+![[Pasted image 20260304223118.png]]This was the information being parsed.
 
-I tried to change the id field but with no sucess.
-Then I just googled some xml payloads to read the /etc/passwd since the challenge was that and I found one.
-I made a script to automate everything.
+I tried to change the `id` field but with no success.
+Then I just searched for some XML payloads to read `/etc/passwd`, since that was the challenge goal, and found one.
+I wrote a script to automate everything.
 
 ```python
 import requests
@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
 ![[Pasted image 20260304223230.png]]
 
-==FLAG==
+## FLAG
 ```flag
 picoCTF{XML_3xtern@l_3nt1t1ty_55662c16}
 ```

@@ -7,18 +7,18 @@ I found a web app that can help process images: PNG images only! Try it [here](h
 
 ---
 
-When I first enter the site this is what I got
+When I first entered the site this is what I got:
 ![[Pasted image 20260304211852.png]]
-I could upload files, but they had to be .png
+I could upload files, but they had to be `.png`.
 ![[Pasted image 20260304211950.png]]
 
-I tried to upload a file named payload.png.php to see if it worked and it kinda worked.
+I tried to upload a file named `payload.png.php` to see if it worked, and it kind of worked.
 ![[Pasted image 20260304212125.png]]
-So on the server side there is a filter that only accepts files with .png on the name, that is easy to bypass.
+So on the server side there is a filter that only accepts files with `.png` in the name — that is easy to bypass.
 
-After uploading a png file I wanted to see if the uploads were visible. I dig a little bit and found that /uploads/{FILENAME} was accessible.
+After uploading a PNG file I wanted to see if the uploads were visible. I dug around a bit and found that `/uploads/{FILENAME}` was accessible.
 
-With that in mind I created \`payload.png.php\` to bypass the filename filter, while keeping it a valid PNG and embedding the PHP payload in a comment chunk.`
+With that in mind I created `payload.png.php` to bypass the filename filter, while keeping it a valid PNG and embedding the PHP payload in a comment chunk.
 
 ```python
 import re
@@ -77,13 +77,13 @@ if __name__ == "__main__":
 
 ```
 
-I made this script to automate the whole process.
+I wrote this script to automate the whole process.
 
 When running it I got the flag.
 
 ![[Pasted image 20260304212551.png]]
 
-==FLAG==
+## FLAG
 ```flag
 picoCTF{c3rt!fi3d_Xp3rt_tr1ckst3r_48785c0e}
 ```

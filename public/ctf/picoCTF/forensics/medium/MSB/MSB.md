@@ -6,18 +6,18 @@
 This image passes LSB statistical analysis, but we can't help but think there must be something to the visual artifacts present in this image... Download the image [here](https://artifacts.picoctf.net/c/304/Ninja-and-Prince-Genji-Ukiyoe-Utagawa-Kunisada.flag.png)
 
 ---
-Viewing the image I got this.
-![[Pasted image 20260308005350.png]]Its obvious that theres hidden information hidden inside this image aka stenography.
+Viewing the image, I got this.
+![[Pasted image 20260308005350.png]]It's obvious that there's hidden information inside this image — i.e., steganography.
 
-Theres no hidden technique with this.
+There's no single hidden technique here.
 
-Basically I can extract the LSB or MSB (sometimes more than 1 bit, b1,b2,b3,b4) of each RGB channel of each pixel from the image (normally from left to right up down, or maybe not).
+Basically, I can extract the LSB or MSB (sometimes more than 1 bit: b1, b2, b3, b4) of each RGB channel of each pixel from the image (normally scanned left to right, top to bottom).
 
-Using this technique we can hide information withing each RGB channel from any order (maybe)
+Using this technique, information can be hidden within each RGB channel in any order.
 
-I tried first to get the LSB from each rgb channel (from this order), xy pixel order (normal scan). I got nothing.
+I tried first to get the LSB from each RGB channel in xy pixel order (normal scan). I got nothing.
 
-After that I tried the MSB from each rgb channel, xy pixel order and got the flag.
+After that I tried the MSB from each RGB channel in xy pixel order and got the flag.
 I made a script for this.
 ```python
 from PIL import Image
@@ -55,7 +55,7 @@ if start != -1:
 
 ![[Pasted image 20260308010328.png]]
 
-==FLAG==
+## FLAG
 ```flag
 picoCTF{15_y0ur_que57_qu1x071c_0r_h3r01c_ee3cb4d8}
 ```

@@ -7,15 +7,15 @@
 This service provides you an encrypted flag. Can you decrypt it with just N & e? Connect to the program with netcat: `$ nc verbal-sleep.picoctf.net 49850` The program's source code can be downloaded [here](https://challenge-files.picoctf.net/c_verbal_sleep/1ce03df0245f787fd1d116ac8502051905222e1138057a4070872f3a5d38c232/encrypt.py)
 ```
 
-They give us a python file
+They give us a Python file.
 ![[Pasted image 20251023161322.png]]
 
-And a port to connect to this file (on the server side)
+And a port to connect to this file (on the server side).
 ```
 nc verbal-sleep.picoctf.net 49850
 ```
 
-The important part is when we connect to the port they give us the N, e variable and the cyphertext
+The important part is that when we connect to the port, they give us the N, e variable and the ciphertext.
 ![[Pasted image 20251023161600.png]]
 N:
 ```
@@ -25,31 +25,31 @@ e:
 ```
 e = 65537
 ```
-cyphertext:
+Ciphertext:
 ```
 3723742724556306970409494931577617975403239265024159822819223837065737662886028124858891241298929067016680409942050586362447010568754327519994115527949423
 ```
 
-Lets first understand how RSA works
+Let's first understand how RSA works.
 
-Basically RSA is an assymetric encryption algorithm
+Basically, RSA is an asymmetric encryption algorithm.
 
-1. Choose two large random prime numbers _p_ and _q_
-2. Multiply _p_ and _q_ together to get integer _n_
-3. Derive another integer _e_ such that _e_ and _(p-1)(q-1)_ have no common factors
-4. Choose integer _d_ such that _ed – 1_ is divisible by _(p-1)(q-1)_
+1. Choose two large random prime numbers _p_ and _q_.
+2. Multiply _p_ and _q_ together to get integer _n_.
+3. Derive another integer _e_ such that _e_ and _(p-1)(q-1)_ have no common factors.
+4. Choose integer _d_ such that _ed – 1_ is divisible by _(p-1)(q-1)_.
 
-_The public key is made up of n and e_
+_The public key is made up of n and e._
 
-_The private key is made up of n and d_
+_The private key is made up of n and d._
 
-Since the N is a even number, we can assume p is 2(prime) and q is N/2 which will be also a prime number.
+Since N is an even number, we can assume p is 2 (prime) and q is N/2, which will also be a prime number.
 
-I made this script to easily get the flag
+I made this script to easily get the flag.
 ![[Pasted image 20251110195735.png]]
 ![[Pasted image 20251110195717.png]]
 
-==FLAG==
+## FLAG
 ```
 picoCTF{tw0_1$_pr!m375129bb1}
 ```
