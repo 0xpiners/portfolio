@@ -1,0 +1,1835 @@
+{
+  "generatedAt": "2026-05-16T21:10:35",
+  "source": "C:\\Users\\User\\Documents\\Obsidian\\Piners\\CTF\\picoCTF",
+  "total": 78,
+  "excludedIncomplete": 4,
+  "entries": [
+    {
+      "id": "crypto-easy-13",
+      "title": "13",
+      "event": "picoCTF",
+      "category": "crypto",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "crypto",
+        "easy"
+      ],
+      "date": "2025-11-15",
+      "placement": null,
+      "description": "Cryptography can be easy, do you know what ROT13 is? cvpbPGS{abg_gbb_onq_bs_n_ceboyrz} I used cyberchef to decode this.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/criptography/easy/13/13.md",
+      "embeds": {
+        "Pasted image 20251115121308.png": "/ctf/picoCTF/criptography/easy/13/Images/Pasted image 20251115121308.png"
+      }
+    },
+    {
+      "id": "crypto-easy-even-rsa-can-be-broken",
+      "title": "EVEN RSA CAN BE BROKEN",
+      "event": "picoCTF",
+      "category": "crypto",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "crypto",
+        "easy"
+      ],
+      "date": "2025-11-10",
+      "placement": null,
+      "description": "This service provides you an encrypted flag. Can you decrypt it with just N & e? Connect to the program with netcat: `$ nc verbal-sleep.picoctf.net 49850` The program's source code can be downloaded [here](https://cha...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/criptography/easy/EVEN RSA CAN BE BROKEN/EVEN RSA CAN BE BROKEN.md",
+      "embeds": {
+        "Pasted image 20251023161322.png": "/ctf/picoCTF/criptography/easy/EVEN RSA CAN BE BROKEN/Images/Pasted image 20251023161322.png",
+        "Pasted image 20251023161600.png": "/ctf/picoCTF/criptography/easy/EVEN RSA CAN BE BROKEN/Images/Pasted image 20251023161600.png",
+        "Pasted image 20251110195735.png": "/ctf/picoCTF/criptography/easy/EVEN RSA CAN BE BROKEN/Images/Pasted image 20251110195735.png",
+        "Pasted image 20251110195717.png": "/ctf/picoCTF/criptography/easy/EVEN RSA CAN BE BROKEN/Images/Pasted image 20251110195717.png"
+      }
+    },
+    {
+      "id": "crypto-easy-interencdec",
+      "title": "interencdec",
+      "event": "picoCTF",
+      "category": "crypto",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "crypto",
+        "easy"
+      ],
+      "date": "2025-11-10",
+      "placement": null,
+      "description": "Can you get the real meaning from this file. Download the file [here](https://artifacts.picoctf.net/c_titan/3/enc_flag). By using cat on the file we see its base64 encoded, lets decode it using the following command:",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/criptography/easy/interencdec/interencdec.md",
+      "embeds": {
+        "Pasted image 20251110200317.png": "/ctf/picoCTF/criptography/easy/interencdec/Images/Pasted image 20251110200317.png",
+        "Pasted image 20251110200335.png": "/ctf/picoCTF/criptography/easy/interencdec/Images/Pasted image 20251110200335.png",
+        "Pasted image 20251110200409.png": "/ctf/picoCTF/criptography/easy/interencdec/Images/Pasted image 20251110200409.png",
+        "Pasted image 20251110201958.png": "/ctf/picoCTF/criptography/easy/interencdec/Images/Pasted image 20251110201958.png",
+        "Pasted image 20251110202051.png": "/ctf/picoCTF/criptography/easy/interencdec/Images/Pasted image 20251110202051.png"
+      }
+    },
+    {
+      "id": "crypto-easy-the-numbers",
+      "title": "The Numbers",
+      "event": "picoCTF",
+      "category": "crypto",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "crypto",
+        "easy"
+      ],
+      "date": "2025-11-19",
+      "placement": null,
+      "description": "The numbers... what do they mean? [numbers.png](https://challenge-files.picoctf.net/c_fickle_tempest/7b39deba4212c233b1628c93f16639ed02ad90f51436d2a8914bb11f74a982d3/the_numbers.png) This is what we see when we open t...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/criptography/easy/The Numbers/Images/The Numbers.md",
+      "embeds": {
+        "Pasted image 20251119210339.png": "/ctf/picoCTF/criptography/easy/The Numbers/Images/Pasted image 20251119210339.png",
+        "Pasted image 20251119210533.png": "/ctf/picoCTF/criptography/easy/The Numbers/Images/Pasted image 20251119210533.png"
+      }
+    },
+    {
+      "id": "forensics-easy-corrupted-file",
+      "title": "Corrupted File",
+      "event": "picoCTF",
+      "category": "forensics",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "forensics",
+        "easy"
+      ],
+      "date": "2025-10-23",
+      "placement": null,
+      "description": "Description: This file seems broken... or is it? Maybe a couple of bytes could make all the difference. Can you figure out how to bring it back to life? Download the file [here](https://challenge-files.picoctf.net/c_a...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/forensics/easy/Corrupted File/Corrupted File.md",
+      "embeds": {
+        "Pasted image 20251023155819.png": "/ctf/picoCTF/forensics/easy/Corrupted File/Images/Pasted image 20251023155819.png",
+        "Pasted image 20251023155903.png": "/ctf/picoCTF/forensics/easy/Corrupted File/Images/Pasted image 20251023155903.png",
+        "Pasted image 20251023160005.png": "/ctf/picoCTF/forensics/easy/Corrupted File/Images/Pasted image 20251023160005.png",
+        "Pasted image 20251023160051.png": "/ctf/picoCTF/forensics/easy/Corrupted File/Images/Pasted image 20251023160051.png",
+        "Pasted image 20251023160540.png": "/ctf/picoCTF/forensics/easy/Corrupted File/Images/Pasted image 20251023160540.png",
+        "Pasted image 20251023160819.png": "/ctf/picoCTF/forensics/easy/Corrupted File/Images/Pasted image 20251023160819.png"
+      }
+    },
+    {
+      "id": "forensics-easy-flag-in-flame",
+      "title": "Flag in Flame",
+      "event": "picoCTF",
+      "category": "forensics",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "forensics",
+        "easy"
+      ],
+      "date": "2025-10-20",
+      "placement": null,
+      "description": "They give us a .txt file Using the command cat with see a random of data that looks base64 encoded",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/forensics/easy/Flag in Flame/Flag in Flame.md",
+      "embeds": {
+        "Pasted image 20251020203327.png": "/ctf/picoCTF/forensics/easy/Flag in Flame/Images/Pasted image 20251020203327.png",
+        "Pasted image 20251020203435.png": "/ctf/picoCTF/forensics/easy/Flag in Flame/Images/Pasted image 20251020203435.png",
+        "Pasted image 20251020203503.png": "/ctf/picoCTF/forensics/easy/Flag in Flame/Images/Pasted image 20251020203503.png",
+        "Pasted image 20251020203602.png": "/ctf/picoCTF/forensics/easy/Flag in Flame/Images/Pasted image 20251020203602.png",
+        "Pasted image 20251020203646.png": "/ctf/picoCTF/forensics/easy/Flag in Flame/Images/Pasted image 20251020203646.png",
+        "Pasted image 20251020203825.png": "/ctf/picoCTF/forensics/easy/Flag in Flame/Images/Pasted image 20251020203825.png"
+      }
+    },
+    {
+      "id": "forensics-easy-hidden",
+      "title": "Hidden",
+      "event": "picoCTF",
+      "category": "forensics",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "forensics",
+        "easy"
+      ],
+      "date": "2025-11-13",
+      "placement": null,
+      "description": "They give us the one jpg file Using the command exiftool, we can see in the field a base64 encoded string",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/forensics/easy/Hidden_In_plainsight/Hidden.md",
+      "embeds": {
+        "Pasted image 20251020202406.png": "/ctf/picoCTF/forensics/easy/Hidden_In_plainsight/Images/Pasted image 20251020202406.png",
+        "Pasted image 20251020202610.png": "/ctf/picoCTF/forensics/easy/Hidden_In_plainsight/Images/Pasted image 20251020202610.png",
+        "Pasted image 20251020202630.png": "/ctf/picoCTF/forensics/easy/Hidden_In_plainsight/Images/Pasted image 20251020202630.png",
+        "Pasted image 20251020202825.png": "/ctf/picoCTF/forensics/easy/Hidden_In_plainsight/Images/Pasted image 20251020202825.png",
+        "Pasted image 20251020202857.png": "/ctf/picoCTF/forensics/easy/Hidden_In_plainsight/Images/Pasted image 20251020202857.png"
+      }
+    },
+    {
+      "id": "forensics-easy-riddle-registry",
+      "title": "Riddle Registry",
+      "event": "picoCTF",
+      "category": "forensics",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "forensics",
+        "easy"
+      ],
+      "date": "2025-10-20",
+      "placement": null,
+      "description": "They give you a file c50790f066676d65fdc2d2cfa0256fe4ba3845d91c5424be26d2597fd88b73fe  confidential.pdf",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/forensics/easy/Riddle Registry/Riddle Registry.md",
+      "embeds": {
+        "Pasted image 20251020201027.png": "/ctf/picoCTF/forensics/easy/Riddle Registry/Images/Pasted image 20251020201027.png",
+        "Pasted image 20251020201120.png": "/ctf/picoCTF/forensics/easy/Riddle Registry/Images/Pasted image 20251020201120.png",
+        "Pasted image 20251020201159.png": "/ctf/picoCTF/forensics/easy/Riddle Registry/Images/Pasted image 20251020201159.png"
+      }
+    },
+    {
+      "id": "forensics-medium-endianness-v2",
+      "title": "endianness-v2",
+      "event": "picoCTF",
+      "category": "forensics",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "forensics",
+        "medium"
+      ],
+      "date": "2026-03-08",
+      "placement": null,
+      "description": "Here's a file that was recovered from a 32-bits system that organized the bytes a weird way. We're not even sure what type of file it is. Download it [here](https://artifacts.picoctf.net/c_titan/35/challengefile) and ...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/forensics/medium/endianness-v2/endianness-v2.md",
+      "embeds": {}
+    },
+    {
+      "id": "forensics-medium-msb",
+      "title": "MSB",
+      "event": "picoCTF",
+      "category": "forensics",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "forensics",
+        "medium"
+      ],
+      "date": "2026-03-08",
+      "placement": null,
+      "description": "This image passes LSB statistical analysis, but we can't help but think there must be something to the visual artifacts present in this image... Download the image [here](https://artifacts.picoctf.net/c/304/Ninja-and-...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/forensics/medium/MSB/MSB.md",
+      "embeds": {
+        "Pasted image 20260308005350.png": "/ctf/picoCTF/forensics/medium/MSB/Images/Pasted image 20260308005350.png",
+        "Pasted image 20260308010328.png": "/ctf/picoCTF/forensics/medium/MSB/Images/Pasted image 20260308010328.png"
+      }
+    },
+    {
+      "id": "general-easy-2warm",
+      "title": "2warm",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-19",
+      "placement": null,
+      "description": "Can you convert the number 42 (base 10) to binary (base 2)? Yes I can",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/2warm/2warm.md",
+      "embeds": {
+        "Pasted image 20251119205955.png": "/ctf/picoCTF/general/easy/2warm/Images/Pasted image 20251119205955.png"
+      }
+    },
+    {
+      "id": "general-easy-bases",
+      "title": "Bases",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-19",
+      "placement": null,
+      "description": "What does this bDNhcm5fdGgzX3IwcDM1 mean? I think it has something to do with bases. This looks base64 lets decode it.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Bases/Bases.md",
+      "embeds": {
+        "Pasted image 20251119210159.png": "/ctf/picoCTF/general/easy/Bases/Images/Pasted image 20251119210159.png"
+      }
+    },
+    {
+      "id": "general-easy-big-zip",
+      "title": "Big Zip",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Unzip this archive and find the flag. - [Download zip file](https://artifacts.picoctf.net/c/503/big-zip-files.zip)",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Big Zip/Big Zip.md",
+      "embeds": {}
+    },
+    {
+      "id": "general-easy-binary-search",
+      "title": "Binary Search",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "Want to play a game? As you use more of the shell, you might be interested in how they work! Binary search is a classic algorithm used to quickly find an item in a sorted list. Can you find the flag? You'll have 1000 ...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Binary Search/Binary Search.md",
+      "embeds": {
+        "Pasted image 20251112193453.png": "/ctf/picoCTF/general/easy/Binary Search/Images/Pasted image 20251112193453.png",
+        "Pasted image 20251112193511.png": "/ctf/picoCTF/general/easy/Binary Search/Images/Pasted image 20251112193511.png",
+        "Pasted image 20251112193540.png": "/ctf/picoCTF/general/easy/Binary Search/Images/Pasted image 20251112193540.png",
+        "Pasted image 20251112200207.png": "/ctf/picoCTF/general/easy/Binary Search/Images/Pasted image 20251112200207.png"
+      }
+    },
+    {
+      "id": "general-easy-binhexa",
+      "title": "binhexa",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "How well can you perfom basic binary operations? Start searching for the flag here `nc titan.picoctf.net 52141` This is what we get when we connect to the service.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/binhexa/binhexa.md",
+      "embeds": {
+        "Pasted image 20251111163436.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163436.png",
+        "Pasted image 20251111163539.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163539.png",
+        "Pasted image 20251111163546.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163546.png",
+        "Pasted image 20251111163636.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163636.png",
+        "Pasted image 20251111163640.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163640.png",
+        "Pasted image 20251111163736.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163736.png",
+        "Pasted image 20251111163743.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163743.png",
+        "Pasted image 20251111163819.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163819.png",
+        "Pasted image 20251111163824.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163824.png",
+        "Pasted image 20251111163845.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163845.png",
+        "Pasted image 20251111163849.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163849.png",
+        "Pasted image 20251111163904.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163904.png",
+        "Pasted image 20251111163936.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111163936.png",
+        "Pasted image 20251111164010.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111164010.png",
+        "Pasted image 20251111164015.png": "/ctf/picoCTF/general/easy/binhexa/Images/Pasted image 20251111164015.png"
+      }
+    },
+    {
+      "id": "general-easy-blame-game",
+      "title": "Blame Game",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Someone's commits seems to be preventing the program from working. Who is it? You can download the challenge files here: - [challenge.zip](https://artifacts.picoctf.net/c_titan/159/challenge.zip)",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Blame Game/Blame Game.md",
+      "embeds": {
+        "Pasted image 20251111145950.png": "/ctf/picoCTF/general/easy/Blame Game/Images/Pasted image 20251111145950.png",
+        "Pasted image 20251111150253.png": "/ctf/picoCTF/general/easy/Blame Game/Images/Pasted image 20251111150253.png",
+        "Pasted image 20251111150303.png": "/ctf/picoCTF/general/easy/Blame Game/Images/Pasted image 20251111150303.png",
+        "Pasted image 20251111160703.png": "/ctf/picoCTF/general/easy/Blame Game/Images/Pasted image 20251111160703.png"
+      }
+    },
+    {
+      "id": "general-easy-codebook",
+      "title": "Codebook",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Run the Python script `code.py` in the same directory as `codebook.txt`. - [Download code.py](https://artifacts.picoctf.net/c/3/code.py)",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Codebook/Codebook.md",
+      "embeds": {
+        "Pasted image 20251111220753.png": "/ctf/picoCTF/general/easy/Codebook/Images/Pasted image 20251111220753.png",
+        "Pasted image 20251111220915.png": "/ctf/picoCTF/general/easy/Codebook/Images/Pasted image 20251111220915.png",
+        "Pasted image 20251111220943.png": "/ctf/picoCTF/general/easy/Codebook/Images/Pasted image 20251111220943.png"
+      }
+    },
+    {
+      "id": "general-easy-collaborative-development",
+      "title": "Collaborative Development",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "My team has been working very hard on new features for our flag printing program! I wonder how they'll work together? You can download the challenge files here: - [challenge.zip](https://artifacts.picoctf.net/c_titan/...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Collaborative Development/Collaborative Development.md",
+      "embeds": {
+        "Pasted image 20251111121524.png": "/ctf/picoCTF/general/easy/Collaborative Development/Images/Pasted image 20251111121524.png",
+        "Pasted image 20251111121544.png": "/ctf/picoCTF/general/easy/Collaborative Development/Images/Pasted image 20251111121544.png",
+        "Pasted image 20251111145355.png": "/ctf/picoCTF/general/easy/Collaborative Development/Images/Pasted image 20251111145355.png",
+        "Pasted image 20251111145431 1.png": "/ctf/picoCTF/general/easy/Collaborative Development/Images/Pasted image 20251111145431 1.png",
+        "Pasted image 20251111145456.png": "/ctf/picoCTF/general/easy/Collaborative Development/Images/Pasted image 20251111145456.png",
+        "Pasted image 20251111145733.png": "/ctf/picoCTF/general/easy/Collaborative Development/Images/Pasted image 20251111145733.png",
+        "Pasted image 20251111145803.png": "/ctf/picoCTF/general/easy/Collaborative Development/Images/Pasted image 20251111145803.png"
+      }
+    },
+    {
+      "id": "general-easy-commitment-issues",
+      "title": "Commitment Issues",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "I accidentally wrote the flag down. Good thing I deleted it! You download the challenge files here: - [challenge.zip](https://artifacts.picoctf.net/c_titan/137/challenge.zip)",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Commitment Issues/Commitment Issues.md",
+      "embeds": {
+        "Pasted image 20251111115720.png": "/ctf/picoCTF/general/easy/Commitment Issues/Images/Pasted image 20251111115720.png",
+        "Pasted image 20251111120050.png": "/ctf/picoCTF/general/easy/Commitment Issues/Images/Pasted image 20251111120050.png",
+        "Pasted image 20251111121017.png": "/ctf/picoCTF/general/easy/Commitment Issues/Images/Pasted image 20251111121017.png",
+        "Pasted image 20251111121115.png": "/ctf/picoCTF/general/easy/Commitment Issues/Images/Pasted image 20251111121115.png"
+      }
+    },
+    {
+      "id": "general-easy-convertme-py",
+      "title": "convertme.py",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Run the Python script and convert the given number from decimal to binary to get the flag. [Download Python script](https://artifacts.picoctf.net/c/22/convertme.py) When we run this code it prompts a question that we ...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/convertme.py/convertme.py.md",
+      "embeds": {
+        "Pasted image 20251111213702.png": "/ctf/picoCTF/general/easy/convertme.py/Images/Pasted image 20251111213702.png",
+        "Pasted image 20251111213725.png": "/ctf/picoCTF/general/easy/convertme.py/Images/Pasted image 20251111213725.png",
+        "Pasted image 20251111213713.png": "/ctf/picoCTF/general/easy/convertme.py/Images/Pasted image 20251111213713.png",
+        "Pasted image 20251111213758.png": "/ctf/picoCTF/general/easy/convertme.py/Images/Pasted image 20251111213758.png",
+        "Pasted image 20251111213810.png": "/ctf/picoCTF/general/easy/convertme.py/Images/Pasted image 20251111213810.png"
+      }
+    },
+    {
+      "id": "general-easy-endianness",
+      "title": "endianness",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-10",
+      "placement": null,
+      "description": "Know of little and big endian? [Source](https://artifacts.picoctf.net/c_titan/118/flag.c) This is a big file.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/endianness/endianness.md",
+      "embeds": {
+        "Pasted image 20251110202228.png": "/ctf/picoCTF/general/easy/endianness/Images/Pasted image 20251110202228.png",
+        "Pasted image 20251110202248.png": "/ctf/picoCTF/general/easy/endianness/Images/Pasted image 20251110202248.png",
+        "Pasted image 20251110202300.png": "/ctf/picoCTF/general/easy/endianness/Images/Pasted image 20251110202300.png",
+        "Pasted image 20251110202403.png": "/ctf/picoCTF/general/easy/endianness/Images/Pasted image 20251110202403.png",
+        "Pasted image 20251110210911.png": "/ctf/picoCTF/general/easy/endianness/Images/Pasted image 20251110210911.png",
+        "Pasted image 20251110210901.png": "/ctf/picoCTF/general/easy/endianness/Images/Pasted image 20251110210901.png"
+      }
+    },
+    {
+      "id": "general-easy-first-find",
+      "title": "First Find",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Unzip this archive and find the file named 'uber-secret.txt' - [Download zip file](https://artifacts.picoctf.net/c/500/files.zip)",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/First Find/First Find.md",
+      "embeds": {
+        "Pasted image 20251111182846.png": "/ctf/picoCTF/general/easy/First Find/Images/Pasted image 20251111182846.png",
+        "Pasted image 20251111184314.png": "/ctf/picoCTF/general/easy/First Find/Images/Pasted image 20251111184314.png"
+      }
+    },
+    {
+      "id": "general-easy-first-grep",
+      "title": "First Grep",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-19",
+      "placement": null,
+      "description": "Can you find the flag in the file? This would be really tedious to look through manually, something tells me there is a better way. The flag is in this [file](https://challenge-files.picoctf.net/c_fickle_tempest/9e4f9...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/First Grep/First Grep.md",
+      "embeds": {
+        "Pasted image 20251119205646.png": "/ctf/picoCTF/general/easy/First Grep/Images/Pasted image 20251119205646.png",
+        "Pasted image 20251119205722.png": "/ctf/picoCTF/general/easy/First Grep/Images/Pasted image 20251119205722.png",
+        "Pasted image 20251119205827.png": "/ctf/picoCTF/general/easy/First Grep/Images/Pasted image 20251119205827.png"
+      }
+    },
+    {
+      "id": "general-easy-fixme1-py",
+      "title": "fixme1.py",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Fix the syntax error in this Python script to print the flag. [Download Python script](https://artifacts.picoctf.net/c/25/fixme1.py) I assume the script its broken because of the name of the challenge.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/fixme1.py/fixme1.py.md",
+      "embeds": {
+        "Pasted image 20251111213322.png": "/ctf/picoCTF/general/easy/fixme1.py/Images/Pasted image 20251111213322.png",
+        "Pasted image 20251111213345.png": "/ctf/picoCTF/general/easy/fixme1.py/Images/Pasted image 20251111213345.png",
+        "Pasted image 20251111213414.png": "/ctf/picoCTF/general/easy/fixme1.py/Images/Pasted image 20251111213414.png",
+        "Pasted image 20251111213557.png": "/ctf/picoCTF/general/easy/fixme1.py/Images/Pasted image 20251111213557.png",
+        "Pasted image 20251111213604.png": "/ctf/picoCTF/general/easy/fixme1.py/Images/Pasted image 20251111213604.png"
+      }
+    },
+    {
+      "id": "general-easy-fixme2-py",
+      "title": "fixme2.py",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Fix the syntax error in the Python script to print the flag. [Download Python script](https://artifacts.picoctf.net/c/6/fixme2.py) They give us a python file that I assume is broken.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/fixme2.py/fixme2.py.md",
+      "embeds": {
+        "Pasted image 20251111213037.png": "/ctf/picoCTF/general/easy/fixme2.py/Images/Pasted image 20251111213037.png",
+        "Pasted image 20251111213132.png": "/ctf/picoCTF/general/easy/fixme2.py/Images/Pasted image 20251111213132.png",
+        "Pasted image 20251111213220.png": "/ctf/picoCTF/general/easy/fixme2.py/Images/Pasted image 20251111213220.png",
+        "Pasted image 20251111213234.png": "/ctf/picoCTF/general/easy/fixme2.py/Images/Pasted image 20251111213234.png"
+      }
+    },
+    {
+      "id": "general-easy-glitch-cat",
+      "title": "Glitch Cat",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Our flag printing service has started glitching! `$ nc saturn.picoctf.net 63213` Connecting to the port give us this:",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Glitch Cat/Glitch Cat.md",
+      "embeds": {
+        "Pasted image 20251111212831.png": "/ctf/picoCTF/general/easy/Glitch Cat/Images/Pasted image 20251111212831.png",
+        "Pasted image 20251111212911.png": "/ctf/picoCTF/general/easy/Glitch Cat/Images/Pasted image 20251111212911.png"
+      }
+    },
+    {
+      "id": "general-easy-hashingjobapp",
+      "title": "HashingJobApp",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "If you want to hash with the best, beat this test! `nc saturn.picoctf.net 59618` When we connect to the port it prompts this",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/HashingJobApp/HashingJobApp.md",
+      "embeds": {
+        "Pasted image 20251111212625.png": "/ctf/picoCTF/general/easy/HashingJobApp/Images/Pasted image 20251111212625.png",
+        "Pasted image 20251111212636.png": "/ctf/picoCTF/general/easy/HashingJobApp/Images/Pasted image 20251111212636.png",
+        "Pasted image 20251111212737.png": "/ctf/picoCTF/general/easy/HashingJobApp/Images/Pasted image 20251111212737.png"
+      }
+    },
+    {
+      "id": "general-easy-lets-warm-up",
+      "title": "Lets Warm Up",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "If I told you a word started with 0x70 in hexadecimal, what would it start with in ASCII? picoCTF{p}",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Lets Warm Up/Lets Warm Up.md",
+      "embeds": {
+        "Pasted image 20251112225636.png": "/ctf/picoCTF/general/easy/Lets Warm Up/Images/Pasted image 20251112225636.png"
+      }
+    },
+    {
+      "id": "general-easy-log-hunt",
+      "title": "Log Hunt",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-10-20",
+      "placement": null,
+      "description": "We only get one file We can see it has only ascii text.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Log Hunt/Log Hunt.md",
+      "embeds": {
+        "Pasted image 20251020201550.png": "/ctf/picoCTF/general/easy/Log Hunt/Images/Pasted image 20251020201550.png",
+        "Pasted image 20251020201600.png": "/ctf/picoCTF/general/easy/Log Hunt/Images/Pasted image 20251020201600.png",
+        "Pasted image 20251020201632.png": "/ctf/picoCTF/general/easy/Log Hunt/Images/Pasted image 20251020201632.png",
+        "Pasted image 20251020201645.png": "/ctf/picoCTF/general/easy/Log Hunt/Images/Pasted image 20251020201645.png",
+        "Pasted image 20251020201747.png": "/ctf/picoCTF/general/easy/Log Hunt/Images/Pasted image 20251020201747.png",
+        "Pasted image 20251020201928.png": "/ctf/picoCTF/general/easy/Log Hunt/Images/Pasted image 20251020201928.png"
+      }
+    },
+    {
+      "id": "general-easy-magikarp-ground-mission",
+      "title": "Magikarp Ground Mission",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Do you know how to move between directories and read files in the shell? Start the container, `ssh` to it, and then `ls` once connected to begin. Login via `ssh` as `ctf-player` with the password, `8c606eb1` on the ho...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Magikarp Ground Mission/Magikarp Ground Mission.md",
+      "embeds": {
+        "Pasted image 20251111221138.png": "/ctf/picoCTF/general/easy/Magikarp Ground Mission/Images/Pasted image 20251111221138.png",
+        "Pasted image 20251111221203.png": "/ctf/picoCTF/general/easy/Magikarp Ground Mission/Images/Pasted image 20251111221203.png",
+        "Pasted image 20251111221230.png": "/ctf/picoCTF/general/easy/Magikarp Ground Mission/Images/Pasted image 20251111221230.png",
+        "Pasted image 20251111221243.png": "/ctf/picoCTF/general/easy/Magikarp Ground Mission/Images/Pasted image 20251111221243.png",
+        "Pasted image 20251111221346.png": "/ctf/picoCTF/general/easy/Magikarp Ground Mission/Images/Pasted image 20251111221346.png"
+      }
+    },
+    {
+      "id": "general-easy-mod-26",
+      "title": "Mod 26",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "Cryptography can be easy, do you know what ROT13 is? `cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_jdJBFOXJ}` Lets use cyberchef for this.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Mod 26/Mod 26.md",
+      "embeds": {
+        "Pasted image 20251112225820.png": "/ctf/picoCTF/general/easy/Mod 26/Images/Pasted image 20251112225820.png"
+      }
+    },
+    {
+      "id": "general-easy-nice-netcat",
+      "title": "Nice netcat",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "There is a nice program that you can talk to by using this command in a shell: `$ nc mercury.picoctf.net 21135`, but it doesn't speak English... When we connect to the service, it gives us a bunch of numbers that look...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Nice netcat/Nice netcat.md",
+      "embeds": {
+        "Pasted image 20251112224244.png": "/ctf/picoCTF/general/easy/Nice netcat/Images/Pasted image 20251112224244.png",
+        "Pasted image 20251112224412.png": "/ctf/picoCTF/general/easy/Nice netcat/Images/Pasted image 20251112224412.png"
+      }
+    },
+    {
+      "id": "general-easy-obedient-cat",
+      "title": "Obedient Cat",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "This file has a flag in plain sight (aka \"in-the-clear\"). [Download flag](https://mercury.picoctf.net/static/0e428b2db9788d31189329bed089ce98/flag). Just cat the flag.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Obedient Cat/Obedient Cat.md",
+      "embeds": {
+        "Pasted image 20251112224525.png": "/ctf/picoCTF/general/easy/Obedient Cat/Images/Pasted image 20251112224525.png",
+        "Pasted image 20251112224534.png": "/ctf/picoCTF/general/easy/Obedient Cat/Images/Pasted image 20251112224534.png"
+      }
+    },
+    {
+      "id": "general-easy-pw-crack-1",
+      "title": "PW Crack 1",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Can you crack the password to get the flag? Download the password checker [here](https://artifacts.picoctf.net/c/12/level1.py) and you'll need the encrypted [flag](https://artifacts.picoctf.net/c/12/level1.flag.txt.en...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/PW Crack 1/PW Crack 1.md",
+      "embeds": {
+        "Pasted image 20251111190856.png": "/ctf/picoCTF/general/easy/PW Crack 1/Images/Pasted image 20251111190856.png",
+        "Pasted image 20251111190938.png": "/ctf/picoCTF/general/easy/PW Crack 1/Images/Pasted image 20251111190938.png",
+        "Pasted image 20251111191002.png": "/ctf/picoCTF/general/easy/PW Crack 1/Images/Pasted image 20251111191002.png"
+      }
+    },
+    {
+      "id": "general-easy-pw-crack-2",
+      "title": "PW Crack 2",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Can you crack the password to get the flag? Download the password checker [here](https://artifacts.picoctf.net/c/15/level2.py) and you'll need the encrypted [flag](https://artifacts.picoctf.net/c/15/level2.flag.txt.en...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/PW Crack 2/PW Crack 2.md",
+      "embeds": {
+        "Pasted image 20251111185622.png": "/ctf/picoCTF/general/easy/PW Crack 2/Images/Pasted image 20251111185622.png",
+        "Pasted image 20251111185658.png": "/ctf/picoCTF/general/easy/PW Crack 2/Images/Pasted image 20251111185658.png",
+        "Pasted image 20251111185835.png": "/ctf/picoCTF/general/easy/PW Crack 2/Images/Pasted image 20251111185835.png",
+        "Pasted image 20251111185910.png": "/ctf/picoCTF/general/easy/PW Crack 2/Images/Pasted image 20251111185910.png"
+      }
+    },
+    {
+      "id": "general-easy-python-wrangling",
+      "title": "Python Wrangling",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "Python scripts are invoked kind of like programs in the Terminal... Can you run [this Python script](https://mercury.picoctf.net/static/b351a89e0bc6745b00716849105f87c6/ende.py) using [this password](https://mercury.p...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Python Wrangling/Python Wrangling.md",
+      "embeds": {
+        "Pasted image 20251112223339.png": "/ctf/picoCTF/general/easy/Python Wrangling/Images/Pasted image 20251112223339.png",
+        "Pasted image 20251112223555.png": "/ctf/picoCTF/general/easy/Python Wrangling/Images/Pasted image 20251112223555.png",
+        "Pasted image 20251112223406.png": "/ctf/picoCTF/general/easy/Python Wrangling/Images/Pasted image 20251112223406.png",
+        "Pasted image 20251112223449.png": "/ctf/picoCTF/general/easy/Python Wrangling/Images/Pasted image 20251112223449.png",
+        "Pasted image 20251112223507.png": "/ctf/picoCTF/general/easy/Python Wrangling/Images/Pasted image 20251112223507.png",
+        "Pasted image 20251112223523.png": "/ctf/picoCTF/general/easy/Python Wrangling/Images/Pasted image 20251112223523.png"
+      }
+    },
+    {
+      "id": "general-easy-repetitions",
+      "title": "repetitions",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Can you make sense of this file? Download the file [here](https://artifacts.picoctf.net/c/475/enc_flag). Using cat on the file, we can see its encoded in base64, lets decode it.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/repetitions/repetitions.md",
+      "embeds": {
+        "Pasted image 20251111164153.png": "/ctf/picoCTF/general/easy/repetitions/Images/Pasted image 20251111164153.png",
+        "Pasted image 20251111164250.png": "/ctf/picoCTF/general/easy/repetitions/Images/Pasted image 20251111164250.png",
+        "Pasted image 20251111165207.png": "/ctf/picoCTF/general/easy/repetitions/Images/Pasted image 20251111165207.png",
+        "Pasted image 20251111165238.png": "/ctf/picoCTF/general/easy/repetitions/Images/Pasted image 20251111165238.png"
+      }
+    },
+    {
+      "id": "general-easy-runme-py",
+      "title": "runme.py",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Run the `runme.py` script to get the flag. Download the script with your browser or with `wget` in the webshell. [Download runme.py Python script](https://artifacts.picoctf.net/c/34/runme.py) We just need to run the f...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/runme.py/runme.py.md",
+      "embeds": {
+        "Pasted image 20251111184518.png": "/ctf/picoCTF/general/easy/runme.py/Images/Pasted image 20251111184518.png",
+        "Pasted image 20251111184548.png": "/ctf/picoCTF/general/easy/runme.py/Images/Pasted image 20251111184548.png"
+      }
+    },
+    {
+      "id": "general-easy-rust-fixme-2",
+      "title": "Rust fixme 2",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-03",
+      "placement": null,
+      "description": "The Rust saga continues? I ask you, can I borrow that, pleeeeeaaaasseeeee? Download the Rust code [here](https://challenge-files.picoctf.net/c_verbal_sleep/babfbee79718a6363826ba86300173ffde6d81577e9dd07d4130c53a7eecf...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Rust fixme 2/Rust fixme 2.md",
+      "embeds": {
+        "Pasted image 20251103131006.png": "/ctf/picoCTF/general/easy/Rust fixme 2/Images/Pasted image 20251103131006.png",
+        "Pasted image 20251103131109.png": "/ctf/picoCTF/general/easy/Rust fixme 2/Images/Pasted image 20251103131109.png",
+        "Pasted image 20251103131318.png": "/ctf/picoCTF/general/easy/Rust fixme 2/Images/Pasted image 20251103131318.png",
+        "Pasted image 20251103131444.png": "/ctf/picoCTF/general/easy/Rust fixme 2/Images/Pasted image 20251103131444.png",
+        "Pasted image 20251103142952.png": "/ctf/picoCTF/general/easy/Rust fixme 2/Images/Pasted image 20251103142952.png",
+        "Pasted image 20251103143011.png": "/ctf/picoCTF/general/easy/Rust fixme 2/Images/Pasted image 20251103143011.png"
+      }
+    },
+    {
+      "id": "general-easy-rust-fixme-3",
+      "title": "Rust fixme 3",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-10",
+      "placement": null,
+      "description": "Have you heard of Rust? Fix the syntax errors in this Rust file to print the flag! Download the Rust code [here](https://challenge-files.picoctf.net/c_verbal_sleep/dcdaf491b35c1d0f5075e9583edbbb7aaea1dffb6ad32bc000e4d...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Rust fixme 3/Rust fixme 3.md",
+      "embeds": {
+        "Pasted image 20251110191852.png": "/ctf/picoCTF/general/easy/Rust fixme 3/Images/Pasted image 20251110191852.png",
+        "Pasted image 20251110191914.png": "/ctf/picoCTF/general/easy/Rust fixme 3/Images/Pasted image 20251110191914.png",
+        "Pasted image 20251110192325.png": "/ctf/picoCTF/general/easy/Rust fixme 3/Images/Pasted image 20251110192325.png",
+        "Pasted image 20251110192259.png": "/ctf/picoCTF/general/easy/Rust fixme 3/Images/Pasted image 20251110192259.png",
+        "Pasted image 20251110192231.png": "/ctf/picoCTF/general/easy/Rust fixme 3/Images/Pasted image 20251110192231.png"
+      }
+    },
+    {
+      "id": "general-easy-static-ain-t-always-noise",
+      "title": "Static ain't always noise",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "Can you look at the data in this binary: [static](https://mercury.picoctf.net/static/ff4e569d6b49b92d090796d4631a2577/static)? This [BASH script](https://mercury.picoctf.net/static/ff4e569d6b49b92d090796d4631a2577/ltd...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Static ain't always noise/Static ain't always noise.md",
+      "embeds": {
+        "Pasted image 20251112223753.png": "/ctf/picoCTF/general/easy/Static ain't always noise/Images/Pasted image 20251112223753.png",
+        "Pasted image 20251112223830.png": "/ctf/picoCTF/general/easy/Static ain't always noise/Images/Pasted image 20251112223830.png",
+        "Pasted image 20251112223900.png": "/ctf/picoCTF/general/easy/Static ain't always noise/Images/Pasted image 20251112223900.png",
+        "Pasted image 20251112224000.png": "/ctf/picoCTF/general/easy/Static ain't always noise/Images/Pasted image 20251112224000.png"
+      }
+    },
+    {
+      "id": "general-easy-strings-it",
+      "title": "strings it",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "Can you find the flag in [file](https://jupiter.challenges.picoctf.org/static/fae9ac5267cd6e44124e559b901df177/strings) without running it? Lets use the command strings to find all strings on the executable.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/strings it/strings it.md",
+      "embeds": {
+        "Pasted image 20251112225236.png": "/ctf/picoCTF/general/easy/strings it/Images/Pasted image 20251112225236.png",
+        "Pasted image 20251112225325.png": "/ctf/picoCTF/general/easy/strings it/Images/Pasted image 20251112225325.png"
+      }
+    },
+    {
+      "id": "general-easy-super-ssh",
+      "title": "Super SSH",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-10",
+      "placement": null,
+      "description": "Using a Secure Shell (SSH) is going to be pretty important. Can you `ssh` as `ctf-player` to `titan.picoctf.net` at port `53785` to get the flag? You'll also need the password `84b12bae`. If asked, accept the fingerpr...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Super SSH/Super SSH.md",
+      "embeds": {
+        "Pasted image 20251110200101.png": "/ctf/picoCTF/general/easy/Super SSH/Images/Pasted image 20251110200101.png"
+      }
+    },
+    {
+      "id": "general-easy-tab-tab-attack",
+      "title": "Tab, Tab, Attack",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "Using tabcomplete in the Terminal will add years to your life, esp. when dealing with long rambling directory structures and filenames: [Addadshashanammu.zip](https://mercury.picoctf.net/static/72712e82413e78cc8aa8d55...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Tab, Tab, Attack/Tab, Tab, Attack.md",
+      "embeds": {
+        "Pasted image 20251112222844.png": "/ctf/picoCTF/general/easy/Tab, Tab, Attack/Images/Pasted image 20251112222844.png",
+        "Pasted image 20251112222953.png": "/ctf/picoCTF/general/easy/Tab, Tab, Attack/Images/Pasted image 20251112222953.png",
+        "Pasted image 20251112223041.png": "/ctf/picoCTF/general/easy/Tab, Tab, Attack/Images/Pasted image 20251112223041.png"
+      }
+    },
+    {
+      "id": "general-easy-time-machine",
+      "title": "Time Machine",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-05",
+      "placement": null,
+      "description": "What was I last working on? I remember writing a note to help me remember... You can download the challenge files here: - [challenge.zip](https://artifacts.picoctf.net/c_titan/66/challenge.zip)",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Time Machine/Time Machine.md",
+      "embeds": {
+        "Pasted image 20251105203650.png": "/ctf/picoCTF/general/easy/Time Machine/Images/Pasted image 20251105203650.png",
+        "Pasted image 20251105203718.png": "/ctf/picoCTF/general/easy/Time Machine/Images/Pasted image 20251105203718.png",
+        "Pasted image 20251105203752.png": "/ctf/picoCTF/general/easy/Time Machine/Images/Pasted image 20251105203752.png",
+        "Pasted image 20251105204132.png": "/ctf/picoCTF/general/easy/Time Machine/Images/Pasted image 20251105204132.png",
+        "Pasted image 20251105204149.png": "/ctf/picoCTF/general/easy/Time Machine/Images/Pasted image 20251105204149.png"
+      }
+    },
+    {
+      "id": "general-easy-warmed-up",
+      "title": "Warmed Up",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "What is 0x3D (base 16) in decimal (base 10)? Lets just do it with python",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Warmed Up/Warmed Up.md",
+      "embeds": {
+        "Pasted image 20251112225135.png": "/ctf/picoCTF/general/easy/Warmed Up/Images/Pasted image 20251112225135.png"
+      }
+    },
+    {
+      "id": "general-easy-wave-a-flag",
+      "title": "Wave a flag",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-12",
+      "placement": null,
+      "description": "Can you invoke help flags for a tool or binary? [This program](https://mercury.picoctf.net/static/fc1d77192c544314efece5dd309092e3/warm) has extraordinarily helpful information... Running it, asks us to pass the argum...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/Wave a flag/Wave a flag.md",
+      "embeds": {
+        "Pasted image 20251112223215.png": "/ctf/picoCTF/general/easy/Wave a flag/Images/Pasted image 20251112223215.png",
+        "Pasted image 20251112223243.png": "/ctf/picoCTF/general/easy/Wave a flag/Images/Pasted image 20251112223243.png"
+      }
+    },
+    {
+      "id": "general-easy-what-s-a-net-cat",
+      "title": "what's a net cat",
+      "event": "picoCTF",
+      "category": "general",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "general",
+        "easy"
+      ],
+      "date": "2025-11-11",
+      "placement": null,
+      "description": "Using netcat (nc) is going to be pretty important. Can you connect to `jupiter.challenges.picoctf.org` at port `64287` to get the flag? Just connect to the host using",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/general/easy/what's a net cat/what's a net cat.md",
+      "embeds": {
+        "Pasted image 20251111190721.png": "/ctf/picoCTF/general/easy/what's a net cat/Images/Pasted image 20251111190721.png"
+      }
+    },
+    {
+      "id": "pwn-easy-format-string-0",
+      "title": "format string 0",
+      "event": "picoCTF",
+      "category": "pwn",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "pwn",
+        "easy"
+      ],
+      "date": "2025-11-02",
+      "placement": null,
+      "description": "Can you use your knowledge of format strings to make the customers happy? Download the binary [here](https://artifacts.picoctf.net/c_mimas/76/format-string-0). Download the source [here](https://artifacts.picoctf.net/...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/binary/easy/format string 0/format string 0.md",
+      "embeds": {
+        "Pasted image 20251102140535.png": "/ctf/picoCTF/binary/easy/format string 0/Images/Pasted image 20251102140535.png",
+        "Pasted image 20251102145048.png": "/ctf/picoCTF/binary/easy/format string 0/Images/Pasted image 20251102145048.png",
+        "Pasted image 20251102145217.png": "/ctf/picoCTF/binary/easy/format string 0/Images/Pasted image 20251102145217.png",
+        "Pasted image 20251102145246.png": "/ctf/picoCTF/binary/easy/format string 0/Images/Pasted image 20251102145246.png",
+        "Pasted image 20251102150047.png": "/ctf/picoCTF/binary/easy/format string 0/Images/Pasted image 20251102150047.png",
+        "Pasted image 20251102144739.png": "/ctf/picoCTF/binary/easy/format string 0/Images/Pasted image 20251102144739.png",
+        "Pasted image 20251102144802.png": "/ctf/picoCTF/binary/easy/format string 0/Images/Pasted image 20251102144802.png"
+      }
+    },
+    {
+      "id": "pwn-easy-heap-0",
+      "title": "heap 0",
+      "event": "picoCTF",
+      "category": "pwn",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "pwn",
+        "easy"
+      ],
+      "date": "2025-11-02",
+      "placement": null,
+      "description": "Are overflows just a stack concern? Download the binary [here](https://artifacts.picoctf.net/c_tethys/15/chall). Download the source [here](https://artifacts.picoctf.net/c_tethys/15/chall.c). Connect with the challeng...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/binary/easy/heap 0/heap 0.md",
+      "embeds": {
+        "Pasted image 20251102010353.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102010353.png",
+        "Pasted image 20251102010413.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102010413.png",
+        "Pasted image 20251102014302.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102014302.png",
+        "Pasted image 20251102013955.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102013955.png",
+        "Pasted image 20251102014102.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102014102.png",
+        "Pasted image 20251102014227.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102014227.png",
+        "Pasted image 20251102014417.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102014417.png",
+        "Pasted image 20251102014533.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102014533.png",
+        "Pasted image 20251102014930.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102014930.png",
+        "Pasted image 20251102015448.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102015448.png",
+        "Pasted image 20251102020505.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102020505.png",
+        "Pasted image 20251102020453.png": "/ctf/picoCTF/binary/easy/heap 0/Images/Pasted image 20251102020453.png"
+      }
+    },
+    {
+      "id": "pwn-medium-hash-only-1",
+      "title": "hash-only-1",
+      "event": "picoCTF",
+      "category": "pwn",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "pwn",
+        "medium"
+      ],
+      "date": "2025-11-15",
+      "placement": null,
+      "description": "Here is a binary that has enough privilege to read the content of the flag file but will only let you know its hash. If only it could just give you the actual content! Connect using `ssh ctf-player@shape-facility.pico...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/binary/medium/hash-only-1/hash-only-1.md",
+      "embeds": {
+        "Pasted image 20251115011424.png": "/ctf/picoCTF/binary/medium/hash-only-1/Images/Pasted image 20251115011424.png",
+        "Pasted image 20251115011518.png": "/ctf/picoCTF/binary/medium/hash-only-1/Images/Pasted image 20251115011518.png",
+        "Pasted image 20251115011449.png": "/ctf/picoCTF/binary/medium/hash-only-1/Images/Pasted image 20251115011449.png",
+        "Pasted image 20251115011701.png": "/ctf/picoCTF/binary/medium/hash-only-1/Images/Pasted image 20251115011701.png",
+        "Pasted image 20251115011819.png": "/ctf/picoCTF/binary/medium/hash-only-1/Images/Pasted image 20251115011819.png",
+        "Pasted image 20251115012525.png": "/ctf/picoCTF/binary/medium/hash-only-1/Images/Pasted image 20251115012525.png"
+      }
+    },
+    {
+      "id": "pwn-medium-hash-only-2",
+      "title": "hash-only-2",
+      "event": "picoCTF",
+      "category": "pwn",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "pwn",
+        "medium"
+      ],
+      "date": "2025-11-08",
+      "placement": null,
+      "description": "Here is a binary that has enough privilege to read the content of the flag file but will only let you know its hash. If only it could just give you the actual content! Connect using `ssh ctf-player@rescued-float.picoc...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/binary/medium/hash-only-2/hash-only-2.md",
+      "embeds": {
+        "Pasted image 20251108124553.png": "/ctf/picoCTF/binary/medium/hash-only-2/Images/Pasted image 20251108124553.png",
+        "Pasted image 20251108130927.png": "/ctf/picoCTF/binary/medium/hash-only-2/Images/Pasted image 20251108130927.png",
+        "Pasted image 20251108134652.png": "/ctf/picoCTF/binary/medium/hash-only-2/Images/Pasted image 20251108134652.png",
+        "Pasted image 20251108134719.png": "/ctf/picoCTF/binary/medium/hash-only-2/Images/Pasted image 20251108134719.png",
+        "Pasted image 20251108134747.png": "/ctf/picoCTF/binary/medium/hash-only-2/Images/Pasted image 20251108134747.png",
+        "Pasted image 20251108135524.png": "/ctf/picoCTF/binary/medium/hash-only-2/Images/Pasted image 20251108135524.png",
+        "Pasted image 20251108134051.png": "/ctf/picoCTF/binary/medium/hash-only-2/Images/Pasted image 20251108134051.png"
+      }
+    },
+    {
+      "id": "pwn-medium-input-injection-1",
+      "title": "Input Injection 1",
+      "event": "picoCTF",
+      "category": "pwn",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "pwn",
+        "medium"
+      ],
+      "date": "2025-11-03",
+      "placement": null,
+      "description": "A friendly program wants to greet you… but its goodbye might say more than it should. Can you convince it to reveal the flag? connect to the challenge instance `nc saffron-estate.picoctf.net 52785`. You can Download t...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/binary/medium/Input Injection 1/Input Injection 1.md",
+      "embeds": {
+        "Pasted image 20251103195050.png": "/ctf/picoCTF/binary/medium/Input Injection 1/Images/Pasted image 20251103195050.png",
+        "Pasted image 20251103200934.png": "/ctf/picoCTF/binary/medium/Input Injection 1/Images/Pasted image 20251103200934.png",
+        "Pasted image 20251103202002.png": "/ctf/picoCTF/binary/medium/Input Injection 1/Images/Pasted image 20251103202002.png",
+        "Pasted image 20251103202439.png": "/ctf/picoCTF/binary/medium/Input Injection 1/Images/Pasted image 20251103202439.png",
+        "Pasted image 20251103202430.png": "/ctf/picoCTF/binary/medium/Input Injection 1/Images/Pasted image 20251103202430.png"
+      }
+    },
+    {
+      "id": "pwn-medium-input-injection-2",
+      "title": "Input Injection 2",
+      "event": "picoCTF",
+      "category": "pwn",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "pwn",
+        "medium"
+      ],
+      "date": "2025-11-03",
+      "placement": null,
+      "description": "This program greets you and then runs a command. But can you take control of what command it executes? Connect to the program with netcat: `nc saffron-estate.picoctf.net 56268`. You can Download the program file [here...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/binary/medium/Input Injection 2/Input Injection 2.md",
+      "embeds": {
+        "Pasted image 20251103205603.png": "/ctf/picoCTF/binary/medium/Input Injection 2/Images/Pasted image 20251103205603.png",
+        "Pasted image 20251103214748.png": "/ctf/picoCTF/binary/medium/Input Injection 2/Images/Pasted image 20251103214748.png",
+        "Pasted image 20251103214706.png": "/ctf/picoCTF/binary/medium/Input Injection 2/Images/Pasted image 20251103214706.png",
+        "Pasted image 20251103214611.png": "/ctf/picoCTF/binary/medium/Input Injection 2/Images/Pasted image 20251103214611.png"
+      }
+    },
+    {
+      "id": "pwn-medium-pie-time-2",
+      "title": "PIE TIME 2",
+      "event": "picoCTF",
+      "category": "pwn",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "pwn",
+        "medium"
+      ],
+      "date": "2025-11-15",
+      "placement": null,
+      "description": "Can you try to get the flag? I'm not revealing anything anymore!! Connect to the program with netcat: $ nc rescued-float.picoctf.net 53338",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/binary/medium/PIE TIME 2/PIE TIME 2.md",
+      "embeds": {
+        "Pasted image 20251107175820.png": "/ctf/picoCTF/binary/medium/PIE TIME 2/Images/Pasted image 20251107175820.png",
+        "Pasted image 20251107175942.png": "/ctf/picoCTF/binary/medium/PIE TIME 2/Images/Pasted image 20251107175942.png",
+        "Pasted image 20251107211343.png": "/ctf/picoCTF/binary/medium/PIE TIME 2/Images/Pasted image 20251107211343.png",
+        "Pasted image 20251107211351.png": "/ctf/picoCTF/binary/medium/PIE TIME 2/Images/Pasted image 20251107211351.png",
+        "Pasted image 20251107211357.png": "/ctf/picoCTF/binary/medium/PIE TIME 2/Images/Pasted image 20251107211357.png",
+        "Pasted image 20251107210342.png": "/ctf/picoCTF/binary/medium/PIE TIME 2/Images/Pasted image 20251107210342.png",
+        "Pasted image 20251107210509.png": "/ctf/picoCTF/binary/medium/PIE TIME 2/Images/Pasted image 20251107210509.png"
+      }
+    },
+    {
+      "id": "rev-easy-flag-hunters",
+      "title": "Flag Hunters",
+      "event": "picoCTF",
+      "category": "rev",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "rev",
+        "easy"
+      ],
+      "date": "2025-11-03",
+      "placement": null,
+      "description": "Lyrics jump from verses to the refrain kind of like a subroutine call. There's a hidden refrain this program doesn't print by default. Can you get it to print it? There might be something in it for you. The program's ...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/rev/easy/Flag Hunters/Flag Hunters.md",
+      "embeds": {
+        "Pasted image 20251023161107.png": "/ctf/picoCTF/rev/easy/Flag Hunters/Images/Pasted image 20251023161107.png"
+      }
+    },
+    {
+      "id": "rev-easy-transformation",
+      "title": "Transformation",
+      "event": "picoCTF",
+      "category": "rev",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "rev",
+        "easy"
+      ],
+      "date": "2025-10-31",
+      "placement": null,
+      "description": "Description I wonder what this really is... enc ''.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/rev/easy/Transformation/Transformation.md",
+      "embeds": {
+        "Pasted image 20251031140513.png": "/ctf/picoCTF/rev/easy/Transformation/Images/Pasted image 20251031140513.png",
+        "Pasted image 20251031141351.png": "/ctf/picoCTF/rev/easy/Transformation/Images/Pasted image 20251031141351.png",
+        "Pasted image 20251031141724.png": "/ctf/picoCTF/rev/easy/Transformation/Images/Pasted image 20251031141724.png",
+        "Pasted image 20251031142110.png": "/ctf/picoCTF/rev/easy/Transformation/Images/Pasted image 20251031142110.png",
+        "Pasted image 20251031142347.png": "/ctf/picoCTF/rev/easy/Transformation/Images/Pasted image 20251031142347.png"
+      }
+    },
+    {
+      "id": "rev-easy-vault-door-training",
+      "title": "vault-door-training",
+      "event": "picoCTF",
+      "category": "rev",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "rev",
+        "easy"
+      ],
+      "date": "2025-10-31",
+      "placement": null,
+      "description": "Your mission is to enter Dr. Evil's laboratory and retrieve the blueprints for his Doomsday Project. The laboratory is protected by a series of locked vault doors. Each door is controlled by a computer and requires a ...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/rev/easy/Vault Door Training/vault-door-training.md",
+      "embeds": {
+        "Pasted image 20251031112421.png": "/ctf/picoCTF/rev/easy/Vault Door Training/Images/Pasted image 20251031112421.png",
+        "Pasted image 20251031112448.png": "/ctf/picoCTF/rev/easy/Vault Door Training/Images/Pasted image 20251031112448.png"
+      }
+    },
+    {
+      "id": "rev-medium-chronohack",
+      "title": "Chronohack",
+      "event": "picoCTF",
+      "category": "rev",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "rev",
+        "medium"
+      ],
+      "date": "2025-11-14",
+      "placement": null,
+      "description": "Can you guess the exact token and unlock the hidden flag? Our school relies on tokens to authenticate students. Unfortunately, someone leaked an important [file for token generation](https://challenge-files.picoctf.ne...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/rev/medium/Chronohack/Chronohack.md",
+      "embeds": {
+        "Pasted image 20251114124612.png": "/ctf/picoCTF/rev/medium/Chronohack/Images/Pasted image 20251114124612.png",
+        "Pasted image 20251114124624.png": "/ctf/picoCTF/rev/medium/Chronohack/Images/Pasted image 20251114124624.png",
+        "Pasted image 20251114131815.png": "/ctf/picoCTF/rev/medium/Chronohack/Images/Pasted image 20251114131815.png",
+        "Pasted image 20251114131806.png": "/ctf/picoCTF/rev/medium/Chronohack/Images/Pasted image 20251114131806.png",
+        "Pasted image 20251114144104.png": "/ctf/picoCTF/rev/medium/Chronohack/Images/Pasted image 20251114144104.png"
+      }
+    },
+    {
+      "id": "rev-medium-m1n10n-5-53cr37",
+      "title": "M1n10n'5_53cr37",
+      "event": "picoCTF",
+      "category": "rev",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "rev",
+        "medium"
+      ],
+      "date": "2025-11-03",
+      "placement": null,
+      "description": "Get ready for a mischievous adventure with your favorite Minions! 🕵️‍♂️💥 They’ve been up to their old tricks, and this time, they've hidden the flag in a devious way within the Android source code. Your task is to c...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/rev/medium/M1n10n'5_53cr37/M1n10n'5_53cr37.md",
+      "embeds": {
+        "Pasted image 20251103154125.png": "/ctf/picoCTF/rev/medium/M1n10n'5_53cr37/Images/Pasted image 20251103154125.png",
+        "Pasted image 20251103154245.png": "/ctf/picoCTF/rev/medium/M1n10n'5_53cr37/Images/Pasted image 20251103154245.png",
+        "Pasted image 20251103154401.png": "/ctf/picoCTF/rev/medium/M1n10n'5_53cr37/Images/Pasted image 20251103154401.png",
+        "Pasted image 20251103155423.png": "/ctf/picoCTF/rev/medium/M1n10n'5_53cr37/Images/Pasted image 20251103155423.png",
+        "Pasted image 20251103155459.png": "/ctf/picoCTF/rev/medium/M1n10n'5_53cr37/Images/Pasted image 20251103155459.png"
+      }
+    },
+    {
+      "id": "rev-medium-pico-bank",
+      "title": "Pico Bank",
+      "event": "picoCTF",
+      "category": "rev",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "rev",
+        "medium"
+      ],
+      "date": "2025-11-14",
+      "placement": null,
+      "description": "In a bustling city where innovation meets finance, Pico Bank has emerged as a beacon of cutting-edge security. Promising state-of-the-art protection for your assets, the bank claims its mobile application is imperviou...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/rev/medium/Pico Bank/Pico Bank.md",
+      "embeds": {
+        "Pasted image 20251113131740.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113131740.png",
+        "Pasted image 20251113131816.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113131816.png",
+        "Pasted image 20251113231324.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113231324.png",
+        "Pasted image 20251113231453.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113231453.png",
+        "Pasted image 20251113231614.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113231614.png",
+        "Pasted image 20251113231857.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113231857.png",
+        "Pasted image 20251113232601.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113232601.png",
+        "Pasted image 20251113234336.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113234336.png",
+        "Pasted image 20251113235545.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113235545.png",
+        "Pasted image 20251113235631.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113235631.png",
+        "Pasted image 20251113235749.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113235749.png",
+        "Pasted image 20251113235824.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251113235824.png",
+        "Pasted image 20251114000108.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114000108.png",
+        "Pasted image 20251114000121.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114000121.png",
+        "Pasted image 20251114000209.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114000209.png",
+        "Pasted image 20251114000350.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114000350.png",
+        "Pasted image 20251114000457.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114000457.png",
+        "Pasted image 20251114000550.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114000550.png",
+        "Pasted image 20251114001003.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114001003.png",
+        "Pasted image 20251114001120.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114001120.png",
+        "Pasted image 20251114001256.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114001256.png",
+        "Pasted image 20251114001524.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114001524.png",
+        "Pasted image 20251114001648.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114001648.png",
+        "Pasted image 20251114001655.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114001655.png",
+        "Pasted image 20251114001922.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114001922.png",
+        "Pasted image 20251114001937.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114001937.png",
+        "Pasted image 20251114003037.png": "/ctf/picoCTF/rev/medium/Pico Bank/Images/Pasted image 20251114003037.png"
+      }
+    },
+    {
+      "id": "rev-medium-quantum-scrambler",
+      "title": "Quantum Scrambler",
+      "event": "picoCTF",
+      "category": "rev",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "rev",
+        "medium"
+      ],
+      "date": "2025-11-03",
+      "placement": null,
+      "description": "We invented a new cypher that uses \"quantum entanglement\" to encode the flag. Do you have what it takes to decode it? Connect to the program with netcat: `$ nc verbal-sleep.picoctf.net 59200` The program's source code...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/rev/medium/Quantum Scrambler/Quantum Scrambler.md",
+      "embeds": {
+        "Pasted image 20251103155944.png": "/ctf/picoCTF/rev/medium/Quantum Scrambler/Images/Pasted image 20251103155944.png",
+        "Pasted image 20251103160031.png": "/ctf/picoCTF/rev/medium/Quantum Scrambler/Images/Pasted image 20251103160031.png",
+        "Pasted image 20251103194550.png": "/ctf/picoCTF/rev/medium/Quantum Scrambler/Images/Pasted image 20251103194550.png",
+        "Pasted image 20251103194621.png": "/ctf/picoCTF/rev/medium/Quantum Scrambler/Images/Pasted image 20251103194621.png",
+        "Pasted image 20251103194707.png": "/ctf/picoCTF/rev/medium/Quantum Scrambler/Images/Pasted image 20251103194707.png"
+      }
+    },
+    {
+      "id": "rev-medium-tap-into-hash",
+      "title": "Tap into Hash",
+      "event": "picoCTF",
+      "category": "rev",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "rev",
+        "medium"
+      ],
+      "date": "2025-11-14",
+      "placement": null,
+      "description": "Can you make sense of this source code file and write a function that will decode the given encrypted file content? Find the encrypted file [here](https://challenge-files.picoctf.net/c_verbal_sleep/ba64ef56074be4d9f1b...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/rev/medium/Tap into Hash/Tap into Hash.md",
+      "embeds": {
+        "Pasted image 20251114155231.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114155231.png",
+        "Pasted image 20251114155308.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114155308.png",
+        "Pasted image 20251114155334.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114155334.png",
+        "Pasted image 20251114155344.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114155344.png",
+        "Pasted image 20251114220206.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114220206.png",
+        "Pasted image 20251114203902.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114203902.png",
+        "Pasted image 20251114204338.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114204338.png",
+        "Pasted image 20251114215655.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114215655.png",
+        "Pasted image 20251114215718.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114215718.png",
+        "Pasted image 20251114215841.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114215841.png",
+        "Pasted image 20251114215446.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114215446.png",
+        "Pasted image 20251114220408.png": "/ctf/picoCTF/rev/medium/Tap into Hash/Images/Pasted image 20251114220408.png"
+      }
+    },
+    {
+      "id": "web-easy-cookies",
+      "title": "Cookies",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "web",
+        "easy"
+      ],
+      "date": "2025-10-26",
+      "placement": null,
+      "description": "Who doesn't love cookies? Try to figure out the best one. [http://mercury.picoctf.net:27177/](http://mercury.picoctf.net:27177/) We get a page to search for cookies, for example the snickerdoodle user cookies.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/easy/Cookies/Cookies.md",
+      "embeds": {
+        "Pasted image 20251026162611.png": "/ctf/picoCTF/web/easy/Cookies/Images/Pasted image 20251026162611.png",
+        "Pasted image 20251026162733.png": "/ctf/picoCTF/web/easy/Cookies/Images/Pasted image 20251026162733.png",
+        "Pasted image 20251026165728.png": "/ctf/picoCTF/web/easy/Cookies/Images/Pasted image 20251026165728.png",
+        "Pasted image 20251026165806.png": "/ctf/picoCTF/web/easy/Cookies/Images/Pasted image 20251026165806.png",
+        "Pasted image 20251026165905.png": "/ctf/picoCTF/web/easy/Cookies/Images/Pasted image 20251026165905.png"
+      }
+    },
+    {
+      "id": "web-easy-crack-the-gate-1",
+      "title": "Crack the Gate 1",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "web",
+        "easy"
+      ],
+      "date": "2025-10-23",
+      "placement": null,
+      "description": "Description: We’re in the middle of an investigation. One of our persons of interest, ctf player, is believed to be hiding sensitive data inside a restricted web portal. We’ve uncovered the email address he uses to lo...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/easy/Crack The Gate 1/Crack the Gate 1.md",
+      "embeds": {
+        "Pasted image 20251023154314.png": "/ctf/picoCTF/web/easy/Crack The Gate 1/Images/Pasted image 20251023154314.png",
+        "Pasted image 20251023154907.png": "/ctf/picoCTF/web/easy/Crack The Gate 1/Images/Pasted image 20251023154907.png",
+        "Pasted image 20251023155048.png": "/ctf/picoCTF/web/easy/Crack The Gate 1/Images/Pasted image 20251023155048.png",
+        "Pasted image 20251023155612.png": "/ctf/picoCTF/web/easy/Crack The Gate 1/Images/Pasted image 20251023155612.png",
+        "Pasted image 20251023155620.png": "/ctf/picoCTF/web/easy/Crack The Gate 1/Images/Pasted image 20251023155620.png"
+      }
+    },
+    {
+      "id": "web-easy-get-ahead",
+      "title": "GET aHEAD",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "web",
+        "easy"
+      ],
+      "date": "2025-10-26",
+      "placement": null,
+      "description": "Find the flag being held on this server to get ahead of the competition [http://mercury.picoctf.net:21939/](http://mercury.picoctf.net:21939/) The description of this challenge is aHEAD, giving us an hint about the HE...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/easy/GET aHEAD/GET aHEAD.md",
+      "embeds": {
+        "Pasted image 20251026161732.png": "/ctf/picoCTF/web/easy/GET aHEAD/Images/Pasted image 20251026161732.png",
+        "Pasted image 20251026162345.png": "/ctf/picoCTF/web/easy/GET aHEAD/Images/Pasted image 20251026162345.png",
+        "Pasted image 20251026162514.png": "/ctf/picoCTF/web/easy/GET aHEAD/Images/Pasted image 20251026162514.png"
+      }
+    },
+    {
+      "id": "web-easy-head-dump",
+      "title": "head-dump",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "web",
+        "easy"
+      ],
+      "date": "2026-02-27",
+      "placement": null,
+      "description": "Welcome to the challenge! In this challenge, you will explore a web application and find an endpoint that exposes a file containing a hidden flag. The application is a simple blog website where you can read articles a...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/easy/head-dump/head-dump.md",
+      "embeds": {
+        "Pasted image 20260226231004.png": "/ctf/picoCTF/web/easy/head-dump/Images/Pasted image 20260226231004.png",
+        "Pasted image 20260226232938.png": "/ctf/picoCTF/web/easy/head-dump/Images/Pasted image 20260226232938.png",
+        "Pasted image 20260226233020.png": "/ctf/picoCTF/web/easy/head-dump/Images/Pasted image 20260226233020.png"
+      }
+    },
+    {
+      "id": "web-easy-inspector",
+      "title": "Inspector",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "web",
+        "easy"
+      ],
+      "date": "2025-10-26",
+      "placement": null,
+      "description": "Kishor Balan tipped us off that the following code may need inspection: `https://jupiter.challenges.picoctf.org/problem/9670/` ([link](https://jupiter.challenges.picoctf.org/problem/9670/)) or http://jupiter.challenge...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/easy/inspector/Inspector.md",
+      "embeds": {
+        "Pasted image 20251026160620.png": "/ctf/picoCTF/web/easy/inspector/Images/Pasted image 20251026160620.png",
+        "Pasted image 20251026160814.png": "/ctf/picoCTF/web/easy/inspector/Images/Pasted image 20251026160814.png",
+        "Pasted image 20251026160908.png": "/ctf/picoCTF/web/easy/inspector/Images/Pasted image 20251026160908.png",
+        "Pasted image 20251026160944.png": "/ctf/picoCTF/web/easy/inspector/Images/Pasted image 20251026160944.png"
+      }
+    },
+    {
+      "id": "web-easy-introburp",
+      "title": "IntroBurp",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "web",
+        "easy"
+      ],
+      "date": "2025-10-28",
+      "placement": null,
+      "description": "Try [here](http://titan.picoctf.net:61347/) to find the flag When I visit the site for the first time, we see this",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/easy/IntroBurp/IntroBurp.md",
+      "embeds": {
+        "Pasted image 20251028123605.png": "/ctf/picoCTF/web/easy/IntroBurp/Images/Pasted image 20251028123605.png",
+        "Pasted image 20251028123643.png": "/ctf/picoCTF/web/easy/IntroBurp/Images/Pasted image 20251028123643.png",
+        "Pasted image 20251028123733.png": "/ctf/picoCTF/web/easy/IntroBurp/Images/Pasted image 20251028123733.png",
+        "Pasted image 20251028123925.png": "/ctf/picoCTF/web/easy/IntroBurp/Images/Pasted image 20251028123925.png",
+        "Pasted image 20251028124236.png": "/ctf/picoCTF/web/easy/IntroBurp/Images/Pasted image 20251028124236.png",
+        "Pasted image 20251028124242.png": "/ctf/picoCTF/web/easy/IntroBurp/Images/Pasted image 20251028124242.png"
+      }
+    },
+    {
+      "id": "web-easy-logon",
+      "title": "logon",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "web",
+        "easy"
+      ],
+      "date": "2025-10-27",
+      "placement": null,
+      "description": "The factory is hiding things from all of its users. Can you login as Joe and find what they've been looking at? `https://jupiter.challenges.picoctf.org/problem/13594/` ([link](https://jupiter.challenges.picoctf.org/pr...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/easy/logon/logon.md",
+      "embeds": {
+        "Pasted image 20251026170846.png": "/ctf/picoCTF/web/easy/logon/Images/Pasted image 20251026170846.png",
+        "Pasted image 20251027230445.png": "/ctf/picoCTF/web/easy/logon/Images/Pasted image 20251027230445.png",
+        "Pasted image 20251027230523.png": "/ctf/picoCTF/web/easy/logon/Images/Pasted image 20251027230523.png",
+        "Pasted image 20251027230627.png": "/ctf/picoCTF/web/easy/logon/Images/Pasted image 20251027230627.png",
+        "Pasted image 20251027230755.png": "/ctf/picoCTF/web/easy/logon/Images/Pasted image 20251027230755.png"
+      }
+    },
+    {
+      "id": "web-easy-where-are-the-robots",
+      "title": "Where are the robots",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "easy",
+      "tags": [
+        "picoCTF",
+        "web",
+        "easy"
+      ],
+      "date": "2025-10-28",
+      "placement": null,
+      "description": "Can you find the robots? `https://jupiter.challenges.picoctf.org/problem/56830/` ([link](https://jupiter.challenges.picoctf.org/problem/56830/)) or http://jupiter.challenges.picoctf.org:56830 First time visiting the s...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/easy/Where are the robots/Where are the robots.md",
+      "embeds": {
+        "Pasted image 20251028151919.png": "/ctf/picoCTF/web/easy/Where are the robots/Images/Pasted image 20251028151919.png",
+        "Pasted image 20251028152036.png": "/ctf/picoCTF/web/easy/Where are the robots/Images/Pasted image 20251028152036.png",
+        "Pasted image 20251028152111.png": "/ctf/picoCTF/web/easy/Where are the robots/Images/Pasted image 20251028152111.png"
+      }
+    },
+    {
+      "id": "web-medium-bypassed",
+      "title": "bypassed",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "web",
+        "medium"
+      ],
+      "date": "2025-11-16",
+      "placement": null,
+      "description": "A university's online registration portal asks students to upload their ID cards for verification. The developer put some filters in place to ensure only image files are uploaded but are they enough? Take a look at ho...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/medium/bypassed/bypassed.md",
+      "embeds": {
+        "Pasted image 20251028235950.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251028235950.png",
+        "Pasted image 20251029173824.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251029173824.png",
+        "Pasted image 20251029173915.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251029173915.png",
+        "Pasted image 20251029173958.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251029173958.png",
+        "Pasted image 20251029174156.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251029174156.png",
+        "Pasted image 20251029174245.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251029174245.png",
+        "Pasted image 20251029174254.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251029174254.png",
+        "Pasted image 20251029174558.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251029174558.png",
+        "Pasted image 20251029174614.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251029174614.png",
+        "Pasted image 20251029174725.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251029174725.png",
+        "Pasted image 20251029174758.png": "/ctf/picoCTF/web/medium/bypassed/Images/Pasted image 20251029174758.png"
+      }
+    },
+    {
+      "id": "web-medium-crack-the-gate-2",
+      "title": "Crack the Gate 2",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "web",
+        "medium"
+      ],
+      "date": "2025-10-28",
+      "placement": null,
+      "description": "The login system has been upgraded with a basic rate-limiting mechanism that locks out repeated failed attempts from the same source. We’ve received a tip that the system might still trust user-controlled headers. You...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/medium/Crack the Gate 2/Crack the Gate 2.md",
+      "embeds": {
+        "Pasted image 20251028153843.png": "/ctf/picoCTF/web/medium/Crack the Gate 2/Images/Pasted image 20251028153843.png",
+        "Pasted image 20251028222204.png": "/ctf/picoCTF/web/medium/Crack the Gate 2/Images/Pasted image 20251028222204.png",
+        "Pasted image 20251028223035.png": "/ctf/picoCTF/web/medium/Crack the Gate 2/Images/Pasted image 20251028223035.png"
+      }
+    },
+    {
+      "id": "web-medium-java-code-analysis",
+      "title": "Java Code Analysis",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "web",
+        "medium"
+      ],
+      "date": "2026-03-08",
+      "placement": null,
+      "description": "BookShelf Pico, my premium online book-reading service. I believe that my website is super secure. I challenge you to prove me wrong by reading the 'Flag' book! Here are the credentials to get you started: - Username:...",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/medium/Java Code Analysis/Java Code Analysis.md",
+      "embeds": {
+        "Pasted image 20260307001957.png": "/ctf/picoCTF/web/medium/Java Code Analysis/Images/Pasted image 20260307001957.png",
+        "Pasted image 20260307002044.png": "/ctf/picoCTF/web/medium/Java Code Analysis/Images/Pasted image 20260307002044.png",
+        "Pasted image 20260307002300.png": "/ctf/picoCTF/web/medium/Java Code Analysis/Images/Pasted image 20260307002300.png",
+        "Pasted image 20260307002404.png": "/ctf/picoCTF/web/medium/Java Code Analysis/Images/Pasted image 20260307002404.png",
+        "Pasted image 20260307002504.png": "/ctf/picoCTF/web/medium/Java Code Analysis/Images/Pasted image 20260307002504.png",
+        "Pasted image 20260307002526.png": "/ctf/picoCTF/web/medium/Java Code Analysis/Images/Pasted image 20260307002526.png",
+        "Pasted image 20260307002624.png": "/ctf/picoCTF/web/medium/Java Code Analysis/Images/Pasted image 20260307002624.png",
+        "Pasted image 20260307002738.png": "/ctf/picoCTF/web/medium/Java Code Analysis/Images/Pasted image 20260307002738.png",
+        "Pasted image 20260307002843.png": "/ctf/picoCTF/web/medium/Java Code Analysis/Images/Pasted image 20260307002843.png"
+      }
+    },
+    {
+      "id": "web-medium-matchtheregex",
+      "title": "MatchTheRegex",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "web",
+        "medium"
+      ],
+      "date": "2026-02-27",
+      "placement": null,
+      "description": "How about trying to match a regular expression Additional details will be available after launching your challenge instance.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/medium/MatchTheRegex/MatchTheRegex.md",
+      "embeds": {
+        "Pasted image 20260226234236.png": "/ctf/picoCTF/web/medium/MatchTheRegex/Images/Pasted image 20260226234236.png",
+        "Pasted image 20260226234318.png": "/ctf/picoCTF/web/medium/MatchTheRegex/Images/Pasted image 20260226234318.png",
+        "Pasted image 20260226234346.png": "/ctf/picoCTF/web/medium/MatchTheRegex/Images/Pasted image 20260226234346.png",
+        "Pasted image 20260226234542.png": "/ctf/picoCTF/web/medium/MatchTheRegex/Images/Pasted image 20260226234542.png"
+      }
+    },
+    {
+      "id": "web-medium-secrets",
+      "title": "Secrets",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "web",
+        "medium"
+      ],
+      "date": "2026-03-08",
+      "placement": null,
+      "description": "We have several pages hidden. Can you find the one with the flag? The website is running [here](http://saturn.picoctf.net:64866/).",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/medium/Secrets/Secrets.md",
+      "embeds": {}
+    },
+    {
+      "id": "web-medium-soap",
+      "title": "SOAP",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "web",
+        "medium"
+      ],
+      "date": "2026-03-08",
+      "placement": null,
+      "description": "The web project was rushed and no security assessment was done. Can you read the /etc/passwd file? [Web Portal](http://saturn.picoctf.net:50907/) This is the website in question.",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/medium/SOAP/SOAP.md",
+      "embeds": {
+        "Pasted image 20260304222652.png": "/ctf/picoCTF/web/medium/SOAP/Images/Pasted image 20260304222652.png",
+        "Pasted image 20260304222736.png": "/ctf/picoCTF/web/medium/SOAP/Images/Pasted image 20260304222736.png",
+        "Pasted image 20260304223118.png": "/ctf/picoCTF/web/medium/SOAP/Images/Pasted image 20260304223118.png",
+        "Pasted image 20260304223230.png": "/ctf/picoCTF/web/medium/SOAP/Images/Pasted image 20260304223230.png"
+      }
+    },
+    {
+      "id": "web-medium-trickster",
+      "title": "Trickster",
+      "event": "picoCTF",
+      "category": "web",
+      "difficulty": "medium",
+      "tags": [
+        "picoCTF",
+        "web",
+        "medium"
+      ],
+      "date": "2026-03-04",
+      "placement": null,
+      "description": "I found a web app that can help process images: PNG images only! Try it [here](http://atlas.picoctf.net:63196/)! When I first enter the site this is what I got",
+      "writeup": true,
+      "markdownPath": "/ctf/picoCTF/web/medium/Trickster/Trickster.md",
+      "embeds": {
+        "Pasted image 20260304211852.png": "/ctf/picoCTF/web/medium/Trickster/Images/Pasted image 20260304211852.png",
+        "Pasted image 20260304211950.png": "/ctf/picoCTF/web/medium/Trickster/Images/Pasted image 20260304211950.png",
+        "Pasted image 20260304212125.png": "/ctf/picoCTF/web/medium/Trickster/Images/Pasted image 20260304212125.png",
+        "Pasted image 20260304212551.png": "/ctf/picoCTF/web/medium/Trickster/Images/Pasted image 20260304212551.png"
+      }
+    }
+  ]
+}

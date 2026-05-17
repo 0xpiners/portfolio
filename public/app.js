@@ -1221,7 +1221,282 @@ setInterval(updateParrotClock, 10000);
 	document.addEventListener('mouseup', () => { dragging = false; win.style.userSelect = ''; });
 })();
 
+// ── CTF data ───────────────────────────────────────────
+const CTF_FILTERS = [
+	{ id: 'all', label: 'All' },
+	{ id: 'web', label: 'Web' },
+	{ id: 'pwn', label: 'Pwn' },
+	{ id: 'rev', label: 'Rev' },
+	{ id: 'crypto', label: 'Crypto' },
+	{ id: 'pentest', label: 'Pentest' },
+	{ id: 'misc', label: 'Misc' },
+];
+
+const ctfs = [
+	{
+		title: 'Vulnerability Assessment — BLACKHOLE Inc.',
+		event: 'Pentest Lab',
+		category: 'pentest',
+		tags: ['pentest', 'ssti', 'rce', 'privesc'],
+		date: '2025',
+		placement: null,
+		description: 'Full penetration test following PTES methodology. Discovered and exploited SSTI leading to RCE (CVE-2022-29078) and a sudo misconfiguration for privilege escalation to root.',
+		writeup: true,
+	},
+	{
+		title: 'Evasive C2 Infrastructure on Cloudflare Workers',
+		event: 'Research',
+		category: 'misc',
+		tags: ['c2', 'red team', 'cloudflare', 'evasion'],
+		date: '2025',
+		placement: null,
+		description: 'Building APT-grade C2 using TypeScript, Workers, R2, and KV. Blending beacon traffic into legitimate CDN requests to evade network detection.',
+		writeup: true,
+	},
+	{
+		title: 'HTB University CTF 2024',
+		event: 'HackTheBox',
+		category: 'misc',
+		tags: ['web', 'pwn', 'rev', 'crypto'],
+		date: '2024',
+		placement: 'CarpeDien',
+		description: 'Competed with CarpeDien. Solved challenges across web exploitation, binary exploitation, reverse engineering, and cryptography.',
+		writeup: false,
+	},
+	{
+		title: 'Cyber Apocalypse CTF 2024',
+		event: 'HackTheBox',
+		category: 'misc',
+		tags: ['web', 'pwn', 'forensics', 'rev'],
+		date: '2024',
+		placement: 'CarpeDien',
+		description: 'Annual HackTheBox CTF. Solved challenges in web, binary exploitation, and digital forensics with the CarpeDien team.',
+		writeup: false,
+	},
+	{
+		title: 'ret2libc — bypassing NX via stack pivot',
+		event: 'PWN practice',
+		category: 'pwn',
+		tags: ['pwn', 'rop', 'libc', 'amd64'],
+		date: '2024',
+		placement: null,
+		description: 'Classical ret2libc with a twist: the stack was misaligned and the binary stripped. Leaked libc base via puts GOT entry, built a ROP chain to pop a shell.',
+		writeup: true,
+	},
+	{
+		title: 'JWT alg:none — admin account takeover',
+		event: 'Web practice',
+		category: 'web',
+		tags: ['web', 'jwt', 'auth bypass'],
+		date: '2024',
+		placement: null,
+		description: 'Server accepted unsigned JWTs when alg was set to none. Forged an admin token, bypassed role checks, and exfiltrated the flag from a protected endpoint.',
+		writeup: true,
+	},
+	{
+		title: 'LCG seed recovery — breaking PRNG',
+		event: 'Crypto practice',
+		category: 'crypto',
+		tags: ['crypto', 'lcg', 'prng', 'python'],
+		date: '2024',
+		placement: null,
+		description: 'Recovered the LCG seed from a sequence of partial outputs. Used lattice reduction (LLL) to solve the hidden number problem and predict future outputs.',
+		writeup: true,
+	},
+	{
+		title: 'UPX malware dropper — static unpacking',
+		event: 'Rev practice',
+		category: 'rev',
+		tags: ['rev', 'malware', 'upx', 'pe'],
+		date: '2024',
+		placement: null,
+		description: 'Statically unpacked a UPX-compressed PE dropper without running it. Reconstructed the import table and analysed the second-stage payload in Ghidra.',
+		writeup: true,
+	},
+];
+
+function buildCtfCards(list) {
+	return list.map((c, i) => `
+		<div class="proj-card" data-idx="${c._idx ?? i}">
+			<div class="proj-card__header">
+				<span class="proj-card__title">${c.title}</span>
+				${c.placement ? `<span class="proj-card__status proj-card__status--active">${c.placement}</span>` : `<span class="proj-card__status">${c.event}</span>`}
+			</div>
+			<div class="proj-card__tags">
+				${c.tags.slice(0, 4).map(t => `<span class="proj-card__tag">${t}</span>`).join('')}
+			</div>
+			<div class="proj-card__footer">
+				<span class="proj-card__date">${c.date}</span>
+				<button class="proj-card__open" data-idx="${c._idx ?? i}">${c.writeup ? 'Read writeup' : 'View details'}</button>
+			</div>
+		</div>`).join('');
+}
+
+function openCtfModal(c) {
+	document.querySelector('.ctf-modal')?.remove();
+	const modal = document.createElement('div');
+	modal.className = 'proj-modal ctf-modal';
+	modal.innerHTML = `
+		<div class="proj-modal__box">
+			<div class="proj-modal__header">
+				<div>
+					<div class="proj-modal__title">${c.title}</div>
+					<div class="proj-modal__meta">${c.date} &nbsp;&middot;&nbsp; ${c.event}${c.placement ? ' &nbsp;&middot;&nbsp; ' + c.placement : ''}</div>
+				</div>
+				<button class="proj-modal__close">&#x2715;</button>
+			</div>
+			<p class="proj-modal__desc">${c.description}</p>
+			<div class="proj-modal__tags">
+				${c.tags.map(t => `<span class="proj-card__tag">${t}</span>`).join('')}
+			</div>
+			<div class="proj-modal__actions">
+				${c.writeup
+					? '<span class="proj-modal__link">Writeup coming soon</span>'
+					: '<span class="proj-modal__link proj-modal__link--na">No writeup</span>'}
+			</div>
+		</div>`;
+	document.getElementById('ctfOnionContent').appendChild(modal);
+	modal.addEventListener('click', e => {
+		if (e.target === modal || e.target.closest('.proj-modal__close')) modal.remove();
+	});
+}
+
+function renderCtfs() {
+	const container = document.getElementById('ctfOnionContent');
+	if (!container) return;
+	const indexed = ctfs.map((c, i) => ({ ...c, _idx: i }));
+	const filterTabs = CTF_FILTERS.map(f =>
+		`<button class="proj-filter-tab${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}">${f.label}</button>`
+	).join('');
+	container.innerHTML = `
+		<div class="proj-onion-header">
+			<div class="proj-onion-logo-name">CTF Writeups</div>
+			<div class="proj-onion-logo-sub">${ctfs.length} entries &nbsp;&middot;&nbsp; CarpeDien</div>
+		</div>
+		<div class="proj-filter-bar">${filterTabs}</div>
+		<div class="proj-onion-grid" id="ctfGrid">${buildCtfCards(indexed)}</div>`;
+
+	const bar = container.querySelector('.proj-filter-bar');
+	const grid = container.querySelector('#ctfGrid');
+	bar.addEventListener('click', e => {
+		const btn = e.target.closest('.proj-filter-tab');
+		if (!btn) return;
+		bar.querySelectorAll('.proj-filter-tab').forEach(b => b.classList.remove('active'));
+		btn.classList.add('active');
+		const f = btn.dataset.filter;
+		const filtered = f === 'all' ? indexed : indexed.filter(c => c.category === f);
+		grid.innerHTML = buildCtfCards(filtered);
+	});
+	container.addEventListener('click', e => {
+		const btn = e.target.closest('.proj-card__open');
+		if (!btn) return;
+		openCtfModal(ctfs[+btn.dataset.idx]);
+	});
+}
+
+// ── CTF Parrot window controls ─────────────────────────
+(function () {
+	const win = document.getElementById('ctfTorBrowser');
+	const titlebar = document.getElementById('ctfTorTitlebar');
+	const taskbtn = document.getElementById('ctfTorTaskbtn');
+	if (!win || !taskbtn) return;
+
+	function minimize() { win.style.display = 'none'; taskbtn.classList.remove('active'); }
+	function restore() { win.style.display = ''; taskbtn.classList.add('active'); }
+	function close() { win.style.display = 'none'; taskbtn.style.display = 'none'; }
+
+	document.getElementById('ctfTorMin').addEventListener('click', minimize);
+	document.getElementById('ctfTorClose').addEventListener('click', close);
+	document.getElementById('iconCtfTor').addEventListener('dblclick', () => { taskbtn.style.display = ''; restore(); });
+	taskbtn.addEventListener('click', () => (win.style.display === 'none' ? restore() : minimize()));
+
+	const refreshBtn = document.getElementById('ctfTorRefresh');
+	const loadingBar = document.getElementById('ctfLoadingBar');
+	const pageContent = document.getElementById('ctfOnionContent');
+	if (refreshBtn && loadingBar && pageContent) {
+		refreshBtn.addEventListener('click', () => {
+			loadingBar.style.display = 'block';
+			loadingBar.style.width = '0%';
+			pageContent.style.opacity = '0.3';
+			setTimeout(() => { loadingBar.style.width = '30%'; }, 100);
+			setTimeout(() => { loadingBar.style.width = '70%'; }, 500);
+			setTimeout(() => {
+				loadingBar.style.width = '100%';
+				pageContent.style.opacity = '1';
+				toast('Page reloaded.');
+				setTimeout(() => { loadingBar.style.display = 'none'; loadingBar.style.width = '0%'; }, 300);
+			}, 900);
+		});
+	}
+
+	const omnibox = document.getElementById('ctfTorOmnibox');
+	if (omnibox) {
+		omnibox.addEventListener('click', () => {
+			const url = omnibox.querySelector('.tor-omnibox__url').innerText.trim();
+			navigator.clipboard.writeText(url).then(() => {
+				toast('Onion link copied!');
+				omnibox.style.background = '#1a2a1a';
+				setTimeout(() => { omnibox.style.background = ''; }, 200);
+			});
+		});
+	}
+
+	let saved = { l: '80px', t: '0px', w: '700px', h: '430px' };
+	document.getElementById('ctfTorMax').addEventListener('click', () => {
+		if (win.classList.contains('parrot-maximized')) {
+			win.classList.remove('parrot-maximized');
+			win.style.left = saved.l; win.style.top = saved.t;
+			win.style.width = saved.w; win.style.height = saved.h;
+		} else {
+			saved = { l: win.style.left || '80px', t: win.style.top || '0px', w: win.style.width || '700px', h: win.style.height || '430px' };
+			win.classList.add('parrot-maximized');
+			win.style.left = win.style.top = win.style.width = win.style.height = '';
+		}
+	});
+
+	let dragging = false, ox = 0, oy = 0;
+	titlebar.addEventListener('mousedown', e => {
+		if (e.target.closest('.parrot-ctrl')) return;
+		e.preventDefault();
+		if (win.classList.contains('parrot-maximized')) {
+			win.classList.remove('parrot-maximized');
+			win.style.left = saved.l; win.style.top = saved.t;
+			win.style.width = saved.w; win.style.height = saved.h;
+		}
+		dragging = true;
+		const areaRect = document.getElementById('ctfArea').getBoundingClientRect();
+		const winRect = win.getBoundingClientRect();
+		ox = e.clientX - winRect.left;
+		oy = e.clientY - winRect.top;
+		win.style.left = winRect.left - areaRect.left + 'px';
+		win.style.top = winRect.top - areaRect.top + 'px';
+		win.style.userSelect = 'none';
+	});
+	document.addEventListener('mousemove', e => {
+		if (!dragging) return;
+		const area = document.getElementById('ctfArea');
+		const areaRect = area.getBoundingClientRect();
+		win.style.left = Math.max(0, Math.min(area.clientWidth - win.offsetWidth, e.clientX - areaRect.left - ox)) + 'px';
+		win.style.top = Math.max(0, Math.min(area.clientHeight - win.offsetHeight, e.clientY - areaRect.top - oy)) + 'px';
+	});
+	document.addEventListener('mouseup', () => { dragging = false; win.style.userSelect = ''; });
+})();
+
+// ── CTF clock ──────────────────────────────────────────
+(function () {
+	function tick() {
+		const el = document.getElementById('ctfClock');
+		if (!el) return;
+		const now = new Date();
+		const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+		el.textContent = days[now.getDay()] + ' ' + String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+	}
+	tick();
+	setInterval(tick, 10000);
+})();
+
 // ── Init ───────────────────────────────────────────────
 renderTabs();
 renderProjects();
+renderCtfs();
 switchTab('home');

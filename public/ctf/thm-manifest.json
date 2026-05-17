@@ -1,0 +1,121 @@
+{
+  "generatedAt": "2026-05-17T01:57:05",
+  "source": "TryHackMe Rooms",
+  "total": 6,
+  "entries": [
+    {
+      "id": "thm-dreaming",
+      "title": "Dreaming",
+      "event": "TryHackMe",
+      "category": "pwn",
+      "difficulty": "easy",
+      "tags": [
+        "THM",
+        "pwn",
+        "easy",
+        "linux"
+      ],
+      "date": "2025-11-30",
+      "placement": null,
+      "description": "A Pluck CMS on an Apache server. Exploited a file upload vulnerability to gain a shell, then chained multiple privilege escalation steps to reach root.",
+      "writeup": true,
+      "markdownPath": "/ctf/THM/Dreaming/Dreaming.md",
+      "embeds": {}
+    },
+    {
+      "id": "thm-ide",
+      "title": "IDE",
+      "event": "TryHackMe",
+      "category": "pwn",
+      "difficulty": "easy",
+      "tags": [
+        "THM",
+        "pwn",
+        "easy",
+        "linux"
+      ],
+      "date": "2025-11-26",
+      "placement": null,
+      "description": "An exposed FTP service leaks credentials. After gaining a foothold through a vulnerable web service, exploited a sudo misconfiguration to escalate to root.",
+      "writeup": true,
+      "markdownPath": "/ctf/THM/IDE/IDE.md",
+      "embeds": {}
+    },
+    {
+      "id": "thm-library",
+      "title": "Library",
+      "event": "TryHackMe",
+      "category": "pwn",
+      "difficulty": "easy",
+      "tags": [
+        "THM",
+        "pwn",
+        "easy",
+        "linux"
+      ],
+      "date": "2025-11-23",
+      "placement": null,
+      "description": "Boot2root box from the FIT and BSides Guatemala CTF. Enumerated a hidden login, brute-forced credentials, and leveraged a Python library hijacking for root.",
+      "writeup": true,
+      "markdownPath": "/ctf/THM/Library/Library.md",
+      "embeds": {}
+    },
+    {
+      "id": "thm-plotted-tms",
+      "title": "Plotted-TMS",
+      "event": "TryHackMe",
+      "category": "pwn",
+      "difficulty": "easy",
+      "tags": [
+        "THM",
+        "pwn",
+        "easy",
+        "linux"
+      ],
+      "date": "2025-11-02",
+      "placement": null,
+      "description": "Traffic Management System running on a misconfigured server. Chained SQL injection and file upload to RCE, then exploited a cron job for privilege escalation.",
+      "writeup": true,
+      "markdownPath": "/ctf/THM/Plotted-TMS/Plotted-TMS.md",
+      "embeds": {}
+    },
+    {
+      "id": "thm-skynet",
+      "title": "Skynet",
+      "event": "TryHackMe",
+      "category": "pwn",
+      "difficulty": "easy",
+      "tags": [
+        "THM",
+        "pwn",
+        "easy",
+        "linux"
+      ],
+      "date": "2025-12-10",
+      "placement": null,
+      "description": "Terminator-themed machine combining Samba enumeration, Squirrelmail exploitation, and a remote file inclusion leading to a root shell via a wildcard injection.",
+      "writeup": true,
+      "markdownPath": "/ctf/THM/Skynet/Skynet.md",
+      "embeds": {}
+    },
+    {
+      "id": "thm-team",
+      "title": "Team",
+      "event": "TryHackMe",
+      "category": "pwn",
+      "difficulty": "easy",
+      "tags": [
+        "THM",
+        "pwn",
+        "easy",
+        "linux"
+      ],
+      "date": "2025-11-23",
+      "placement": null,
+      "description": "Beginner-friendly box. Virtual host enumeration revealed a dev subdomain with an LFI vulnerability. Escalated through SSH keys and a writable script called by cron.",
+      "writeup": true,
+      "markdownPath": "/ctf/THM/Team/Team.md",
+      "embeds": {}
+    }
+  ]
+}

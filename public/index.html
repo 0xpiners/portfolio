@@ -1,10 +1,26 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>0xpiners — Portfolio</title>
-		<link rel="stylesheet" href="/style.css?v=13" />
+		<title>piners.sh</title>
+		<link rel="icon" href="/images/random/bash.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="/style.css?v=44" />
+		<style>
+			#parrotTorBrowser,
+			#ctfTorBrowser {
+				position: absolute !important;
+				top: 0 !important;
+				left: 0 !important;
+				right: 0 !important;
+				bottom: 0 !important;
+				width: auto !important;
+				height: auto !important;
+			}
+		</style>
 	</head>
 	<body>
 		<!-- Title bar -->
@@ -149,19 +165,6 @@
 						Projects
 					</div>
 
-					<div class="tree-item tree-item--child" data-tab="resume">
-						<span class="tree-item__icon">
-							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<rect x="1" y="2" width="11" height="8" rx="1" stroke="#a0a0a0" stroke-width="1.1" />
-								<rect x="3.5" y="10" width="4" height="1" fill="#a0a0a0" />
-								<rect x="2" y="11" width="7" height="0.8" fill="#a0a0a0" />
-								<rect x="9" y="7" width="7" height="7" rx="1" fill="#1e1e1e" />
-								<polygon points="10.5,8.2 10.5,12.8 14.5,10.5" fill="#3cb371" />
-							</svg>
-						</span>
-						Resume
-					</div>
-
 					<div class="tree-item tree-item--child" data-tab="ctfs">
 						<span class="tree-item__icon">
 							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -173,6 +176,19 @@
 							</svg>
 						</span>
 						CTFs
+					</div>
+
+					<div class="tree-item tree-item--child" data-tab="resume">
+						<span class="tree-item__icon">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+								<rect x="1" y="2" width="11" height="8" rx="1" stroke="#a0a0a0" stroke-width="1.1" />
+								<rect x="3.5" y="10" width="4" height="1" fill="#a0a0a0" />
+								<rect x="2" y="11" width="7" height="0.8" fill="#a0a0a0" />
+								<rect x="9" y="7" width="7" height="7" rx="1" fill="#1e1e1e" />
+								<polygon points="10.5,8.2 10.5,12.8 14.5,10.5" fill="#3cb371" />
+							</svg>
+						</span>
+						Resume
 					</div>
 				</div>
 			</aside>
@@ -234,6 +250,14 @@
 											<span class="tor-tab__close">&#x2715;</span>
 										</div>
 										<button class="tor-newtab">+</button>
+										<div class="tor-tabstrip__spacer"></div>
+										<div class="tor-tabstrip__end">
+											<div class="tor-winctrl-group">
+												<button class="tor-winctrl tor-winctrl--min">&#x2013;</button
+												><button class="tor-winctrl tor-winctrl--max">&#x25A1;</button
+												><button class="tor-winctrl tor-winctrl--close">&#x2715;</button>
+											</div>
+										</div>
 									</div>
 									<div class="tor-navbar">
 										<div class="tor-navbtns">
@@ -280,99 +304,301 @@
 									</div>
 									<div class="tor-content">
 										<div class="tor-loading-bar" id="torLoadingBar"></div>
-										<div class="portfolio-page" id="torPageContent">
-											<header class="pf-header">
-												<div class="pf-logo">
-													<div class="pf-logo-text">Pinheiro's Home Page</div>
+										<div class="hb-wrap" id="torPageContent">
+											<nav class="hb-nav">
+												<div class="hb-nav__logo">Pinheiro</div>
+												<div class="hb-nav__links">
+													<span class="hb-nav__link">CTF Writeups</span>
+													<span class="hb-nav__link">Projects</span>
+													<span class="hb-nav__link">Resume</span>
+													<span class="hb-nav__link">Contact</span>
+													<button class="btn-light-mode hb-light-btn" title="Toggle light mode">
+														<svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+															<circle
+																cx="8"
+																cy="8"
+																r="6"
+																fill="none"
+																stroke="currentColor"
+																stroke-width="1.3"
+															/>
+															<path d="M8 2a6 6 0 010 12V2z" />
+														</svg>
+													</button>
 												</div>
-												<div class="pf-search-bar">
-													<input type="text" placeholder="Search the web..." />
-													<button>Search</button>
-												</div>
-											</header>
-											<nav class="pf-nav">
-												<div class="pf-nav-link active">Home</div>
-												<div class="pf-nav-link">About</div>
-												<div class="pf-nav-link">Portfolio</div>
-												<div class="pf-nav-link">Security</div>
-												<div class="pf-nav-link">Guestbook</div>
 											</nav>
-											<div class="pf-main">
-												<aside class="pf-sidebar">
-													<div class="pf-sidebox">
-														<div class="pf-sidebox-header">
-															<span>Site Tasks</span>
-															<span>&#9662;</span>
+											<div class="hb-banner">
+												<img class="hb-banner__bg" src="/images/random/iceland.jpeg?v=1" alt="" />
+												<div class="hb-banner__overlay">
+													<div class="hb-banner__title">PINERS</div>
+													<div class="hb-banner__sub">RED TEAMER</div>
+												</div>
+											</div>
+											<div class="hb-body">
+												<main class="hb-main">
+													<div class="hb-about">
+														<div class="hb-about__name">piners</div>
+														<div class="hb-about__role">Offensive Security Researcher</div>
+														<div class="hb-about__location">
+															Lisbon, Portugal &middot; MSc Cybersecurity @ IST
 														</div>
-														<div class="pf-sidebox-content">
-															<a href="#" class="pf-sidebox-link">View resume</a>
-															<a href="#" class="pf-sidebox-link">Email me</a>
-															<a href="#" class="pf-sidebox-link">Download PGP key</a>
+														<div class="hb-about__bullets">
+															<div class="hb-about__bullet">
+																security researcher & software engineer focused on offensive security
+															</div>
+															<div class="hb-about__bullet">red teamer</div>
+															<div class="hb-about__bullet">
+																3rd place Portugal on CTFTime (2024) &mdash; CarpeDien team
+															</div>
+															<div class="hb-about__bullet">
+																penetration testing &middot; web exploitation &middot; incident response
+																&middot; C2 infrastructure &middot; malware analysis
+															</div>
+															<div class="hb-about__bullet">
+																football &middot; piano &middot; travelling &middot; PC gaming
+															</div>
 														</div>
 													</div>
-													<div class="pf-sidebox">
-														<div class="pf-sidebox-header">
-															<span>Other Places</span>
-															<span>&#9662;</span>
+
+													<hr class="hb-divider" />
+													<div class="hb-section-title">experience</div>
+													<div class="hb-timeline">
+														<div class="hb-timeline__item">
+															<div class="hb-timeline__header">
+																<span class="hb-timeline__org">Cloudflare</span>
+																<span class="hb-timeline__date">Jun 2025 &mdash; Present</span>
+															</div>
+															<div class="hb-timeline__role">Red Team Engineer</div>
+															<ul class="hb-timeline__points">
+																<li class="hb-timeline__point">
+																	Exploited an RCE vulnerability within internal tooling
+																</li>
+																<li class="hb-timeline__point">
+																	Designed and executed phishing campaigns to assess employee security
+																	awareness
+																</li>
+																<li class="hb-timeline__point">
+																	Built evasive C2 infrastructure on Cloudflare Workers to simulate APT
+																	techniques
+																</li>
+																<li class="hb-timeline__point">
+																	Evaluated SIRT defenses and identified detection gaps
+																</li>
+															</ul>
 														</div>
-														<div class="pf-sidebox-content">
-															<a href="#" class="pf-sidebox-link">My GitHub</a>
-															<a href="#" class="pf-sidebox-link">LinkedIn Profile</a>
-															<a href="#" class="pf-sidebox-link">CTF Logs</a>
+														<div class="hb-timeline__item">
+															<div class="hb-timeline__header">
+																<span class="hb-timeline__org">NEIIST</span>
+																<span class="hb-timeline__date">Apr 2026 &mdash; Present</span>
+															</div>
+															<div class="hb-timeline__role">Dev Team Collaborator</div>
+															<ul class="hb-timeline__points">
+																<li class="hb-timeline__point">
+																	Building the association's web platform with React.js for student events
+																	and workshops
+																</li>
+																<li class="hb-timeline__point">
+																	Implementing security best practices to harden the digital
+																	infrastructure
+																</li>
+															</ul>
+														</div>
+														<div class="hb-timeline__item">
+															<div class="hb-timeline__header">
+																<span class="hb-timeline__org">Paldata</span>
+																<span class="hb-timeline__date">Jan 2025 &mdash; May 2025</span>
+															</div>
+															<div class="hb-timeline__role">SOC Analyst</div>
+															<ul class="hb-timeline__points">
+																<li class="hb-timeline__point">
+																	Investigated security incidents using Cortex XSIAM and automated routine
+																	triage
+																</li>
+																<li class="hb-timeline__point">
+																	Developed Python scripts for automated client notifications and custom
+																	detection rules
+																</li>
+															</ul>
+														</div>
+														<div class="hb-timeline__item">
+															<div class="hb-timeline__header">
+																<span class="hb-timeline__org">Caixa M&aacute;gica Software</span>
+																<span class="hb-timeline__date">Jun 2024 &mdash; Sep 2024</span>
+															</div>
+															<div class="hb-timeline__role">Software Engineer Intern</div>
+															<ul class="hb-timeline__points">
+																<li class="hb-timeline__point">
+																	Built a full-stack digital comic reader using React Native with a custom
+																	panel-by-panel processing engine
+																</li>
+															</ul>
 														</div>
 													</div>
-													<div
-														class="pf-sidebox"
-														style="
-															background: transparent;
-															border: none;
-															box-shadow: none;
-															color: #fff;
-															font-size: 10px;
-														"
-													>
-														<div style="margin-bottom: 5px">Best viewed in:</div>
-														<div class="xp-badge">Microsoft IE 6.0</div>
-														<div class="xp-badge" style="margin-top: 3px">800 x 600 Res</div>
+
+													<hr class="hb-divider" />
+													<div class="hb-section-title">education</div>
+													<div class="hb-timeline">
+														<div class="hb-timeline__item">
+															<div class="hb-timeline__header">
+																<span class="hb-timeline__org">Instituto Superior T&eacute;cnico</span>
+																<span class="hb-timeline__date">Sep 2025 &mdash; Present</span>
+															</div>
+															<div class="hb-timeline__role">
+																MSc Computer Engineering &mdash; Cybersecurity
+															</div>
+															<ul class="hb-timeline__points">
+																<li class="hb-timeline__point">
+																	Network security, AppSec, cryptography, and forensics
+																</li>
+															</ul>
+														</div>
+														<div class="hb-timeline__item">
+															<div class="hb-timeline__header">
+																<span class="hb-timeline__org">ISCTE</span>
+																<span class="hb-timeline__date">Sep 2022 &mdash; Jun 2025</span>
+															</div>
+															<div class="hb-timeline__role">
+																BSc Computer Engineering &amp; Telecommunications
+															</div>
+															<ul class="hb-timeline__points">
+																<li class="hb-timeline__point">
+																	CarpeDien CTF team &mdash; 3rd place Portugal on CTFTime (2024)
+																</li>
+																<li class="hb-timeline__point">
+																	Co-organized FISTA 2024, a major cybersecurity CTF event at ISCTE
+																</li>
+															</ul>
+														</div>
+														<div class="hb-timeline__item">
+															<div class="hb-timeline__header">
+																<span class="hb-timeline__org">ESILV &mdash; Paris</span>
+																<span class="hb-timeline__date">Jan 2024 &mdash; May 2024</span>
+															</div>
+															<div class="hb-timeline__role">
+																MSc Cybersecurity &amp; Cloud &mdash; Exchange Semester
+															</div>
+															<ul class="hb-timeline__points">
+																<li class="hb-timeline__point">
+																	DeVinciCode CTF team, web exploitation and reverse engineering
+																</li>
+															</ul>
+														</div>
+													</div>
+
+													<hr class="hb-divider" />
+													<div class="hb-section-title">recent projects</div>
+													<div class="hb-proj-row">
+														<div class="hb-proj-item">
+															<div class="hb-proj-item__title">Smalito</div>
+															<div class="hb-proj-item__tags">
+																<span class="hb-tag">TypeScript</span>
+																<span class="hb-tag">Cloudflare Workers</span>
+																<span class="hb-tag">D1 &middot; KV &middot; R2</span>
+															</div>
+															<div class="hb-proj-item__desc">
+																Full-stack URL shortener deployed on Cloudflare edge with Stripe
+																subscriptions, analytics, and user authentication.
+															</div>
+														</div>
+														<div class="hb-proj-item">
+															<div class="hb-proj-item__title">DeathNode</div>
+															<div class="hb-proj-item__tags">
+																<span class="hb-tag">Java</span>
+																<span class="hb-tag">AES-256-GCM</span>
+																<span class="hb-tag">TLS mTLS</span>
+															</div>
+															<div class="hb-proj-item__desc">
+																Cryptographic P2P reporting platform with end-to-end encryption,
+																invitation-only access via signed tokens, and per-service VM isolation.
+															</div>
+														</div>
+														<div class="hb-proj-item">
+															<div class="hb-proj-item__title">DepChain</div>
+															<div class="hb-proj-item__tags">
+																<span class="hb-tag">Java</span>
+																<span class="hb-tag">Blockchain</span>
+																<span class="hb-tag">BFT</span>
+																<span class="hb-tag">EVM</span>
+															</div>
+															<div class="hb-proj-item__desc">
+																Permissioned blockchain with HotStuff-style Byzantine fault-tolerant
+																consensus, EVM via Hyperledger Besu, and a full authenticated networking
+																stack.
+															</div>
+														</div>
+														<div class="hb-proj-item">
+															<div class="hb-proj-item__title">Simple Onion Router</div>
+															<div class="hb-proj-item__tags">
+																<span class="hb-tag">TypeScript</span>
+																<span class="hb-tag">Node.js</span>
+																<span class="hb-tag">RSA</span>
+															</div>
+															<div class="hb-proj-item__desc">
+																Three-component onion routing network with layered RSA encryption enabling
+																anonymous communication without exposing source or destination.
+															</div>
+														</div>
+													</div>
+
+													<hr class="hb-divider" />
+													<div class="hb-section-title">ctf highlights</div>
+													<div class="hb-ctf-row">
+														<div class="hb-ctf-item">
+															<div class="hb-ctf-item__title">3rd place Portugal &mdash; CTFTime 2024</div>
+															<div class="hb-ctf-item__meta">CarpeDien team &middot; ISCTE</div>
+														</div>
+														<div class="hb-ctf-item">
+															<div class="hb-ctf-item__title">FISTA 2024 &mdash; Organizer</div>
+															<div class="hb-ctf-item__meta">
+																Major cybersecurity CTF event hosted at ISCTE
+															</div>
+														</div>
+														<div class="hb-ctf-item">
+															<div class="hb-ctf-item__title">DeVinciCode CTF Team</div>
+															<div class="hb-ctf-item__meta">
+																Web exploitation &middot; reverse engineering &middot; ESILV Paris
+															</div>
+														</div>
+													</div>
+												</main>
+												<aside class="hb-sidebar">
+													<div class="hb-widget">
+														<div class="hb-widget__title">About</div>
+														<div class="hb-widget__body">
+															Red Team Engineer @ Cloudflare. MSc Cybersecurity @ IST. Security researcher.
+														</div>
+													</div>
+													<div class="hb-widget">
+														<div class="hb-widget__title">Links</div>
+														<div class="hb-widget__body">
+															<a href="https://github.com/0xpiners" target="_blank" class="hb-widget__link"
+																>GitHub</a
+															>
+															<a
+																href="https://linkedin.com/in/davidmbp"
+																target="_blank"
+																class="hb-widget__link"
+																>LinkedIn</a
+															>
+															<a
+																href="/resume/David_Pinheiro_Resume.pdf"
+																target="_blank"
+																class="hb-widget__link"
+																>Resume</a
+															>
+														</div>
+													</div>
+													<div class="hb-widget">
+														<div class="hb-widget__title">Categories</div>
+														<div class="hb-widget__body">
+															<div class="hb-cat">Red Team <span>3</span></div>
+															<div class="hb-cat">Cryptography <span>2</span></div>
+															<div class="hb-cat">CTF Writeups <span>5</span></div>
+															<div class="hb-cat">Projects <span>4</span></div>
+														</div>
 													</div>
 												</aside>
-												<main class="pf-content">
-													<section class="pf-welcome-box">
-														<h2>Welcome to my official home page!</h2>
-														<p>
-															You have reached the official onion site of <strong>Pinheiro</strong>. This site
-															is currently under development, but feel free to browse around and learn more
-															about my work in software development and cybersecurity.
-														</p>
-													</section>
-
-													<h3 class="pf-section-title">Latest Projects</h3>
-													<div class="xp-project-card">
-														<h3>Project: Secure-Kernel-01</h3>
-														<p>
-															A demonstration of kernel-level security mitigations for legacy systems. Built
-															to explore memory protection techniques in C++.
-														</p>
-														<div>
-															<span class="xp-project-tag">C++</span>
-															<span class="xp-project-tag">x86 Assembly</span>
-														</div>
-													</div>
-
-													<h3 class="pf-section-title">Skillset</h3>
-													<ul class="xp-list">
-														<li class="xp-list-item">
-															Full-stack web development (React, Node.js, TypeScript)
-														</li>
-														<li class="xp-list-item">Security research and penetration testing</li>
-														<li class="xp-list-item">Legacy system optimization and support</li>
-													</ul>
-												</main>
 											</div>
-											<footer class="pf-footer">
-												<div>Total Hits: <span class="hit-counter">000412</span></div>
-												<div>&copy; 2026 David Pinheiro. Built with Notepad.</div>
-											</footer>
 										</div>
 									</div>
 								</div>
@@ -403,7 +629,7 @@
 										justify-content: center;
 										color: #000;
 										font-family: 'Tahoma', sans-serif;
-										font-size: 13px;
+										font-size: 14px;
 									"
 								>
 									This folder is empty.
@@ -433,7 +659,7 @@
 										padding: 20px;
 										color: #000;
 										font-family: 'Tahoma', sans-serif;
-										font-size: 13px;
+										font-size: 14px;
 									"
 								>
 									<div style="font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #ccc">
@@ -441,8 +667,8 @@
 									</div>
 									<div style="display: flex; gap: 20px; margin-bottom: 20px">
 										<div style="display: flex; flex-direction: column; align-items: center; width: 80px">
-											<div style="font-size: 24px">💽</div>
-											<div style="text-align: center; font-size: 11px">Local Disk (C:)</div>
+											<div style="font-size: 25px">💽</div>
+											<div style="text-align: center; font-size: 12px">Local Disk (C:)</div>
 										</div>
 									</div>
 									<div style="font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #ccc">
@@ -450,13 +676,35 @@
 									</div>
 									<div style="display: flex; gap: 20px">
 										<div style="display: flex; flex-direction: column; align-items: center; width: 80px">
-											<div style="font-size: 24px">💿</div>
-											<div style="text-align: center; font-size: 11px">CD Drive (D:)</div>
+											<div style="font-size: 25px">💿</div>
+											<div style="text-align: center; font-size: 12px">CD Drive (D:)</div>
 										</div>
 										<div style="display: flex; flex-direction: column; align-items: center; width: 80px">
-											<div style="font-size: 24px">💾</div>
-											<div style="text-align: center; font-size: 11px">3½ Floppy (A:)</div>
+											<div style="font-size: 25px">💾</div>
+											<div style="text-align: center; font-size: 12px">3½ Floppy (A:)</div>
 										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- My Documents window -->
+							<div
+								class="xp-window"
+								id="xpMyDocuments"
+								style="display: none; top: 70px; left: 220px; width: 480px; height: 320px"
+							>
+								<div class="xp-titlebar" id="xpMyDocTitlebar">
+									<div class="xp-titlebar__icon">&#128193;</div>
+									<div class="xp-titlebar__title">My Documents</div>
+									<div class="xp-titlebar__btns">
+										<button class="xp-ctrl" id="xpMyDocMin">&#x2013;</button>
+										<button class="xp-ctrl" id="xpMyDocMax">&#x25A1;</button>
+										<button class="xp-ctrl close" id="xpMyDocClose">&#x2715;</button>
+									</div>
+								</div>
+								<div class="xp-folder-content" id="xpMyDocContent">
+									<div class="xp-folder-empty" id="xpMyDocEmpty">
+										This folder is empty.<br />Drag desktop icons here to move them.
 									</div>
 								</div>
 							</div>
@@ -477,11 +725,15 @@
 								<span>Pinheiro &#x2014; Tor Browser</span>
 							</button>
 							<button class="xp-taskbtn" id="xpRecycleTaskbtn" style="display: none">
-								<span style="font-size: 11px; margin-right: 4px">🗑️</span>
+								<span style="font-size: 12px; margin-right: 4px">🗑️</span>
 								<span>Recycle Bin</span>
 							</button>
+							<button class="xp-taskbtn" id="xpMyDocTaskbtn" style="display: none">
+								<span style="font-size: 12px; margin-right: 4px">&#128193;</span>
+								<span>My Documents</span>
+							</button>
 							<button class="xp-taskbtn" id="xpComputerTaskbtn" style="display: none">
-								<span style="font-size: 11px; margin-right: 4px">🖥️</span>
+								<span style="font-size: 12px; margin-right: 4px">🖥️</span>
 								<span>My Computer</span>
 							</button>
 							<div class="xp-systray">
@@ -496,16 +748,16 @@
 				<div class="vm-screen" id="screen-projects">
 					<div class="parrot-desktop">
 						<div class="parrot-area" id="parrotArea">
-							<div class="parrot-icon" style="top:16px;left:16px" id="iconParrotTor">
+							<div class="parrot-icon" style="top: 16px; left: 16px" id="iconParrotTor">
 								<div class="parrot-icon__img">
-									<img src="/images/tor/Tor_Browser_icon.svg.png" style="width:32px;height:32px" alt="Tor" />
+									<img src="/images/tor/Tor_Browser_icon.svg.png" style="width: 32px; height: 32px" alt="Tor" />
 								</div>
 								<div class="parrot-icon__label">Tor Browser</div>
 							</div>
 							<div class="parrot-window parrot-maximized" id="parrotTorBrowser">
 								<div class="parrot-titlebar" id="parrotTorTitlebar">
 									<div class="parrot-titlebar__icon">
-										<img src="/images/tor/Tor_Browser_icon.svg.png" style="width:14px;height:14px" alt="Tor" />
+										<img src="/images/tor/Tor_Browser_icon.svg.png" style="width: 14px; height: 14px" alt="Tor" />
 									</div>
 									<div class="parrot-titlebar__title">Projects &#x2014; 0xpiners &#x2014; Tor Browser</div>
 									<div class="parrot-titlebar__btns">
@@ -517,11 +769,26 @@
 								<div class="tor-shell">
 									<div class="tor-tabstrip">
 										<div class="tor-tab tor-tab--active">
-											<svg width="12" height="12" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a"/><ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe"/><ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#b07eec"/><path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371"/><path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c"/><path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c"/></svg>
+											<svg width="12" height="12" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												<ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a" />
+												<ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe" />
+												<ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#b07eec" />
+												<path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371" />
+												<path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c" />
+												<path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c" />
+											</svg>
 											<span class="tor-tab__title">Projects &#x2014; 0xpiners</span>
 											<span class="tor-tab__close">&#x2715;</span>
 										</div>
 										<button class="tor-newtab">+</button>
+										<div class="tor-tabstrip__spacer"></div>
+										<div class="tor-tabstrip__end">
+											<div class="tor-winctrl-group">
+												<button class="tor-winctrl tor-winctrl--min">&#x2013;</button
+												><button class="tor-winctrl tor-winctrl--max">&#x25A1;</button
+												><button class="tor-winctrl tor-winctrl--close">&#x2715;</button>
+											</div>
+										</div>
 									</div>
 									<div class="tor-navbar">
 										<div class="tor-navbtns">
@@ -529,21 +796,44 @@
 											<button class="tor-navbtn" disabled>&#9654;</button>
 											<button class="tor-navbtn" id="parrotTorRefresh">&#8635;</button>
 										</div>
-										<div class="tor-omnibox" id="parrotTorOmnibox" title="Click to copy" style="cursor:pointer">
-											<svg width="13" height="13" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a"/><ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe"/><ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#b07eec"/><path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371"/><path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c"/><path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c"/></svg>
-											<span class="tor-omnibox__url">projectsxqb2tz7wadr4mcnqc7ywzaeqp35sgzyxa5imhnsggfxnu5rkv.onion</span>
+										<div class="tor-omnibox" id="parrotTorOmnibox" title="Click to copy" style="cursor: pointer">
+											<svg width="13" height="13" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												<ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a" />
+												<ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe" />
+												<ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#b07eec" />
+												<path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371" />
+												<path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c" />
+												<path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c" />
+											</svg>
+											<span class="tor-omnibox__url"
+												>projectsxqb2tz7wadr4mcnqc7ywzaeqp35sgzyxa5imhnsggfxnu5rkv.onion</span
+											>
 										</div>
 										<div class="tor-navbar__actions">
 											<button class="tor-navbtn" title="New Identity">
-												<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 14l2.5-5.5L11 2l3 3-6.5 6.5L2 14z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M9.5 2.5l3 3" stroke="currentColor" stroke-width="1.3"/></svg>
+												<svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+													<path
+														d="M2 14l2.5-5.5L11 2l3 3-6.5 6.5L2 14z"
+														stroke="currentColor"
+														stroke-width="1.3"
+														stroke-linejoin="round"
+													/>
+													<path d="M9.5 2.5l3 3" stroke="currentColor" stroke-width="1.3" />
+												</svg>
 											</button>
 											<button class="tor-navbtn" title="Security Settings">
-												<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L2.5 4v4C2.5 11 5 13.5 8 14.5c3-1 5.5-3.5 5.5-6.5V4L8 1.5z" stroke="currentColor" stroke-width="1.2"/></svg>
+												<svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+													<path
+														d="M8 1.5L2.5 4v4C2.5 11 5 13.5 8 14.5c3-1 5.5-3.5 5.5-6.5V4L8 1.5z"
+														stroke="currentColor"
+														stroke-width="1.2"
+													/>
+												</svg>
 											</button>
 											<button class="tor-navbtn tor-navbtn--menu">&#9776;</button>
 										</div>
 									</div>
-									<div class="tor-content" style="background:#080b14">
+									<div class="tor-content" style="background: #0a0a0a">
 										<div class="tor-loading-bar" id="parrotLoadingBar"></div>
 										<div class="proj-onion-page" id="projOnionContent"></div>
 									</div>
@@ -555,7 +845,7 @@
 							<button class="parrot-appbtn">Places</button>
 							<div class="parrot-panel-sep"></div>
 							<button class="parrot-taskbtn active" id="parrotTorTaskbtn">
-								<img src="/images/tor/Tor_Browser_icon.svg.png" style="width:13px;height:13px" alt="Tor" />
+								<img src="/images/tor/Tor_Browser_icon.svg.png" style="width: 13px; height: 13px" alt="Tor" />
 								<span>Projects &#x2014; Tor Browser</span>
 							</button>
 							<div class="parrot-systray">
@@ -563,9 +853,9 @@
 							</div>
 						</div>
 					</div>
-					</div>
+				</div>
 
-					<div class="vm-screen" id="screen-resume" style="background: #130d1a">
+				<div class="vm-screen" id="screen-resume" style="background: #130d1a">
 					<div class="vm-bg">
 						<div class="vm-bg__col" style="color: #a06eff"></div>
 						<div class="vm-bg__col" style="color: #a06eff"></div>
@@ -577,13 +867,114 @@
 						title="Resume"
 					></iframe>
 				</div>
-				<div class="vm-screen" id="screen-ctfs" style="background: #1a0d0d">
-					<div class="vm-bg">
-						<div class="vm-bg__col" style="color: #e74c3c"></div>
-						<div class="vm-bg__col" style="color: #e74c3c"></div>
-						<div class="vm-bg__col" style="color: #e74c3c"></div>
+				<div class="vm-screen" id="screen-ctfs">
+					<div class="parrot-desktop">
+						<div class="parrot-area" id="ctfArea">
+							<div class="parrot-icon" style="top: 16px; left: 16px" id="iconCtfTor">
+								<div class="parrot-icon__img">
+									<img src="/images/tor/Tor_Browser_icon.svg.png" style="width: 32px; height: 32px" alt="Tor" />
+								</div>
+								<div class="parrot-icon__label">Tor Browser</div>
+							</div>
+							<div class="parrot-window parrot-maximized" id="ctfTorBrowser">
+								<div class="parrot-titlebar" id="ctfTorTitlebar">
+									<div class="parrot-titlebar__icon">
+										<img src="/images/tor/Tor_Browser_icon.svg.png" style="width: 14px; height: 14px" alt="Tor" />
+									</div>
+									<div class="parrot-titlebar__title">CTFs &#x2014; 0xpiners &#x2014; Tor Browser</div>
+									<div class="parrot-titlebar__btns">
+										<button class="parrot-ctrl" id="ctfTorMin">&#x2013;</button>
+										<button class="parrot-ctrl" id="ctfTorMax">&#x25A1;</button>
+										<button class="parrot-ctrl parrot-ctrl--close" id="ctfTorClose">&#x2715;</button>
+									</div>
+								</div>
+								<div class="tor-shell">
+									<div class="tor-tabstrip">
+										<div class="tor-tab tor-tab--active">
+											<svg width="12" height="12" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												<ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a" />
+												<ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe" />
+												<ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#b07eec" />
+												<path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371" />
+												<path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c" />
+												<path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c" />
+											</svg>
+											<span class="tor-tab__title">CTFs &#x2014; 0xpiners</span>
+											<span class="tor-tab__close">&#x2715;</span>
+										</div>
+										<button class="tor-newtab">+</button>
+										<div class="tor-tabstrip__spacer"></div>
+										<div class="tor-tabstrip__end">
+											<div class="tor-winctrl-group">
+												<button class="tor-winctrl tor-winctrl--min">&#x2013;</button
+												><button class="tor-winctrl tor-winctrl--max">&#x25A1;</button
+												><button class="tor-winctrl tor-winctrl--close">&#x2715;</button>
+											</div>
+										</div>
+									</div>
+									<div class="tor-navbar">
+										<div class="tor-navbtns">
+											<button class="tor-navbtn" id="ctfNavBack" disabled>&#9664;</button>
+											<button class="tor-navbtn" id="ctfNavFwd" disabled>&#9654;</button>
+											<button class="tor-navbtn" id="ctfTorRefresh">&#8635;</button>
+										</div>
+										<div class="tor-omnibox" id="ctfTorOmnibox" title="Click to copy" style="cursor: pointer">
+											<svg width="13" height="13" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												<ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a" />
+												<ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe" />
+												<ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#b07eec" />
+												<path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371" />
+												<path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c" />
+												<path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c" />
+											</svg>
+											<span class="tor-omnibox__url"
+												>ctfsxqb2tz7waddrcmnqc7ywzaeqp35sgzyxa5imhnsggfxnu5rkv.onion</span
+											>
+										</div>
+										<div class="tor-navbar__actions">
+											<button class="tor-navbtn" title="New Identity">
+												<svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+													<path
+														d="M2 14l2.5-5.5L11 2l3 3-6.5 6.5L2 14z"
+														stroke="currentColor"
+														stroke-width="1.3"
+														stroke-linejoin="round"
+													/>
+													<path d="M9.5 2.5l3 3" stroke="currentColor" stroke-width="1.3" />
+												</svg>
+											</button>
+											<button class="tor-navbtn" title="Security Settings">
+												<svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+													<path
+														d="M8 1.5L2.5 4v4C2.5 11 5 13.5 8 14.5c3-1 5.5-3.5 5.5-6.5V4L8 1.5z"
+														stroke="currentColor"
+														stroke-width="1.2"
+													/>
+												</svg>
+											</button>
+											<button class="tor-navbtn tor-navbtn--menu">&#9776;</button>
+										</div>
+									</div>
+									<div class="tor-content" style="background: #0a0a0a">
+										<div class="tor-loading-bar" id="ctfLoadingBar"></div>
+										<div class="ctf-onion-page" id="ctfOnionContent"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="parrot-panel">
+							<button class="parrot-appbtn">Applications</button>
+							<button class="parrot-appbtn">Places</button>
+							<div class="parrot-panel-sep"></div>
+							<button class="parrot-taskbtn active" id="ctfTorTaskbtn">
+								<img src="/images/tor/Tor_Browser_icon.svg.png" style="width: 13px; height: 13px" alt="Tor" />
+								<span>CTFs &#x2014; Tor Browser</span>
+							</button>
+							<div class="parrot-systray">
+								<span class="parrot-clock" id="ctfClock"></span>
+							</div>
+						</div>
 					</div>
-					<div class="placeholder" style="color: #e74c3c">Hello World — CTFs</div>
 				</div>
 			</div>
 		</div>
@@ -605,6 +996,6 @@
 			</div>
 		</div>
 
-		<script src="/app.js?v=12"></script>
+		<script src="/app.js?v=28"></script>
 	</body>
 </html>
