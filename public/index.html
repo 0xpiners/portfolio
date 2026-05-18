@@ -9,18 +9,6 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="/style.css?v=45" />
-		<style>
-			#parrotTorBrowser,
-			#ctfTorBrowser {
-				position: absolute !important;
-				top: 0 !important;
-				left: 0 !important;
-				right: 0 !important;
-				bottom: 0 !important;
-				width: auto !important;
-				height: auto !important;
-			}
-		</style>
 	</head>
 	<body>
 		<!-- Title bar -->
@@ -51,7 +39,9 @@
 			</nav>
 			<div class="toolbar__sep"></div>
 			<div class="toolbar__icons">
-				<button class="toolbar__icon-btn pause" id="btnPause" title="Pause animation">&#9646;&#9646;</button>
+				<button class="toolbar__icon-btn pause" id="btnPause" title="Pause animation">
+					<img src="/images/random/pause-16.ico" style="width:14px;height:14px" alt="Pause" />
+				</button>
 				<div class="toolbar__sep"></div>
 				<button class="toolbar__icon-btn" id="btnSnapshot" title="Copy section link">
 					<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -238,14 +228,6 @@
 								<div class="tor-shell">
 									<div class="tor-tabstrip">
 										<div class="tor-tab tor-tab--active">
-											<svg width="12" height="12" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												<ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a" />
-												<ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe" />
-												<ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#dc2626" />
-												<path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371" />
-												<path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c" />
-												<path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c" />
-											</svg>
 											<span class="tor-tab__title">Pinheiro &#x2014; 0xpiners</span>
 											<span class="tor-tab__close">&#x2715;</span>
 										</div>
@@ -266,14 +248,7 @@
 											<button class="tor-navbtn" id="torRefresh">&#8635;</button>
 										</div>
 										<div class="tor-omnibox" id="torOmnibox" title="Click to copy link" style="cursor: pointer">
-											<svg width="13" height="13" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												<ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a" />
-												<ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe" />
-												<ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#dc2626" />
-												<path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371" />
-												<path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c" />
-												<path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c" />
-											</svg>
+											<img src="/images/tor/Tor_Browser_icon.svg.png" style="width: 13px; height: 13px" alt="Tor" />
 											<span class="tor-omnibox__url" id="torUrl"
 												>pinerszxqb2tz7waddrcmnqc7ywzaeqp35sgzyxa5imhnsggfxnu5rkv.onion</span
 											>
@@ -767,14 +742,6 @@
 								<div class="tor-shell">
 									<div class="tor-tabstrip">
 										<div class="tor-tab tor-tab--active">
-											<svg width="12" height="12" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												<ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a" />
-												<ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe" />
-												<ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#dc2626" />
-												<path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371" />
-												<path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c" />
-												<path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c" />
-											</svg>
 											<span class="tor-tab__title">Projects &#x2014; 0xpiners</span>
 											<span class="tor-tab__close">&#x2715;</span>
 										</div>
@@ -795,14 +762,7 @@
 											<button class="tor-navbtn" id="parrotTorRefresh">&#8635;</button>
 										</div>
 										<div class="tor-omnibox" id="parrotTorOmnibox" title="Click to copy" style="cursor: pointer">
-											<svg width="13" height="13" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												<ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a" />
-												<ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe" />
-												<ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#dc2626" />
-												<path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371" />
-												<path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c" />
-												<path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c" />
-											</svg>
+											<img src="/images/tor/Tor_Browser_icon.svg.png" style="width: 13px; height: 13px" alt="Tor" />
 											<span class="tor-omnibox__url"
 												>projectsxqb2tz7wadr4mcnqc7ywzaeqp35sgzyxa5imhnsggfxnu5rkv.onion</span
 											>
@@ -889,14 +849,6 @@
 								<div class="tor-shell">
 									<div class="tor-tabstrip">
 										<div class="tor-tab tor-tab--active">
-											<svg width="12" height="12" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												<ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a" />
-												<ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe" />
-												<ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#dc2626" />
-												<path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371" />
-												<path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c" />
-												<path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c" />
-											</svg>
 											<span class="tor-tab__title">CTFs &#x2014; 0xpiners</span>
 											<span class="tor-tab__close">&#x2715;</span>
 										</div>
@@ -917,14 +869,7 @@
 											<button class="tor-navbtn" id="ctfTorRefresh">&#8635;</button>
 										</div>
 										<div class="tor-omnibox" id="ctfTorOmnibox" title="Click to copy" style="cursor: pointer">
-											<svg width="13" height="13" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												<ellipse cx="10" cy="14" rx="8.5" ry="5.8" fill="#4a1a7a" />
-												<ellipse cx="10" cy="14" rx="5.5" ry="3.6" fill="#7b3fbe" />
-												<ellipse cx="10" cy="14" rx="2.8" ry="1.8" fill="#dc2626" />
-												<path d="M10 8.5 Q12 5 10 2 Q8 5 10 8.5Z" fill="#3cb371" />
-												<path d="M10 6.5 Q6.5 4 5.5 6 Q7.5 7.5 10 6.5Z" fill="#2d9e5c" />
-												<path d="M10 6.5 Q13.5 4 14.5 6 Q12.5 7.5 10 6.5Z" fill="#2d9e5c" />
-											</svg>
+											<img src="/images/tor/Tor_Browser_icon.svg.png" style="width: 13px; height: 13px" alt="Tor" />
 											<span class="tor-omnibox__url"
 												>ctfsxqb2tz7waddrcmnqc7ywzaeqp35sgzyxa5imhnsggfxnu5rkv.onion</span
 											>
