@@ -166,8 +166,12 @@ function toggleAnimation() {
 	document.querySelectorAll('.vm-bg__col').forEach((col) => {
 		col.style.animationPlayState = animPaused ? 'paused' : 'running';
 	});
-	document.getElementById('btnPause').style.color = animPaused ? '#3cb371' : '#e08c3a';
-	toast(animPaused ? 'Animation paused' : 'Animation resumed');
+	document.querySelectorAll('.vm-screen').forEach((s) => {
+		s.style.pointerEvents = animPaused ? 'none' : '';
+	});
+	const img = document.querySelector('#btnPause img');
+	if (img) img.src = animPaused ? '/images/random/Start_37108.ico' : '/images/random/pause-16.ico';
+	toast(animPaused ? 'VMs paused' : 'VMs resumed');
 	closeDropdown();
 }
 
@@ -317,7 +321,7 @@ const menuDefs = {
 		{
 			label: 'LinkedIn',
 			action: () => {
-				toast('LinkedIn coming soon');
+				window.open('https://www.linkedin.com/in/davidmbp', '_blank');
 				closeDropdown();
 			},
 		},
@@ -382,6 +386,12 @@ document.addEventListener('click', (e) => {
 	if (activeDropdown && !e.target.closest('[data-menu]')) closeDropdown();
 });
 
+// ── Light mode toggle ──────────────────────────────────
+document.addEventListener('click', (e) => {
+	if (!e.target.closest('.btn-light-mode')) return;
+	document.body.classList.toggle('light');
+});
+
 // ── Toolbar button actions ─────────────────────────────
 document.getElementById('btnPause').addEventListener('click', toggleAnimation);
 document.getElementById('btnSnapshot').addEventListener('click', copyLink);
@@ -411,10 +421,67 @@ document.getElementById('btnViewGrid').addEventListener('click', () => {
 	openGridView();
 	setViewActive('btnViewGrid');
 });
-document.getElementById('btnTerminal').addEventListener('click', () => {
-	document.getElementById('termOverlay').classList.add('open');
-	document.getElementById('termInput').focus();
-});
+// ── XP Start Menu ─────────────────────────────────────
+(function () {
+	const startBtn = document.getElementById('xpStartBtn');
+	const menu = document.getElementById('xpStartMenu');
+	if (!startBtn || !menu) return;
+
+	function closeMenu() { menu.style.display = 'none'; }
+	function openMenu() { menu.style.display = ''; }
+
+	startBtn.addEventListener('click', (e) => {
+		e.stopPropagation();
+		menu.style.display = menu.style.display === 'none' ? '' : 'none';
+	});
+
+	document.addEventListener('click', (e) => {
+		if (!e.target.closest('#xpStartMenu') && !e.target.closest('#xpStartBtn')) closeMenu();
+	});
+
+	document.getElementById('smTorBrowserItem').addEventListener('click', () => {
+		closeMenu();
+		if (window.openTorBrowser) window.openTorBrowser();
+	});
+	document.getElementById('smMyComputerItem').addEventListener('click', () => {
+		closeMenu();
+		document.getElementById('xpComputerBin').style.display = '';
+		document.getElementById('xpComputerTaskbtn').style.display = '';
+		document.getElementById('xpComputerTaskbtn').classList.add('active');
+	});
+	document.getElementById('smMyDocumentsItem').addEventListener('click', () => {
+		closeMenu();
+		document.getElementById('xpMyDocuments').style.display = '';
+		document.getElementById('xpMyDocTaskbtn').style.display = '';
+		document.getElementById('xpMyDocTaskbtn').classList.add('active');
+	});
+	document.getElementById('smRecycleBinItem').addEventListener('click', () => {
+		closeMenu();
+		document.getElementById('xpRecycleBin').style.display = '';
+		document.getElementById('xpRecycleTaskbtn').style.display = '';
+		document.getElementById('xpRecycleTaskbtn').classList.add('active');
+	});
+	document.getElementById('smRMyComputer').addEventListener('click', () => {
+		closeMenu();
+		document.getElementById('xpComputerBin').style.display = '';
+		document.getElementById('xpComputerTaskbtn').style.display = '';
+		document.getElementById('xpComputerTaskbtn').classList.add('active');
+	});
+	document.getElementById('smRMyDocuments').addEventListener('click', () => {
+		closeMenu();
+		document.getElementById('xpMyDocuments').style.display = '';
+		document.getElementById('xpMyDocTaskbtn').style.display = '';
+		document.getElementById('xpMyDocTaskbtn').classList.add('active');
+	});
+	document.getElementById('smLogOff').addEventListener('click', () => {
+		closeMenu();
+		toast('Logging off... just kidding.');
+	});
+	document.getElementById('smShutDown').addEventListener('click', () => {
+		closeMenu();
+		toast('Shutting down... just kidding.');
+	});
+})();
 
 // ── Keyboard shortcuts ─────────────────────────────────
 document.addEventListener('keydown', (e) => {
@@ -944,6 +1011,7 @@ function bringToFront(win) {
 	}
 
 	area.addEventListener('contextmenu', (e) => {
+		if (e.target.closest('.xp-window')) return;
 		e.preventDefault();
 		const icon = e.target.closest('.xp-icon');
 		if (icon) {
@@ -1250,7 +1318,7 @@ const projects = [
 		url: 'https://github.com/0xpiners/Flappyphoenix',
 		date: '2024',
 		status: 'archived',
-		category: 'ai',
+		category: 'games',
 	},
 	{
 		title: 'Roguelike Game',
@@ -1260,7 +1328,7 @@ const projects = [
 		url: 'https://github.com/0xpiners/Roguelike-game',
 		date: '2023',
 		status: 'archived',
-		category: 'ai',
+		category: 'games',
 	},
 	{
 		title: 'Sokoban',
@@ -1270,7 +1338,7 @@ const projects = [
 		url: 'https://github.com/0xpiners/Sokoban',
 		date: '2023',
 		status: 'archived',
-		category: 'ai',
+		category: 'games',
 	},
 	{
 		title: 'Sudoku',
@@ -1279,7 +1347,7 @@ const projects = [
 		url: 'https://github.com/0xpiners/Sudoku',
 		date: '2023',
 		status: 'archived',
-		category: 'ai',
+		category: 'games',
 	},
 	{
 		title: 'Termo',
@@ -1289,7 +1357,7 @@ const projects = [
 		url: 'https://github.com/0xpiners/Termo',
 		date: '2023',
 		status: 'archived',
-		category: 'ai',
+		category: 'games',
 	},
 	{
 		title: 'Auto Attendance Bot',
@@ -1385,10 +1453,12 @@ function renderProjects() {
 	const filterTabs = PROJ_FILTERS.map(
 		(f) => `<button class="proj-filter-tab${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}">${f.label}</button>`,
 	).join('');
+	const lightSvg = `<svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 2a6 6 0 010 12V2z"/></svg>`;
 	container.innerHTML = `
 		<div class="proj-onion-header">
 			<div class="proj-onion-logo-name">Projects</div>
 			<div class="proj-onion-logo-sub">${projects.length} repos</div>
+			<button class="btn-light-mode" style="margin-left:auto" title="Toggle light mode">${lightSvg}</button>
 		</div>
 		<div class="proj-filter-bar">${filterTabs}</div>
 		<div class="proj-onion-grid" id="projGrid">${buildProjCards(indexed)}</div>`;
@@ -1401,7 +1471,7 @@ function renderProjects() {
 		bar.querySelectorAll('.proj-filter-tab').forEach((b) => b.classList.remove('active'));
 		btn.classList.add('active');
 		const f = btn.dataset.filter;
-		const filtered = f === 'all' ? indexed : indexed.filter((p) => p.category === f);
+		const filtered = f === 'all' ? indexed : indexed.filter((p) => f === 'ai' ? (p.category === 'ai' || p.category === 'games') : p.category === f);
 		grid.innerHTML = buildProjCards(filtered);
 	});
 	container.addEventListener('click', (e) => {
@@ -1718,7 +1788,7 @@ const ctfs = [
 		placement: null,
 		description: 'CTF Challenge from picoCTF',
 		writeup: true,
-		markdownPath: '/ctf/picoCTF/criptography/easy/The Numbers/Images/The Numbers.md',
+		markdownPath: '/ctf/picoCTF/criptography/easy/The Numbers/The Numbers.md',
 	},
 	{
 		title: 'Corrupted File',
@@ -2545,33 +2615,33 @@ const ctfs = [
 	{
 		title: 'Agent T (Incomplete)',
 		event: 'THM',
-		category: 'misc',
-		tags: ['THM'],
+		category: 'web',
+		tags: ['THM', 'web', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from THM',
+		description: 'HTTP header injection vulnerability in a PHP web app. Exploiting misconfigured server headers to gain admin access.',
 		writeup: true,
 		markdownPath: '/ctf/THM/Agent T (Incomplete)/Agent T.md',
 	},
 	{
 		title: 'All in One (Incomplete)',
 		event: 'THM',
-		category: 'misc',
-		tags: ['THM'],
+		category: 'pwn',
+		tags: ['THM', 'pwn', 'easy', 'linux'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from THM',
+		description: 'WordPress site with multiple attack surfaces. Chained plugin exploits and sudo misconfigurations to reach root.',
 		writeup: true,
 		markdownPath: '/ctf/THM/All in One (Incomplete)/All in One.md',
 	},
 	{
 		title: 'Corridor',
 		event: 'THM',
-		category: 'misc',
-		tags: ['THM'],
+		category: 'web',
+		tags: ['THM', 'web', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from THM',
+		description: 'IDOR vulnerability through hashed endpoint IDs. Enumerate accessible rooms by manipulating MD5-hashed URL parameters.',
 		writeup: true,
 		markdownPath: '/ctf/THM/Corridor/Corridor.md',
 	},
@@ -2579,10 +2649,10 @@ const ctfs = [
 		title: 'Dig Dug (Incomplete)',
 		event: 'THM',
 		category: 'misc',
-		tags: ['THM'],
+		tags: ['THM', 'misc', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from THM',
+		description: 'DNS-based challenge. Use dig to query a custom DNS server and retrieve the hidden flag from DNS records.',
 		writeup: true,
 		markdownPath: '/ctf/THM/Dig Dug (Incomplete)/Dig Dug.md',
 	},
@@ -2661,55 +2731,55 @@ const ctfs = [
 	{
 		title: 'Guess a BIG Number',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Interact with a service to guess a randomly generated large number. Scripted with pwntools to brute-force the seed.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab1/Guess a BIG Number/Guess a BIG Number.md',
 	},
 	{
 		title: 'Guess a Number',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'with our objective.',
+		description: 'Intro to pwntools: connect to a service and automate guessing the correct number to retrieve the flag.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab1/Guess a Number/Guess a Number.md',
 	},
 	{
 		title: 'PwnTools Sockets',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Introduction to pwntools socket interactions. Send and receive data from a remote service to extract the flag.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab1/PwnTools Sockets/PwnTools Sockets.md',
 	},
 	{
 		title: 'Python requests',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Use Python requests library to interact with an HTTP endpoint and retrieve the flag programmatically.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab1/Python requests/Python requests.md',
 	},
 	{
 		title: 'Python requests Again',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Advanced HTTP scripting with Python requests: handle sessions, cookies and redirects to bypass access controls.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab1/Python requests Again/Python requests Again.md',
 	},
@@ -2717,262 +2787,247 @@ const ctfs = [
 		title: 'Secure by Design',
 		event: 'SSoF',
 		category: 'misc',
-		tags: ['SSoF'],
+		tags: ['SSoF', 'misc', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Analyse a supposedly secure application and find the design flaw that leaks the flag.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab1/Secure by Design/Secure by Design.md',
 	},
 	{
 		title: 'Another jackpot',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Race condition on a lottery service. Win the jackpot by exploiting a TOCTOU flaw in the randomness check.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab2/Another jackpot/Another jackpot.md',
 	},
 	{
 		title: 'I challenge you for a race',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Classic race condition challenge. Two concurrent requests to the same endpoint produce an exploitable state.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab2/I challenge you for a race/I challenge you for a race.md',
 	},
 	{
 		title: 'Pickles in a seri(al)ous race',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Python pickle deserialization combined with a race condition. Craft a malicious pickle payload to execute arbitrary code.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab2/Pickles in a seri(al)ous race/Pickles in a seri(al)ous race.md',
 	},
 	{
 		title: 'Give me more than a simple WAF',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Bypass a Web Application Firewall using encoding and obfuscation techniques to inject a malicious payload.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab3/Give me more than a simple WAF/Give me more than a simple WAF.md',
 	},
 	{
 		title: 'Go on and censor my posts',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Stored XSS in a blog application. Inject a script that bypasses content filters to steal the admin session cookie.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab3/Go on and censor my posts/Go on and censor my posts.md',
 	},
 	{
 		title: 'Just my boring cookies',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Cookie manipulation challenge. Decode and forge a session cookie to escalate privileges to admin.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab3/Just my boring cookies/Just my boring cookies.md',
 	},
 	{
 		title: 'My favourite cookies',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Advanced cookie exploitation: tamper with signed session tokens and exploit weak secret keys.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab3/My favourite cookies/My favourite cookies.md',
 	},
 	{
 		title: 'Read my lips No more scripts',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'XSS with CSP bypass. Craft an injection that survives Content-Security-Policy restrictions to exfiltrate data.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab3/Read my lips No more scripts/Read my lips No more scripts.md',
 	},
 	{
 		title: 'I will take care of this site',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'XSS-based admin takeover. Inject a persistent script to hijack the admin account and retrieve the flag.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab4/I will take care of this site/I will take care of this site.md',
 	},
 	{
 		title: 'Money, money, money',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'says to register a new account and hit the "jackpot".',
+		description: 'Business logic flaw in a jackpot application. Exploit integer overflow or negative transfer to accumulate balance.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab4/Money, money, money/Money, money, money.md',
 	},
 	{
 		title: 'Sometimes we are just temporarily blind',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Blind SQL injection with time-based techniques. Enumerate the database character by character using sleep payloads.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab4/Sometimes we are just temporarily blind/Sometimes we are just temporarily blind.md',
 	},
 	{
 		title: "Wow, it can't be more juicy than this",
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'web',
+		tags: ['SSoF', 'web', 'medium'],
 		date: '2026',
 		placement: null,
-		description:
-			'talked about a secret blog post, I started by testing if I could control the query structure. I suspected from the previous challenges that the backen...',
+		description: 'Boolean-based blind SQLi on a blog. Craft payloads to leak the secret post and retrieve the flag.',
 		writeup: true,
 		markdownPath: "/ctf/SSoF/Lab4/Wow, it can't be more juicy than this/Wow, it can't be more juicy than this.md",
 	},
 	{
 		title: 'Calling Functions',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Binary exploitation: overwrite a function pointer or GOT entry to redirect execution to the win function.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab5/Calling Functions/Calling Functions.md',
 	},
 	{
 		title: 'Canaries (Extra class)',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'hard'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Stack canary bypass using a format string leak to read the canary value, then overflow to overwrite the return address.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab5/Extra/Canaries (Extra class)/Canaries (Extra class).md',
 	},
 	{
 		title: 'More Canaries (Extra class)',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'hard'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Advanced canary bypass with PIE enabled. Combine ASLR leak and canary leak to build a full ROP chain.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab5/Extra/More Canaries (Extra class)/More Canaries (Extra class).md',
 	},
 	{
 		title: 'Simple Leak (Extra class)',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Format string vulnerability to leak stack/libc addresses, then use the leaked pointers to control the return address.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab5/Extra/Simple Leak (Extra class)/Simple Leak (Extra class).md',
 	},
 	{
 		title: 'Super Secure Lottery',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Predictable PRNG in a lottery binary. Reverse the seed generation to always win and trigger the flag.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab5/Extra/Super Secure Lottery/Super Secure Lottery.md',
 	},
 	{
 		title: 'Match an Exact Value',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Intro buffer overflow: overwrite a local variable on the stack with an exact value to pass the check and print the flag.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab5/Match an Exact Value/Match an Exact Value.md',
 	},
 	{
 		title: 'Return Address',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Classic ret2win: overflow the stack buffer past saved RBP to overwrite the return address with the win function.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab5/Return Address/Return Address.md',
 	},
 	{
 		title: 'Simple Overflow',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'easy'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Basic stack buffer overflow. Send more bytes than the buffer holds to corrupt adjacent memory and unlock the flag.',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab5/Simple Overflow/Simple Overflow.md',
 	},
 	{
 		title: 'Super Secure System',
 		event: 'SSoF',
-		category: 'misc',
-		tags: ['SSoF'],
+		category: 'pwn',
+		tags: ['SSoF', 'pwn', 'medium'],
 		date: '2026',
 		placement: null,
-		description: 'CTF Challenge from SSoF',
+		description: 'Full binary exploit chain: leak canary + libc address via format string, build ROP chain to call system("/bin/sh").',
 		writeup: true,
 		markdownPath: '/ctf/SSoF/Lab5/Super Secure System/Super Secure System.md',
 	},
 ];
 
-const CTF_BASE_ONION = 'ctfsxqb2tz7waddrcmnqc7ywzaeqp35sgzyxa5imhnsggfxnu5rkv.onion';
 
-function slugify(str) {
-	return str
-		.toLowerCase()
-		.replace(/\s+/g, '-')
-		.replace(/[^a-z0-9-]/g, '')
-		.replace(/-+/g, '-')
-		.replace(/^-|-$/g, '');
-}
-
-function setCtfUrl(path) {
-	const urlEl = document.querySelector('#ctfTorOmnibox .tor-omnibox__url');
-	if (urlEl) urlEl.textContent = CTF_BASE_ONION + (path ? '/' + path : '');
-}
 
 function buildCtfCards(list) {
 	return list
@@ -2998,157 +3053,220 @@ function buildCtfCards(list) {
 		.join('');
 }
 
-async function navigateToWriteup(c) {
-	const container = document.getElementById('ctfOnionContent');
-	const loadingBar = document.getElementById('ctfLoadingBar');
-	const backBtn = document.getElementById('ctfNavBack');
-	if (!container) return;
 
-	setCtfUrl(slugify(c.title));
+function renderTemposCtfs() {
+	const app = document.getElementById('ctfTemposApp');
+	if (!app) return;
 
-	if (loadingBar) {
-		loadingBar.style.display = 'block';
-		loadingBar.style.width = '0%';
-		setTimeout(() => (loadingBar.style.width = '40%'), 50);
-		setTimeout(() => (loadingBar.style.width = '75%'), 350);
+	const indexed = ctfs.map((c, i) => ({ ...c, _idx: i }));
+
+	const platformColors = {
+		picoctf: '#55ffff',
+		thm: '#ff5555',
+		ssof: '#ff55ff',
+		'hack the box': '#55ff55',
+		htb: '#55ff55',
+	};
+	const vgaFallbacks = ['#ffff55', '#55ff55', '#ff55ff', '#ff5555', '#55ffff'];
+	let fallbackColorMap = {};
+
+	function tileColor(event) {
+		const k = Object.keys(platformColors).find((k) => event.toLowerCase().includes(k));
+		if (k) return platformColors[k];
+		if (!fallbackColorMap[event]) {
+			const used = Object.values(fallbackColorMap).length;
+			fallbackColorMap[event] = vgaFallbacks[used % vgaFallbacks.length];
+		}
+		return fallbackColorMap[event];
 	}
 
-	container.innerHTML = '<div style="text-align:center;padding:60px;color:#555;">Loading writeup…</div>';
+	function getDifficulty(c) {
+		if (c.tags.includes('easy')) return 'easy';
+		if (c.tags.includes('medium')) return 'medium';
+		if (c.tags.includes('hard')) return 'hard';
+		return '';
+	}
 
-	try {
-		const res = await fetch(c.markdownPath);
-		if (!res.ok) throw new Error(res.statusText);
-		let md = await res.text();
-		const basePath = c.markdownPath.substring(0, c.markdownPath.lastIndexOf('/'));
-		const encodedBase = basePath
-			.split('/')
-			.map((s) => encodeURIComponent(s))
-			.join('/');
-		md = md.replace(/!\[\[(.*?)\]\]/g, (_, fn) => `![${fn}](${encodedBase}/Images/${encodeURIComponent(fn)})`);
-		md = md.replace(/!\[(.*?)\]\((?!https?:\/\/|\/)(.*?)\)/g, (_, alt, src) => {
-			const encodedSrc = src
-				.split('/')
-				.map((s) => encodeURIComponent(decodeURIComponent(s)))
-				.join('/');
-			return `![${alt}](${encodedBase}/${encodedSrc})`;
+	// Derive filter options from data
+	const allPlatforms = [...new Set(indexed.map((c) => c.event))].sort();
+	const allTypes = [...new Set(indexed.map((c) => c.category).filter(Boolean))].sort();
+	const allDiffs = ['easy', 'medium', 'hard'].filter((d) => indexed.some((c) => c.tags.includes(d)));
+
+	// Filter state
+	let fPlatform = 'all', fType = 'all', fDiff = 'all';
+
+	function filtered(list) {
+		return list.filter((c) => {
+			if (fPlatform !== 'all' && c.event !== fPlatform) return false;
+			if (fType !== 'all' && c.category !== fType) return false;
+			if (fDiff !== 'all' && getDifficulty(c) !== fDiff) return false;
+			return true;
 		});
-		const bodyHtml = marked.parse(md);
+	}
 
-		container.innerHTML = `
-			<div class="ctf-writeup-page">
-				<div class="ctf-writeup-page__nav">
-					<button class="ctf-writeup-page__back" id="writeupBackBtn">&#9664; Back</button>
-					<span class="ctf-writeup-page__path">${CTF_BASE_ONION} / ${slugify(c.title)}</span>
-					<button class="ctf-writeup-page__newtab" id="writeupNewTabBtn">&#x2197; Open in new tab</button>
-				</div>
-				<div class="ctf-writeup-page__inner">
-					<div class="ctf-writeup-page__header">
-						<div>
-							<div class="ctf-writeup-page__title">${c.title}</div>
-							<div class="ctf-writeup-page__meta">${c.event} &nbsp;&middot;&nbsp; ${c.date}${c.placement ? ' &nbsp;&middot;&nbsp; ' + c.placement : ''}</div>
-						</div>
-						<div class="ctf-writeup-page__badges">
-							${c.tags.map((t) => `<span class="proj-card__tag">${t}</span>`).join('')}
-						</div>
-					</div>
-					<div class="ctf-writeup__body">${bodyHtml}</div>
-				</div>
+	function filterBarHtml() {
+		function sel(id, opts, val) {
+			return `<select class="tempos-filter-sel" data-filter="${id}">
+				<option value="all">All ${id}s</option>
+				${opts.map((o) => `<option value="${o}"${val === o ? ' selected' : ''}>${o}</option>`).join('')}
+			</select>`;
+		}
+		return `<div class="tempos-filter-bar">
+			${sel('platform', allPlatforms, fPlatform)}
+			${sel('type', allTypes, fType)}
+			${sel('diff', allDiffs, fDiff)}
+		</div>`;
+	}
+
+	function bindFilters() {
+		app.querySelectorAll('.tempos-filter-sel').forEach((sel) => {
+			sel.addEventListener('change', (e) => {
+				const f = e.target.dataset.filter;
+				const v = e.target.value;
+				if (f === 'platform') fPlatform = v;
+				else if (f === 'type') fType = v;
+				else if (f === 'diff') fDiff = v;
+				// If on tiles view, re-render tiles; if on list view, keep platform context
+				const listEl = app.querySelector('.tempos-ctf-list');
+				const header = app.querySelector('.tempos-app-header [data-event]');
+				if (header) showEvent(header.dataset.event);
+				else showTiles();
+			});
+		});
+	}
+
+	function showTiles() {
+		const byEvent = {};
+		filtered(indexed).forEach((c) => {
+			if (!byEvent[c.event]) byEvent[c.event] = [];
+			byEvent[c.event].push(c);
+		});
+		const events = allPlatforms.filter((ev) => byEvent[ev]);
+
+		app.innerHTML = `
+			<div class="tempos-app-header">&#x2020; /Home/piners/CTFs &#x2020;</div>
+			${filterBarHtml()}
+			<div class="tempos-tiles">
+				${events.length ? events.map((ev) => {
+					const col = tileColor(ev);
+					const count = byEvent[ev].length;
+					return `<div class="tempos-tile" data-event="${ev}" style="border-color:${col}">
+						<div class="tempos-tile__glyph" style="color:${col}">&#x2020;</div>
+						<div class="tempos-tile__name" style="color:${col}">${ev}</div>
+						<div class="tempos-tile__count">${count} writeup${count !== 1 ? 's' : ''}</div>
+					</div>`;
+				}).join('') : '<div class="tempos-loading">No results for current filters.</div>'}
 			</div>`;
 
-		if (loadingBar) {
-			loadingBar.style.width = '100%';
-			setTimeout(() => {
-				loadingBar.style.display = 'none';
-				loadingBar.style.width = '0%';
-			}, 300);
-		}
-	} catch (err) {
-		container.innerHTML = `<div style="text-align:center;padding:60px;color:#ef4444;">Failed to load writeup: ${err.message}</div>`;
-		if (loadingBar) {
-			loadingBar.style.display = 'none';
-			loadingBar.style.width = '0%';
-		}
-	}
-
-	function goBack() {
-		setCtfUrl('');
-		if (backBtn) {
-			backBtn.disabled = true;
-			backBtn.onclick = null;
-		}
-		renderCtfs();
-	}
-
-	if (backBtn) {
-		backBtn.disabled = false;
-		backBtn.onclick = goBack;
-	}
-
-	const writeupBackBtn = document.getElementById('writeupBackBtn');
-	if (writeupBackBtn) writeupBackBtn.addEventListener('click', goBack);
-
-	const writeupNewTabBtn = document.getElementById('writeupNewTabBtn');
-	if (writeupNewTabBtn) {
-		writeupNewTabBtn.addEventListener('click', () => {
-			const params = new URLSearchParams({
-				path: c.markdownPath,
-				title: c.title,
-				event: c.event,
-				date: c.date || '',
-				tags: c.tags.join(','),
-			});
-			window.open('/writeup.html?' + params.toString(), '_blank');
+		bindFilters();
+		app.querySelectorAll('.tempos-tile').forEach((tile) => {
+			tile.addEventListener('click', () => showEvent(tile.dataset.event));
 		});
 	}
-}
 
-function renderCtfs() {
-	const container = document.getElementById('ctfOnionContent');
-	if (!container) return;
-	setCtfUrl('');
-	const backBtn = document.getElementById('ctfNavBack');
-	if (backBtn) {
-		backBtn.disabled = true;
-		backBtn.onclick = null;
+	function showEvent(eventName) {
+		const col = tileColor(eventName);
+		const list = filtered(indexed.filter((c) => c.event === eventName));
+
+		app.innerHTML = `
+			<div class="tempos-app-header">
+				<button class="tempos-back-btn">&#x25C4; Back</button>
+				<span data-event="${eventName}" style="color:${col}">&#x2020; ${eventName} &#x2020;</span>
+			</div>
+			${filterBarHtml()}
+			<div class="tempos-ctf-list">
+				${list.length ? list.map((c) => {
+					const diff = getDifficulty(c);
+					const diffCol = diff === 'easy' ? '#55ff55' : diff === 'medium' ? '#ffff55' : diff === 'hard' ? '#ff5555' : '#888';
+					return `<div class="tempos-ctf-item" data-idx="${c._idx}">
+						<span class="tempos-ctf-item__title">${c.title}</span>
+						<span class="tempos-ctf-item__cat">${c.category || ''}</span>
+						${diff ? `<span class="tempos-ctf-item__diff" style="color:${diffCol};border-color:${diffCol}">${diff}</span>` : ''}
+						${c.writeup && c.markdownPath ? '<span class="tempos-ctf-item__badge">writeup</span>' : ''}
+					</div>`;
+				}).join('') : '<div class="tempos-loading">No results for current filters.</div>'}
+			</div>`;
+
+		bindFilters();
+		app.querySelector('.tempos-back-btn').addEventListener('click', showTiles);
+		app.querySelectorAll('.tempos-ctf-item').forEach((item) => {
+			item.addEventListener('click', () => {
+				const c = ctfs[+item.dataset.idx];
+				if (c.writeup && c.markdownPath) showWriteup(c, eventName);
+				else toast(c.writeup ? 'Writeup coming soon.' : 'No writeup available.');
+			});
+		});
 	}
-	const indexed = ctfs.map((c, i) => ({ ...c, _idx: i }));
-	const filterTabs = CTF_FILTERS.map(
-		(f) => `<button class="proj-filter-tab${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}">${f.label}</button>`,
-	).join('');
-	container.innerHTML = `
-		<div class="proj-onion-header">
-			<div class="proj-onion-logo-name">CTF Writeups</div>
-			<div class="proj-onion-logo-sub">${ctfs.length} entries</div>
-		</div>
-		<div class="proj-filter-bar">${filterTabs}</div>
-		<div class="proj-onion-grid" id="ctfGrid">${buildCtfCards(indexed)}</div>`;
 
-	const bar = container.querySelector('.proj-filter-bar');
-	const grid = container.querySelector('#ctfGrid');
-	bar.addEventListener('click', (e) => {
-		const btn = e.target.closest('.proj-filter-tab');
-		if (!btn) return;
-		bar.querySelectorAll('.proj-filter-tab').forEach((b) => b.classList.remove('active'));
-		btn.classList.add('active');
-		const f = btn.dataset.filter;
-		const filtered = f === 'all' ? indexed : indexed.filter((c) => c.category === f);
-		grid.innerHTML = buildCtfCards(filtered);
-	});
-	container.addEventListener('click', (e) => {
-		const clickable = e.target.closest('.proj-card__open') || e.target.closest('.proj-card__title');
-		if (!clickable) return;
-		const card = clickable.closest('.proj-card');
-		if (!card) return;
-		const c = ctfs[+card.dataset.idx];
-		if (c.writeup && c.markdownPath) {
-			navigateToWriteup(c);
-		} else {
-			toast(c.writeup ? 'Writeup coming soon.' : 'No writeup available.');
+	async function showWriteup(c, fromEvent) {
+		app.innerHTML = `<div class="tempos-loading">Loading&#x2026;</div>`;
+		try {
+			const res = await fetch(c.markdownPath);
+			if (!res.ok) throw new Error(res.statusText);
+			let md = await res.text();
+			const basePath = c.markdownPath.substring(0, c.markdownPath.lastIndexOf('/'));
+			const encodedBase = basePath.split('/').map((s) => encodeURIComponent(s)).join('/');
+			md = md.replace(/!\[\[(.*?)\]\]/g, (_, fn) => `![${fn}](${encodedBase}/Images/${encodeURIComponent(fn)})`);
+			md = md.replace(/!\[(.*?)\]\((?!https?:\/\/|\/)(.*?)\)/g, (_, alt, src) => {
+				const encodedSrc = src.split('/').map((s) => encodeURIComponent(decodeURIComponent(s))).join('/');
+				return `![${alt}](${encodedBase}/${encodedSrc})`;
+			});
+			const bodyHtml = marked.parse(md);
+			const diff = getDifficulty(c);
+			const diffCol = diff === 'easy' ? '#55ff55' : diff === 'medium' ? '#ffff55' : '#ff5555';
+			const genericDesc = ['CTF Challenge from THM', 'CTF Challenge from SSoF', 'CTF Challenge from picoCTF'];
+			const hasDesc = c.description && !genericDesc.includes(c.description.trim());
+			app.innerHTML = `
+				<div class="tempos-app-header">
+					<button class="tempos-back-btn">&#x25C4; Back</button>
+					<span>&#x2020; ${c.title} &#x2020;</span>
+				</div>
+				<div class="tempos-writeup">
+					<div class="tempos-writeup__meta">
+						<span>${c.event}</span>
+						<span class="tempos-writeup__sep">&middot;</span>
+						<span>${c.category || ''}</span>
+						${diff ? `<span class="tempos-writeup__sep">&middot;</span><span class="tempos-writeup__diff" style="color:${diffCol}">${diff}</span>` : ''}
+						<span class="tempos-writeup__sep">&middot;</span>
+						<span>${c.date || ''}</span>
+						${c.placement ? `<span class="tempos-writeup__sep">&middot;</span><span>${c.placement}</span>` : ''}
+					</div>
+					${hasDesc ? `<div class="tempos-writeup__desc">${c.description}</div>` : ''}
+					<div class="tempos-writeup__body">${bodyHtml}</div>
+				</div>`;
+			app.querySelector('.tempos-back-btn').addEventListener('click', () => showEvent(fromEvent || c.event));
+			const body = app.querySelector('.tempos-writeup__body');
+			if (body) {
+				const pImgOnly = (el) => el.tagName === 'P' && el.textContent.trim() === '' && el.querySelector('img');
+				const nodes = Array.from(body.children);
+				let i = 0;
+				while (i < nodes.length) {
+					if (pImgOnly(nodes[i])) {
+						const group = [];
+						while (i < nodes.length && pImgOnly(nodes[i])) group.push(nodes[i++]);
+						if (group.length >= 2) {
+							for (let j = 0; j < group.length; j += 2) {
+								const row = document.createElement('div');
+								row.className = 'img-row';
+								group[j].before(row);
+								row.appendChild(group[j]);
+								if (group[j + 1]) row.appendChild(group[j + 1]);
+							}
+						}
+					} else { i++; }
+				}
+			}
+		} catch (err) {
+			app.innerHTML = `<div class="tempos-loading" style="color:#ff5555">Error: ${err.message}<br><button class="tempos-back-btn" style="margin-top:12px">&#x25C4; Back</button></div>`;
+			app.querySelector('.tempos-back-btn')?.addEventListener('click', () => showEvent(fromEvent || c.event));
 		}
-	});
+	}
+
+	showTiles();
 }
 
-// ── CTF Parrot window controls ─────────────────────────
+
+// ── CTF window controls ────────────────────────────────
 (function () {
 	const win = document.getElementById('ctfTorBrowser');
 	const titlebar = document.getElementById('ctfTorTitlebar');
@@ -3170,51 +3288,7 @@ function renderCtfs() {
 
 	document.getElementById('ctfTorMin').addEventListener('click', minimize);
 	document.getElementById('ctfTorClose').addEventListener('click', close);
-	document.getElementById('iconCtfTor').addEventListener('dblclick', () => {
-		taskbtn.style.display = '';
-		restore();
-	});
 	taskbtn.addEventListener('click', () => (win.style.display === 'none' ? restore() : minimize()));
-
-	const refreshBtn = document.getElementById('ctfTorRefresh');
-	const loadingBar = document.getElementById('ctfLoadingBar');
-	const pageContent = document.getElementById('ctfOnionContent');
-	if (refreshBtn && loadingBar && pageContent) {
-		refreshBtn.addEventListener('click', () => {
-			loadingBar.style.display = 'block';
-			loadingBar.style.width = '0%';
-			pageContent.style.opacity = '0.3';
-			setTimeout(() => {
-				loadingBar.style.width = '30%';
-			}, 100);
-			setTimeout(() => {
-				loadingBar.style.width = '70%';
-			}, 500);
-			setTimeout(() => {
-				loadingBar.style.width = '100%';
-				pageContent.style.opacity = '1';
-				toast('Page reloaded.');
-				setTimeout(() => {
-					loadingBar.style.display = 'none';
-					loadingBar.style.width = '0%';
-				}, 300);
-			}, 900);
-		});
-	}
-
-	const omnibox = document.getElementById('ctfTorOmnibox');
-	if (omnibox) {
-		omnibox.addEventListener('click', () => {
-			const url = omnibox.querySelector('.tor-omnibox__url').innerText.trim();
-			navigator.clipboard.writeText(url).then(() => {
-				toast('Onion link copied!');
-				omnibox.style.background = '#1a2a1a';
-				setTimeout(() => {
-					omnibox.style.background = '';
-				}, 200);
-			});
-		});
-	}
 
 	let saved = { l: '80px', t: '0px', w: '700px', h: '430px' };
 	document.getElementById('ctfTorMax').addEventListener('click', () => {
@@ -3259,23 +3333,6 @@ function renderCtfs() {
 		startCtfDrag(e);
 	});
 
-	const ctfSpacer = win.querySelector('.tor-tabstrip__spacer');
-	if (ctfSpacer) {
-		ctfSpacer.addEventListener('mousedown', startCtfDrag);
-		ctfSpacer.addEventListener('dblclick', () => {
-			saved = { l: win.style.left || '80px', t: win.style.top || '0px', w: win.style.width || '700px', h: win.style.height || '430px' };
-			win.classList.add('parrot-maximized');
-			win.style.left = win.style.top = win.style.width = win.style.height = '';
-		});
-	}
-
-	const ctfWinctrlMin = win.querySelector('.tor-winctrl--min');
-	const ctfWinctrlMax = win.querySelector('.tor-winctrl--max');
-	const ctfWinctrlClose = win.querySelector('.tor-winctrl--close');
-	if (ctfWinctrlMin) ctfWinctrlMin.addEventListener('click', minimize);
-	if (ctfWinctrlMax) ctfWinctrlMax.addEventListener('click', () => document.getElementById('ctfTorMax').click());
-	if (ctfWinctrlClose) ctfWinctrlClose.addEventListener('click', close);
-
 	document.addEventListener('mousemove', (e) => {
 		if (!dragging) return;
 		const area = document.getElementById('ctfArea');
@@ -3315,8 +3372,292 @@ document.addEventListener('click', (e) => {
 	}
 });
 
+// ── Generic window resizer ─────────────────────────────
+function makeResizable(winEl, handleEl, areaEl, minW, minH) {
+	if (!winEl || !handleEl) return;
+	let resizing = false, startX, startY, startW, startH;
+	handleEl.addEventListener('mousedown', (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		if (winEl.classList.contains('parrot-maximized') || winEl.classList.contains('xp-maximized')) return;
+		resizing = true;
+		startX = e.clientX;
+		startY = e.clientY;
+		startW = winEl.offsetWidth;
+		startH = winEl.offsetHeight;
+		winEl.style.userSelect = 'none';
+	});
+	document.addEventListener('mousemove', (e) => {
+		if (!resizing) return;
+		const areaRect = areaEl.getBoundingClientRect();
+		const newW = Math.min(areaEl.clientWidth - winEl.offsetLeft, Math.max(minW, startW + e.clientX - startX));
+		const newH = Math.min(areaEl.clientHeight - winEl.offsetTop, Math.max(minH, startH + e.clientY - startY));
+		winEl.style.width = newW + 'px';
+		winEl.style.height = newH + 'px';
+	});
+	document.addEventListener('mouseup', () => {
+		resizing = false;
+		winEl.style.userSelect = '';
+	});
+}
+
+makeResizable(
+	document.getElementById('parrotTorBrowser'),
+	document.getElementById('parrotTorResize'),
+	document.getElementById('parrotArea'), 320, 200
+);
+makeResizable(
+	document.getElementById('ctfTorBrowser'),
+	document.getElementById('ctfTorResize'),
+	document.getElementById('ctfArea'), 320, 200
+);
+
+// ── Parrot OS Terminal ─────────────────────────────────
+(function () {
+	const win = document.getElementById('parrotTerminal');
+	const titlebar = document.getElementById('parrotTermTitlebar');
+	const taskbtn = document.getElementById('parrotTermTaskbtn');
+	const body = document.getElementById('parrotTermBody');
+	const input = document.getElementById('parrotTermInput');
+	if (!win || !body || !input) return;
+
+	let cwd = '~';
+	const history = [];
+	let histIdx = -1;
+
+	const fs = {
+		'~': ['projects/', 'ctf/', 'tools/', 'notes.txt', 'README.md', '.bashrc', '.zshrc'],
+		'~/projects': ['smalito/', 'deathnode/', 'depchain/', 'simple-onion-router/'],
+		'~/ctf': ['picoCTF/', 'HTB/', 'writeups.md'],
+		'~/tools': ['burpsuite', 'nmap', 'metasploit', 'gobuster'],
+	};
+	const fileContents = {
+		'notes.txt': 'TODO: finish portfolio\n3rd place Portugal CTFTime 2024\nCloudflare red team notes...',
+		'README.md': '# piners\nOffensive Security Researcher\nMSc Cybersecurity @ IST\n\nSee the portfolio for more.',
+		'.zshrc': 'export PATH=$PATH:~/.local/bin\nalias ll="ls -la"\nalias gs="git status"\nplugins=(git zsh-autosuggestions)',
+		'.bashrc': '# ~/.bashrc\nexport EDITOR=vim\nalias cls=clear\nexport PS1="\\u@\\h:\\w$ "',
+		'writeups.md': '# CTF Writeups\n- format string 0 (picoCTF)\n- Patchwork (HTB)\n- SQLi labs\n- ...',
+	};
+
+	function print(html) {
+		const line = document.createElement('div');
+		line.className = 'p-term-line';
+		line.innerHTML = html;
+		body.appendChild(line);
+		body.scrollTop = body.scrollHeight;
+	}
+
+	function prompt(cmd) {
+		print(`<span style="color:#3af097">┌──(piners㉿parrot)-[<span style="color:#fff">${cwd}</span>]</span>`);
+		print(`<span style="color:#3af097">└─$</span> <span style="color:#e0e0e0">${cmd}</span>`);
+	}
+
+	const commands = {
+		help() {
+			print(`<span style="color:#3af097">Available commands:</span>
+  <span style="color:#7dd3fc">ls</span> [-la]      list directory contents
+  <span style="color:#7dd3fc">cat</span> [file]    print file contents
+  <span style="color:#7dd3fc">cd</span> [dir]      change directory
+  <span style="color:#7dd3fc">pwd</span>           print working directory
+  <span style="color:#7dd3fc">whoami</span>        current user
+  <span style="color:#7dd3fc">id</span>            user identity
+  <span style="color:#7dd3fc">uname -a</span>      system info
+  <span style="color:#7dd3fc">neofetch</span>      system info with art
+  <span style="color:#7dd3fc">echo</span> [text]   print text
+  <span style="color:#7dd3fc">date</span>          current date/time
+  <span style="color:#7dd3fc">ping</span> [host]   ping a host
+  <span style="color:#7dd3fc">nmap</span> [host]   port scan
+  <span style="color:#7dd3fc">history</span>       command history
+  <span style="color:#7dd3fc">clear</span>         clear terminal
+  <span style="color:#7dd3fc">exit</span>          close terminal`);
+		},
+		ls(args) {
+			const long = args.includes('-la') || args.includes('-l') || args.includes('-a');
+			const dir = fs[cwd] || [];
+			if (long) {
+				print(`total ${dir.length * 4}`);
+				dir.forEach((f) => {
+					const isDir = f.endsWith('/');
+					const perm = isDir ? 'drwxr-xr-x' : '-rw-r--r--';
+					const name = isDir
+						? `<span style="color:#7dd3fc;font-weight:bold">${f}</span>`
+						: `<span style="color:#e0e0e0">${f}</span>`;
+					print(`${perm}  1 piners piners  ${(Math.random() * 4000 + 100) | 0} May 18 2026 ${name}`);
+				});
+			} else {
+				const parts = dir.map((f) =>
+					f.endsWith('/')
+						? `<span style="color:#7dd3fc;font-weight:bold">${f}</span>`
+						: `<span style="color:#e0e0e0">${f}</span>`,
+				);
+				print(parts.join('  '));
+			}
+		},
+		pwd() { print(cwd.replace('~', '/home/piners')); },
+		whoami() { print('piners'); },
+		id() { print('uid=1000(piners) gid=1000(piners) groups=1000(piners),27(sudo),44(video)'); },
+		hostname() { print('parrot'); },
+		date() { print(new Date().toString()); },
+		clear() { body.innerHTML = ''; },
+		echo(args) { print(args.join(' ')); },
+		cd(args) {
+			const target = args[0] || '~';
+			const resolved = target === '~' ? '~' : target.startsWith('/') ? target : cwd + '/' + target.replace(/\/$/, '');
+			const key = resolved.replace('/home/piners', '~');
+			if (fs[key] !== undefined || key === '~') { cwd = key; }
+			else { print(`<span style="color:#f87171">bash: cd: ${target}: No such file or directory</span>`); }
+		},
+		cat(args) {
+			if (!args[0]) { print('<span style="color:#f87171">cat: missing file operand</span>'); return; }
+			const content = fileContents[args[0]];
+			if (content) { content.split('\n').forEach((l) => print(l || '&nbsp;')); }
+			else { print(`<span style="color:#f87171">cat: ${args[0]}: No such file or directory</span>`); }
+		},
+		uname(args) {
+			if (args.includes('-a')) print('Linux parrot 6.1.0-parrot1-amd64 #1 SMP PREEMPT_DYNAMIC Parrot 6.1.15-1parrot1 (2023-04-25) x86_64 GNU/Linux');
+			else print('Linux');
+		},
+		neofetch() {
+			print(`<span style="color:#3af097">    ╔═╗  </span>  piners<span style="color:#555">@</span>parrot`);
+			print(`<span style="color:#3af097">   ╔╝ ╚╗ </span>  ───────────────────`);
+			print(`<span style="color:#3af097">  ╔╝   ╚╗</span>  <span style="color:#7dd3fc">OS:</span>     Parrot OS 5.3 (GNU/Linux)`);
+			print(`<span style="color:#3af097"> ╔╝     ╚╗</span> <span style="color:#7dd3fc">Kernel:</span> 6.1.0-parrot1-amd64`);
+			print(`<span style="color:#3af097"> ╚╗     ╔╝</span> <span style="color:#7dd3fc">Shell:</span>  zsh 5.9`);
+			print(`<span style="color:#3af097">  ╚╗   ╔╝</span>  <span style="color:#7dd3fc">WM:</span>     XFWM4`);
+			print(`<span style="color:#3af097">   ╚╗ ╔╝ </span>  <span style="color:#7dd3fc">Term:</span>   piners-term`);
+			print(`<span style="color:#3af097">    ╚═╝  </span>  <span style="color:#7dd3fc">CPU:</span>    Brain of piners`);
+			print(`         <span style="color:#7dd3fc">Memory:</span> enough for exploits`);
+			print('');
+			print(`<span style="background:#e74c3c">   </span><span style="background:#e67e22">   </span><span style="background:#f1c40f">   </span><span style="background:#2ecc71">   </span><span style="background:#3af097">   </span><span style="background:#3498db">   </span><span style="background:#9b59b6">   </span><span style="background:#e0e0e0">   </span>`);
+		},
+		ping(args) {
+			if (!args[0]) { print('<span style="color:#f87171">ping: missing host operand</span>'); return; }
+			const host = args[0];
+			print(`PING ${host}: 56 data bytes`);
+			[1, 2, 3, 4].forEach((i) => {
+				const ms = (Math.random() * 20 + 5).toFixed(3);
+				print(`64 bytes from ${host}: icmp_seq=${i} ttl=64 time=${ms} ms`);
+			});
+			print(`--- ${host} ping statistics ---`);
+			print('4 packets transmitted, 4 received, 0% packet loss');
+		},
+		nmap(args) {
+			if (!args[0]) { print('<span style="color:#f87171">nmap: requires a target</span>'); return; }
+			print(`Starting Nmap 7.94 ( https://nmap.org )`);
+			print(`Nmap scan report for ${args[0]}`);
+			print('PORT     STATE SERVICE');
+			print('22/tcp   open  ssh');
+			print('80/tcp   open  http');
+			print('443/tcp  open  https');
+			print(`Nmap done: 1 IP address (1 host up) scanned in ${(Math.random() * 3 + 1).toFixed(2)}s`);
+		},
+		sudo(args) {
+			print(`[sudo] password for piners: `);
+			setTimeout(() => print('<span style="color:#f87171">piners is not in the sudoers file. This incident will be reported.</span>'), 400);
+		},
+		history() { history.forEach((h, i) => print(`  ${String(i + 1).padStart(3)}  ${h}`)); },
+		exit() { close(); },
+	};
+
+	function runCommand(raw) {
+		const trimmed = raw.trim();
+		if (!trimmed) return;
+		history.push(trimmed);
+		histIdx = history.length;
+		const [cmd, ...args] = trimmed.split(/\s+/);
+		prompt(trimmed);
+		if (commands[cmd]) commands[cmd](args);
+		else print(`<span style="color:#f87171">bash: ${cmd}: command not found</span>`);
+	}
+
+	function open() {
+		win.style.display = '';
+		taskbtn.style.display = '';
+		taskbtn.classList.add('active');
+		if (body.children.length === 0) {
+			print(`<span style="color:#3af097">Parrot OS Terminal — piners@parrot</span>`);
+			print(`Type <span style="color:#7dd3fc">help</span> for available commands.`);
+			print('');
+		}
+		input.focus();
+	}
+	function minimize() { win.style.display = 'none'; taskbtn.classList.remove('active'); }
+	function close() { win.style.display = 'none'; taskbtn.style.display = 'none'; }
+
+	document.getElementById('iconParrotTerm').addEventListener('dblclick', open);
+	document.getElementById('parrotTermMin').addEventListener('click', minimize);
+	document.getElementById('parrotTermClose').addEventListener('click', close);
+	document.getElementById('parrotTermMax').addEventListener('click', () => {
+		win.classList.toggle('parrot-maximized');
+	});
+	taskbtn.addEventListener('click', () => (win.style.display === 'none' ? open() : minimize()));
+
+	input.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter') {
+			runCommand(input.value);
+			input.value = '';
+		} else if (e.key === 'ArrowUp') {
+			e.preventDefault();
+			if (histIdx > 0) { histIdx--; input.value = history[histIdx]; }
+		} else if (e.key === 'ArrowDown') {
+			e.preventDefault();
+			if (histIdx < history.length - 1) { histIdx++; input.value = history[histIdx]; }
+			else { histIdx = history.length; input.value = ''; }
+		}
+	});
+
+	// drag
+	let dragging = false, ox = 0, oy = 0;
+	let savedTerm = { l: '60px', t: '40px', w: '620px', h: '380px' };
+	titlebar.addEventListener('mousedown', (e) => {
+		if (e.target.closest('.parrot-ctrl')) return;
+		e.preventDefault();
+		if (win.classList.contains('parrot-maximized')) {
+			win.classList.remove('parrot-maximized');
+			win.style.left = savedTerm.l; win.style.top = savedTerm.t;
+			win.style.width = savedTerm.w; win.style.height = savedTerm.h;
+		}
+		dragging = true;
+		const areaRect = document.getElementById('parrotArea').getBoundingClientRect();
+		const winRect = win.getBoundingClientRect();
+		ox = e.clientX - winRect.left; oy = e.clientY - winRect.top;
+		win.style.left = winRect.left - areaRect.left + 'px';
+		win.style.top = winRect.top - areaRect.top + 'px';
+		win.style.userSelect = 'none';
+	});
+	document.addEventListener('mousemove', (e) => {
+		if (!dragging) return;
+		const area = document.getElementById('parrotArea');
+		const areaRect = area.getBoundingClientRect();
+		win.style.left = Math.max(0, Math.min(area.clientWidth - win.offsetWidth, e.clientX - areaRect.left - ox)) + 'px';
+		win.style.top = Math.max(0, Math.min(area.clientHeight - win.offsetHeight, e.clientY - areaRect.top - oy)) + 'px';
+	});
+	document.addEventListener('mouseup', () => { dragging = false; win.style.userSelect = ''; });
+
+	makeResizable(win, document.getElementById('parrotTermResize'), document.getElementById('parrotArea'), 380, 220);
+})();
+
+// ── TempleOS background ────────────────────────────────
+(function () {
+	const bg = document.getElementById('temposBg');
+	if (!bg) return;
+	const colors = ['#55ffff', '#ff5555', '#ffff55', '#55ff55', '#ff55ff', '#5555ff', '#aaaaaa', '#ffffff'];
+	const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?✝†☩✞♦♠♣♥←→↑↓█▓▒░';
+	const lines = [];
+	for (let i = 0; i < 80; i++) {
+		let line = '';
+		for (let j = 0; j < 120; j++) {
+			const c = colors[Math.floor(Math.random() * colors.length)];
+			const ch = chars[Math.floor(Math.random() * chars.length)];
+			line += `<span style="color:${c}">${ch}</span>`;
+		}
+		lines.push(line);
+	}
+	bg.innerHTML = lines.join('<br>');
+})();
+
 // ── Init ───────────────────────────────────────────────
 renderTabs();
 renderProjects();
-renderCtfs();
+renderTemposCtfs();
 switchTab('home');

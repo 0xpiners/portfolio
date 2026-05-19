@@ -14,9 +14,9 @@ This challenge is running at `nc mustard.stt.rnl.tecnico.ulisboa.pt 25154`.
 
 ---
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Return Address/Images/Files.png]]
+![[Files.png]]
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Return Address/Images/Source.png]]
+![[Source.png]]
 
 The source code contains the same `gets(buffer)` vulnerability as previous challenges, but with a key difference: there is no function pointer variable to overwrite.
 
@@ -41,12 +41,12 @@ The stack layout looks roughly like this:
 If we overflow the buffer enough, we will overwrite the saved EBP and then the **Return Address**. When `challenge()` tries to return, it will instead jump to the address we put there (in this case, `win()`).
 
 Finding the address of `win()` using objdump, I was able to craft the final command.
-![[IST/SSoF/CTF's/ist1117363/Lab5/Return Address/Images/win.png]]
+![[win.png]]
 
 I just had to calculate the offset to overwrite the EBP.
 I calculated the offset as: **Buffer Size (10) + Compiler Padding (8) + Saved EBP (4) = 22 bytes**.
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Return Address/Images/Flag.png]]
+![[Flag.png]]
 
 ## FLAG
 ```flag

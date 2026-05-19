@@ -10,7 +10,7 @@ Register a new account. Can you win the jackpot?
 ---
 
 The website was the same as the previous one.
-![[IST/SSoF/CTF's/ist1117363/Lab4/Money, money, money/Images/Website.png]]
+![[Website.png]]
 
 But this time the description says to register a new account and hit the "jackpot".
 
@@ -50,7 +50,7 @@ This tricked the database into executing: `UPDATE user SET bio = '', tokens=8482
 
 It worked perfectly. The server treated the trailing `WHERE` clause as part of the string assigned to `bio`, keeping the syntax valid while updating my tokens to 84828.
 
-![[IST/SSoF/CTF's/ist1117363/Lab4/Money, money, money/Images/Flag.png]]
+![[Flag.png]]
 
 ## FLAG
 ```flag

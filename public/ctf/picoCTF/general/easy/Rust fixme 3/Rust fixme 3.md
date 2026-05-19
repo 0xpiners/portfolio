@@ -11,8 +11,7 @@ Here we can see the source code of the Rust file.
 ![[Pasted image 20251110192259.png]]
 When I tried to run the code, I got an error saying "call to unsafe function", requiring us to use an unsafe block.
 We can also see the code is basically decrypting the hex values using the key "CSUCKS", so we can either copy all hex values and use the key CSUCKS to decrypt via XOR, or we can just fix the code by adding an unsafe block to the function.
-![[Pasted image 20251110192741.png]]
-(Fixed code)
+(Fixed code by adding an unsafe block around the function call)
 And just like that, we need to run it again to get the flag.
 ![[Pasted image 20251110192231.png]]
 

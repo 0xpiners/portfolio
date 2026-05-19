@@ -9,14 +9,13 @@ Unzip this archive and find the flag.
 
 
 When we unzip the file, we get a lot of files — a lot.
-![[Pasted image 20251111182020.png]]
 
 We can assume the flag is somewhere in those files, so we can use the `find` command to `cat` everything and find the flag, like this:
 ```
 find . -type f -exec cat {} \; | grep "picoCTF"
 ```
 
-![[Pasted image 20251111182731.png]]And just like that we get the flag.
+And just like that we get the flag.
 
 ## FLAG
 ```

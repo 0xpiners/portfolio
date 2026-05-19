@@ -37,7 +37,7 @@ Changing the **user cookie** with the **new value** and **refreshing the website
 
 ![Cookies 2](Images/Cookies 2.png)
 
-![Flag](IST/SSoF/CTF's/ist1117363/Lab1/Secure%20by%20Design/Images/Flag.png)
+![Flag](Images/Flag.png)
 
 ## FLAG
 ```flag

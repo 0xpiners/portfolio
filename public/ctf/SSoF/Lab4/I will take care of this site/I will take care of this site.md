@@ -10,7 +10,7 @@ I heard the `admin` keeps some really nice info just for him.
 ---
 
 This is the page I found when visiting the challenge.
-![[IST/SSoF/CTF's/ist1117363/Lab4/I will take care of this site/Images/Page.png]]
+![[Page.png]]
 
 I noticed there was a login page as well.
 ![[Login.png]]
@@ -34,7 +34,7 @@ the payload `' OR 1=1 --` transformed it into:
 Since `1=1` is always true and the rest of the query is commented out, the database returns the admin row, letting me log in as admin without knowing any credentials.
 
 After that I visited the admin's profile and got the flag.
-![[IST/SSoF/CTF's/ist1117363/Lab4/I will take care of this site/Images/Flag.png]]
+![[Flag.png]]
 
 ## FLAG
 ```flag

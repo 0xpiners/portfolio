@@ -16,9 +16,9 @@ This challenge is running at `nc mustard.stt.rnl.tecnico.ulisboa.pt 25153`.
 ---
 
 For this challenge, I also got 2 files.
-![[IST/SSoF/CTF's/ist1117363/Lab5/Calling Functions/Images/Files.png]]
+![[Files.png]]
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Calling Functions/Images/Source.png]]
+![[Source.png]]
 
 The source code defines a function pointer `fp` and a buffer.
 
@@ -44,7 +44,7 @@ Since **PIE** is disabled, the address of the `win` function is static and will 
 
 To find the address of the `win` function, I used objdump to find where `win` was.
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Calling Functions/Images/win.png]]
+![[win.png]]
 
 So the objective here is:
 - Fill the buffer: **32 bytes** of junk.
@@ -55,7 +55,7 @@ I used this payload to achieve that:
 python3 -c "import sys; sys.stdout.buffer.write(b'A'*32 + b'\xf1\x86\x04\x08')" | nc mustard.stt.rnl.tecnico.ulisboa.pt 25153
 ```
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Calling Functions/Images/Flag.png]]
+![[Flag.png]]
 
 ## FLAG
 ```flag

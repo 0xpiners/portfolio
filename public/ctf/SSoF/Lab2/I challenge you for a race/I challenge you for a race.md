@@ -13,7 +13,7 @@ _Remark1_: `username:passwd` are available in Menu > Settings. _Remark2_: Be cou
 
 This challenge has 2 given files.
 
-![Files](IST/SSoF/CTF's/ist1117363/Lab2/I%20challenge%20you%20for%20a%20race/Images/Files.png)
+![Files](Images/Files.png)
 
 Contents of Makefile
 

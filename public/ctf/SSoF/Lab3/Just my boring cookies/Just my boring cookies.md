@@ -19,7 +19,7 @@ Trying a simple XSS on the blog posts input field to get my cookies (even though
 <script>alert(document.cookie);</script>
 ```
 
-![Flag.png](IST/SSoF/CTF's/ist1117363/Lab3/Just%20my%20boring%20cookies/Images/Flag.png)
+![Flag.png](Images/Flag.png)
 
 ## FLAG
 ```flag

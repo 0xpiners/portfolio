@@ -5,10 +5,7 @@
 
 If you want to hash with the best, beat this test! `nc saturn.picoctf.net 59618`
 
-When we connect to the port, it prompts this.
-![[Pasted image 20251111212538.png]]
-
-This should be easy. We just need to MD5 hash this word and that's it.
+When we connect to the port, it prompts this. This should be easy. We just need to MD5 hash this word and that's it.
 
 ![[Pasted image 20251111212625.png]]
 ![[Pasted image 20251111212636.png]]
