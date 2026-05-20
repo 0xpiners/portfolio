@@ -77,6 +77,21 @@ document.querySelectorAll('.tree-item[data-tab]').forEach((el) => {
 	el.addEventListener('click', () => switchTab(el.dataset.tab));
 });
 
+// ── Mobile warning overlay ─────────────────────────────
+(function () {
+	const overlay = document.getElementById('mobileOverlay');
+	const continueBtn = document.getElementById('mobileContinue');
+	if (!overlay || !continueBtn) return;
+	const key = 'pinersMobileOverlayDismissed';
+	if (localStorage.getItem(key) === 'true') {
+		document.body.classList.add('mobile-overlay--dismissed');
+	}
+	continueBtn.addEventListener('click', () => {
+		document.body.classList.add('mobile-overlay--dismissed');
+		localStorage.setItem(key, 'true');
+	});
+})();
+
 // ── My Computer tree collapse / expand ────────────────
 (function () {
 	const myComputer = document.querySelector('.tree-item:not(.tree-item--child)');
@@ -421,6 +436,58 @@ document.getElementById('btnViewGrid').addEventListener('click', () => {
 	openGridView();
 	setViewActive('btnViewGrid');
 });
+// ── XP Desktop selection box ───────────────────────────
+(function () {
+	const area = document.getElementById('xpArea');
+	if (!area) return;
+	let box = null;
+	let startX = 0;
+	let startY = 0;
+	let dragging = false;
+	let moveHandler = null;
+
+	area.addEventListener('mousedown', (e) => {
+		if (e.button !== 0) return;
+		if (e.target.closest('.xp-icon, .xp-window, .xp-start-menu, .xp-context-menu')) return;
+		dragging = true;
+		const rect = area.getBoundingClientRect();
+		startX = e.clientX - rect.left;
+		startY = e.clientY - rect.top;
+		box = document.createElement('div');
+		box.className = 'xp-select-box';
+		box.style.left = startX + 'px';
+		box.style.top = startY + 'px';
+		box.style.width = '0px';
+		box.style.height = '0px';
+		area.appendChild(box);
+
+		moveHandler = (ev) => {
+			if (!dragging || !box) return;
+			const r = area.getBoundingClientRect();
+			const x = ev.clientX - r.left;
+			const y = ev.clientY - r.top;
+			const left = Math.min(x, startX);
+			const top = Math.min(y, startY);
+			const width = Math.abs(x - startX);
+			const height = Math.abs(y - startY);
+			box.style.left = left + 'px';
+			box.style.top = top + 'px';
+			box.style.width = width + 'px';
+			box.style.height = height + 'px';
+		};
+
+		document.addEventListener('mousemove', moveHandler);
+		document.addEventListener('mouseup', () => {
+			if (!dragging) return;
+			dragging = false;
+			if (box) box.remove();
+			box = null;
+			if (moveHandler) document.removeEventListener('mousemove', moveHandler);
+			moveHandler = null;
+		}, { once: true });
+	});
+})();
+
 // ── XP Start Menu ─────────────────────────────────────
 (function () {
 	const startBtn = document.getElementById('xpStartBtn');
@@ -3126,11 +3193,9 @@ function renderTemposCtfs() {
 				if (f === 'platform') fPlatform = v;
 				else if (f === 'type') fType = v;
 				else if (f === 'diff') fDiff = v;
-				// If on tiles view, re-render tiles; if on list view, keep platform context
-				const listEl = app.querySelector('.tempos-ctf-list');
 				const header = app.querySelector('.tempos-app-header [data-event]');
-				if (header) showEvent(header.dataset.event);
-				else showTiles();
+				if (f === 'platform' || !header) showTiles();
+				else showEvent(header.dataset.event);
 			});
 		});
 	}
@@ -3402,6 +3467,11 @@ function makeResizable(winEl, handleEl, areaEl, minW, minH) {
 }
 
 makeResizable(
+	document.getElementById('xpTorBrowser'),
+	document.getElementById('xpTorResize'),
+	document.getElementById('xpArea'), 420, 260
+);
+makeResizable(
 	document.getElementById('parrotTorBrowser'),
 	document.getElementById('parrotTorResize'),
 	document.getElementById('parrotArea'), 320, 200
@@ -3426,13 +3496,12 @@ makeResizable(
 	let histIdx = -1;
 
 	const fs = {
-		'~': ['projects/', 'ctf/', 'tools/', 'notes.txt', 'README.md', '.bashrc', '.zshrc'],
+		'~': ['projects/', 'ctf/', 'tools/', 'README.md', '.bashrc', '.zshrc'],
 		'~/projects': ['smalito/', 'deathnode/', 'depchain/', 'simple-onion-router/'],
 		'~/ctf': ['picoCTF/', 'HTB/', 'writeups.md'],
 		'~/tools': ['burpsuite', 'nmap', 'metasploit', 'gobuster'],
 	};
 	const fileContents = {
-		'notes.txt': 'TODO: finish portfolio\n3rd place Portugal CTFTime 2024\nCloudflare red team notes...',
 		'README.md': '# piners\nOffensive Security Researcher\nMSc Cybersecurity @ IST\n\nSee the portfolio for more.',
 		'.zshrc': 'export PATH=$PATH:~/.local/bin\nalias ll="ls -la"\nalias gs="git status"\nplugins=(git zsh-autosuggestions)',
 		'.bashrc': '# ~/.bashrc\nexport EDITOR=vim\nalias cls=clear\nexport PS1="\\u@\\h:\\w$ "',
