@@ -3372,13 +3372,13 @@ body.light .btn-light-mode {
 	display: flex;
 	align-items: center;
 	gap: 12px;
-	padding: 11px 14px;
-	border: 1px solid #555;
+	padding: 16px 18px;
+	border: 2px solid #555;
 	cursor: pointer;
 	font-size: 16px;
 	background: rgba(0,0,0,0.80);
 }
-.tempos-ctf-item:hover { background: rgba(255,255,0,0.1); border-color: #ffff00; }
+.tempos-ctf-item:hover { background: rgba(255,255,0,0.1); border: 2px solid #ffff00; }
 .tempos-ctf-item__title { color: #ffffff; flex: 1; font-weight: bold; }
 .tempos-ctf-item__cat { color: #aaaaaa; font-size: 13px; white-space: nowrap; }
 .tempos-ctf-item__diff { font-size: 12px; border: 1px solid; padding: 1px 6px; white-space: nowrap; font-weight: bold; }

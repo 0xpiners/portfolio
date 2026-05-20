@@ -8,7 +8,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/style.css?v=45" />
+		<link rel="stylesheet" href="/style.css?v=46" />
 	</head>
 	<body>
 		<div class="mobile-overlay" id="mobileOverlay">
@@ -26,7 +26,7 @@
 					<rect x="5" y="12" width="6" height="1.5" fill="#7ab0f0" />
 					<rect x="3" y="13.5" width="10" height="1" fill="#7ab0f0" />
 				</svg>
-				0xpiners — Portfolio
+				Portfolio
 			</div>
 			<div class="title-bar__controls"></div>
 		</div>
@@ -43,8 +43,8 @@
 			</nav>
 			<div class="toolbar__sep"></div>
 			<div class="toolbar__icons">
-				<button class="toolbar__icon-btn pause" id="btnPause" title="Pause animation">
-					<img src="/images/random/pause-16.ico" style="width:14px;height:14px" alt="Pause" />
+				<button class="toolbar__icon-btn pause" id="btnPause" title="Pause VM">
+					<img src="/images/random/pause-16.ico" style="width: 14px; height: 14px" alt="Pause" />
 				</button>
 				<div class="toolbar__sep"></div>
 				<button class="toolbar__icon-btn" id="btnSnapshot" title="Copy section link">
@@ -184,13 +184,23 @@
 						<div class="xp-bsod">
 							<p>A problem has been detected and Windows has been shut down to prevent damage to your computer.</p>
 							<p>PINERS_PORTFOLIO_EXCEPTION</p>
-							<br/>
-							<p>If this is the first time you've seen this stop error screen, restart your computer. If this screen appears again, follow these steps:</p>
-							<br/>
-							<p>Check to make sure any new hardware or software is properly installed. If this is a new installation, ask your hardware or software manufacturer for any Windows updates you might need.</p>
-							<br/>
-							<p>If problems continue, disable or remove any newly installed hardware or software. Disable BIOS memory options such as caching or shadowing. If you need to use safe mode to remove or disable components, restart your computer, press F8 to select Advanced Startup Options, and then select Safe Mode.</p>
-							<br/>
+							<br />
+							<p>
+								If this is the first time you've seen this stop error screen, restart your computer. If this screen appears
+								again, follow these steps:
+							</p>
+							<br />
+							<p>
+								Check to make sure any new hardware or software is properly installed. If this is a new installation, ask
+								your hardware or software manufacturer for any Windows updates you might need.
+							</p>
+							<br />
+							<p>
+								If problems continue, disable or remove any newly installed hardware or software. Disable BIOS memory
+								options such as caching or shadowing. If you need to use safe mode to remove or disable components, restart
+								your computer, press F8 to select Advanced Startup Options, and then select Safe Mode.
+							</p>
+							<br />
 							<p>Technical information:</p>
 							<p>*** STOP: 0x0000007E (0xC0000005, 0xF88D6B8A, 0xF8AD54B8, 0xF8AD51B4)</p>
 							<p>*** portfolio.sys - Address F88D6B8A base at F88D6000, DateStamp 3e3b7b53</p>
@@ -198,15 +208,21 @@
 						<div class="xp-wallpaper" id="xpWallpaper"></div>
 						<div class="xp-area" id="xpArea">
 							<div class="xp-icon" style="top: 16px; left: 16px" id="iconMyComputer">
-								<div class="xp-icon__img"><img src="/images/windows/my computer.png" style="width:32px;height:32px" alt="My Computer" /></div>
+								<div class="xp-icon__img">
+									<img src="/images/windows/my computer.png" style="width: 32px; height: 32px" alt="My Computer" />
+								</div>
 								<div class="xp-icon__label">My Computer</div>
 							</div>
 							<div class="xp-icon" style="top: 100px; left: 16px" id="iconRecycleBin">
-								<div class="xp-icon__img"><img src="/images/windows/trash.png" style="width:32px;height:32px" alt="Recycle Bin" /></div>
+								<div class="xp-icon__img">
+									<img src="/images/windows/trash.png" style="width: 32px; height: 32px" alt="Recycle Bin" />
+								</div>
 								<div class="xp-icon__label">Recycle Bin</div>
 							</div>
 							<div class="xp-icon" style="top: 184px; left: 16px" id="iconMyDocuments">
-								<div class="xp-icon__img"><img src="/images/windows/folder.png" style="width:32px;height:32px" alt="My Documents" /></div>
+								<div class="xp-icon__img">
+									<img src="/images/windows/folder.png" style="width: 32px; height: 32px" alt="My Documents" />
+								</div>
 								<div class="xp-icon__label">My Documents</div>
 							</div>
 
@@ -233,7 +249,7 @@
 								<div class="tor-shell">
 									<div class="tor-tabstrip">
 										<div class="tor-tab tor-tab--active">
-											<span class="tor-tab__title">Pinheiro &#x2014; 0xpiners</span>
+											<span class="tor-tab__title">Home</span>
 											<span class="tor-tab__close">&#x2715;</span>
 										</div>
 										<button class="tor-newtab">+</button>
@@ -322,11 +338,10 @@
 															<div class="hb-about__bullet">
 																security researcher & software engineer focused on offensive security
 															</div>
-															<div class="hb-about__bullet">red teamer</div>
 															<div class="hb-about__bullet">3rd place Portugal on CTFTime (2024)</div>
 															<div class="hb-about__bullet">
-																penetration testing &middot; web exploitation &middot; incident response
-																&middot; C2 infrastructure &middot; malware analysis
+																penetration testing &middot; web exploitation &middot; malware analysis
+																&middot; programming
 															</div>
 															<div class="hb-about__bullet">
 																football &middot; piano &middot; travelling &middot; PC gaming &middot; CTFs
@@ -518,7 +533,9 @@
 													<div class="hb-section-title">ctf highlights</div>
 													<div class="hb-ctf-row">
 														<div class="hb-ctf-item">
-															<div class="hb-ctf-item__title">CarpeDiem &mdash; 3rd place Portugal &mdash; CTFTime 2024</div>
+															<div class="hb-ctf-item__title">
+																CarpeDiem &mdash; 3rd place Portugal &mdash; CTFTime 2024
+															</div>
 															<div class="hb-ctf-item__meta">ISCTE</div>
 														</div>
 														<div class="hb-ctf-item">
@@ -534,7 +551,9 @@
 															</div>
 														</div>
 													</div>
-													<button class="hb-cta-btn" onclick="switchTab('ctfs')">See CTF Writeups &#x2192;</button>
+													<button class="hb-cta-btn" onclick="switchTab('ctfs')">
+														See CTF Writeups &#x2192;
+													</button>
 												</main>
 												<aside class="hb-sidebar">
 													<div class="hb-widget">
@@ -587,7 +606,9 @@
 								style="display: none; top: 50px; left: 150px; width: 500px; height: 350px"
 							>
 								<div class="xp-titlebar" id="xpRecycleTitlebar">
-									<div class="xp-titlebar__icon"><img src="/images/windows/trash.png" style="width:14px;height:14px" alt="" /></div>
+									<div class="xp-titlebar__icon">
+										<img src="/images/windows/trash.png" style="width: 14px; height: 14px" alt="" />
+									</div>
 									<div class="xp-titlebar__title">Recycle Bin</div>
 									<div class="xp-titlebar__btns">
 										<button class="xp-ctrl" id="xpRecycleMin">&#x2013;</button>
@@ -619,7 +640,9 @@
 								style="display: none; top: 80px; left: 180px; width: 500px; height: 350px"
 							>
 								<div class="xp-titlebar" id="xpComputerTitlebar">
-									<div class="xp-titlebar__icon"><img src="/images/windows/my computer.png" style="width:14px;height:14px" alt="" /></div>
+									<div class="xp-titlebar__icon">
+										<img src="/images/windows/my computer.png" style="width: 14px; height: 14px" alt="" />
+									</div>
 									<div class="xp-titlebar__title">My Computer</div>
 									<div class="xp-titlebar__btns">
 										<button class="xp-ctrl" id="xpComputerMin">&#x2013;</button>
@@ -670,7 +693,9 @@
 								style="display: none; top: 70px; left: 220px; width: 480px; height: 320px"
 							>
 								<div class="xp-titlebar" id="xpMyDocTitlebar">
-									<div class="xp-titlebar__icon"><img src="/images/windows/folder.png" style="width:14px;height:14px" alt="My Documents" /></div>
+									<div class="xp-titlebar__icon">
+										<img src="/images/windows/folder.png" style="width: 14px; height: 14px" alt="My Documents" />
+									</div>
 									<div class="xp-titlebar__title">My Documents</div>
 									<div class="xp-titlebar__btns">
 										<button class="xp-ctrl" id="xpMyDocMin">&#x2013;</button>
@@ -687,7 +712,7 @@
 						</div>
 
 						<!-- XP Start Menu -->
-						<div class="xp-start-menu" id="xpStartMenu" style="display:none">
+						<div class="xp-start-menu" id="xpStartMenu" style="display: none">
 							<div class="xp-sm-header">
 								<img src="/images/windows/clipart2400718.png" class="xp-sm-avatar" alt="user" />
 								<span class="xp-sm-username">piners</span>
@@ -700,13 +725,25 @@
 									</div>
 									<div class="xp-sm-sep"></div>
 									<div class="xp-sm-item" id="smMyComputerItem">
-										<img src="/images/windows/my computer.png" style="width:20px;height:20px;margin-right:8px" alt="" /><span>My Computer</span>
+										<img
+											src="/images/windows/my computer.png"
+											style="width: 20px; height: 20px; margin-right: 8px"
+											alt=""
+										/><span>My Computer</span>
 									</div>
 									<div class="xp-sm-item" id="smMyDocumentsItem">
-										<img src="/images/windows/folder.png" style="width:20px;height:20px;margin-right:8px" alt="" /><span>My Documents</span>
+										<img
+											src="/images/windows/folder.png"
+											style="width: 20px; height: 20px; margin-right: 8px"
+											alt=""
+										/><span>My Documents</span>
 									</div>
 									<div class="xp-sm-item" id="smRecycleBinItem">
-										<img src="/images/windows/trash.png" style="width:20px;height:20px;margin-right:8px" alt="" /><span>Recycle Bin</span>
+										<img
+											src="/images/windows/trash.png"
+											style="width: 20px; height: 20px; margin-right: 8px"
+											alt=""
+										/><span>Recycle Bin</span>
 									</div>
 								</div>
 								<div class="xp-sm-right">
@@ -741,20 +778,20 @@
 								<span>Pinheiro &#x2014; Tor Browser</span>
 							</button>
 							<button class="xp-taskbtn" id="xpRecycleTaskbtn" style="display: none">
-								<img src="/images/windows/trash.png" style="width:13px;height:13px;margin-right:4px" alt="" />
+								<img src="/images/windows/trash.png" style="width: 13px; height: 13px; margin-right: 4px" alt="" />
 								<span>Recycle Bin</span>
 							</button>
 							<button class="xp-taskbtn" id="xpMyDocTaskbtn" style="display: none">
-								<img src="/images/windows/folder.png" style="width:13px;height:13px;margin-right:4px" alt="" />
+								<img src="/images/windows/folder.png" style="width: 13px; height: 13px; margin-right: 4px" alt="" />
 								<span>My Documents</span>
 							</button>
 							<button class="xp-taskbtn" id="xpComputerTaskbtn" style="display: none">
-								<img src="/images/windows/my computer.png" style="width:13px;height:13px;margin-right:4px" alt="" />
+								<img src="/images/windows/my computer.png" style="width: 13px; height: 13px; margin-right: 4px" alt="" />
 								<span>My Computer</span>
 							</button>
 							<div class="xp-systray">
-								<img src="/images/windows/sound.png" style="width:14px;height:14px" alt="Sound" />
-								<img src="/images/windows/wifi.png" style="width:14px;height:14px" alt="Wi-Fi" />
+								<img src="/images/windows/sound.png" style="width: 14px; height: 14px" alt="Sound" />
+								<img src="/images/windows/wifi.png" style="width: 14px; height: 14px" alt="Wi-Fi" />
 								<span class="xp-clock" id="xpClock"></span>
 							</div>
 						</div>
@@ -771,13 +808,17 @@
 								<div class="parrot-icon__label">Tor Browser</div>
 							</div>
 							<div class="parrot-icon" style="top: 100px; left: 16px" id="iconParrotTerm">
-									<div class="parrot-icon__img">
-										<img src="/images/random/Terminalicon2.png" style="width:32px;height:32px" alt="Terminal" />
-									</div>
-									<div class="parrot-icon__label">Terminal</div>
+								<div class="parrot-icon__img">
+									<img src="/images/random/Terminalicon2.png" style="width: 32px; height: 32px" alt="Terminal" />
 								</div>
+								<div class="parrot-icon__label">Terminal</div>
+							</div>
 
-							<div class="parrot-window" id="parrotTerminal" style="display:none; top:40px; left:60px; width:620px; height:380px;">
+							<div
+								class="parrot-window"
+								id="parrotTerminal"
+								style="display: none; top: 40px; left: 60px; width: 620px; height: 380px"
+							>
 								<div class="resize-handle" id="parrotTermResize"></div>
 								<div class="parrot-titlebar" id="parrotTermTitlebar">
 									<div class="parrot-titlebar__icon">
@@ -813,7 +854,7 @@
 								<div class="tor-shell">
 									<div class="tor-tabstrip">
 										<div class="tor-tab tor-tab--active">
-											<span class="tor-tab__title">Projects &#x2014; 0xpiners</span>
+											<span class="tor-tab__title">Projects</span>
 											<span class="tor-tab__close">&#x2715;</span>
 										</div>
 										<button class="tor-newtab">+</button>
@@ -877,8 +918,12 @@
 								<img src="/images/tor/Tor_Browser_icon.svg.png" style="width: 13px; height: 13px" alt="Tor" />
 								<span>Projects &#x2014; Tor Browser</span>
 							</button>
-							<button class="parrot-taskbtn" id="parrotTermTaskbtn" style="display:none">
-								<img src="/images/random/Terminalicon2.png" style="width:13px;height:13px;margin-right:4px" alt="Terminal" />
+							<button class="parrot-taskbtn" id="parrotTermTaskbtn" style="display: none">
+								<img
+									src="/images/random/Terminalicon2.png"
+									style="width: 13px; height: 13px; margin-right: 4px"
+									alt="Terminal"
+								/>
 								<span>Terminal</span>
 							</button>
 							<div class="parrot-systray">
@@ -914,7 +959,7 @@
 										<button class="tempos-ctrl tempos-ctrl--close parrot-ctrl" id="ctfTorClose">&#x2715;</button>
 									</div>
 								</div>
-																<div class="tempos-app" id="ctfTemposApp"></div>
+								<div class="tempos-app" id="ctfTemposApp"></div>
 							</div>
 						</div>
 						<div class="tempos-taskbar">
@@ -955,6 +1000,6 @@
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-		<script src="/app.js?v=31"></script>
+		<script src="/app.js?v=32"></script>
 	</body>
 </html>

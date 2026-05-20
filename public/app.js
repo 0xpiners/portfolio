@@ -269,8 +269,10 @@ const menuDefs = {
 		{
 			label: 'Download Resume',
 			action: () => {
-				switchTab('resume');
-				toast('Opening Resume...');
+				const a = document.createElement('a');
+				a.href = '/resume/David_Pinheiro_Resume.pdf';
+				a.download = 'David_Pinheiro_Resume.pdf';
+				a.click();
 				closeDropdown();
 			},
 		},
@@ -288,7 +290,7 @@ const menuDefs = {
 	],
 	view: () => [
 		{ label: 'Toggle Library', shortcut: 'Ctrl+B', action: toggleLibrary },
-		{ label: (animPaused ? 'Resume' : 'Pause') + ' Animation', action: toggleAnimation },
+		{ label: (animPaused ? 'Resume' : 'Pause') + ' VM', action: toggleAnimation },
 		{ sep: true },
 		{ label: 'Grid View', action: openGridView },
 	],
@@ -350,7 +352,7 @@ const menuDefs = {
 		},
 		{ sep: true },
 		{
-			label: 'About 0xpiners',
+			label: 'About piners',
 			action: () => {
 				switchTab('home');
 				closeDropdown();
@@ -1194,7 +1196,7 @@ const projects = [
 		tags: ['Java', 'Blockchain', 'BFT', 'EVM'],
 		url: 'https://github.com/0xpiners/depchain',
 		date: '2026',
-		status: 'live',
+		status: 'archived',
 		category: 'distributed',
 	},
 	{
@@ -1204,7 +1206,7 @@ const projects = [
 		tags: ['TypeScript', 'Node.js', 'Cryptography', 'Networking'],
 		url: 'https://github.com/0xpiners/Simple-onion-router-network',
 		date: '2026',
-		status: 'live',
+		status: 'archived',
 		category: 'security',
 	},
 	{
@@ -1214,7 +1216,7 @@ const projects = [
 		tags: ['Java', 'Security', 'P2P', 'AES-256', 'TLS'],
 		url: 'https://github.com/0xpiners/DeathNode',
 		date: '2025',
-		status: 'live',
+		status: 'archived',
 		category: 'security',
 	},
 	{
@@ -1234,7 +1236,7 @@ const projects = [
 		tags: ['Python', 'Shell', 'MISP', 'Threat Intelligence'],
 		url: 'https://github.com/0xpiners/MISP_API_CLI',
 		date: '2025',
-		status: 'wip',
+		status: 'archived',
 		category: 'security',
 	},
 	{
@@ -1364,7 +1366,7 @@ const projects = [
 		tags: ['Java', 'Finance', 'Desktop'],
 		url: 'https://github.com/0xpiners/Trackfolio',
 		date: '2024',
-		status: 'archived',
+		status: 'wip',
 		category: 'tools',
 	},
 	{
@@ -1458,6 +1460,11 @@ const PROJ_FILTERS = [
 	{ id: 'tools', label: 'Tools' },
 ];
 
+const STATUS_ORDER = { live: 0, wip: 1, archived: 2 };
+function sortProjects(list) {
+	return [...list].sort((a, b) => (STATUS_ORDER[a.status] ?? 2) - (STATUS_ORDER[b.status] ?? 2));
+}
+
 function buildProjCards(list) {
 	return list
 		.map(
@@ -1528,7 +1535,7 @@ function renderProjects() {
 			<button class="btn-light-mode" style="margin-left:auto" title="Toggle light mode">${lightSvg}</button>
 		</div>
 		<div class="proj-filter-bar">${filterTabs}</div>
-		<div class="proj-onion-grid" id="projGrid">${buildProjCards(indexed)}</div>`;
+		<div class="proj-onion-grid" id="projGrid">${buildProjCards(sortProjects(indexed))}</div>`;
 
 	const bar = container.querySelector('.proj-filter-bar');
 	const grid = container.querySelector('#projGrid');
@@ -1539,7 +1546,7 @@ function renderProjects() {
 		btn.classList.add('active');
 		const f = btn.dataset.filter;
 		const filtered = f === 'all' ? indexed : indexed.filter((p) => f === 'ai' ? (p.category === 'ai' || p.category === 'games') : p.category === f);
-		grid.innerHTML = buildProjCards(filtered);
+		grid.innerHTML = buildProjCards(sortProjects(filtered));
 	});
 	container.addEventListener('click', (e) => {
 		const clickable = e.target.closest('.proj-card__open') || e.target.closest('.proj-card__title');
@@ -3724,6 +3731,14 @@ makeResizable(
 	}
 	bg.innerHTML = lines.join('<br>');
 })();
+
+// ── Tor tab close buttons ──────────────────────────────
+document.querySelector('#xpTorBrowser .tor-tab__close')?.addEventListener('click', () => {
+	document.getElementById('xpTorClose').click();
+});
+document.querySelector('#parrotTorBrowser .tor-tab__close')?.addEventListener('click', () => {
+	document.getElementById('parrotTorClose').click();
+});
 
 // ── Init ───────────────────────────────────────────────
 renderTabs();
