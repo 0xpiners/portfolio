@@ -1,3 +1,8 @@
+// ── Utilities ──────────────────────────────────────────
+function escHtml(s) {
+	return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 // ── Tab state ──────────────────────────────────────────
 const tabs = [
 	{ id: 'home', label: 'Home', icon: 'computer' },
@@ -41,6 +46,15 @@ function renderTabs() {
 		.join('');
 }
 
+function loadResumePdf() {
+	const frame = document.getElementById('resumeFrame');
+	if (!frame) return;
+	const resumePath = '/resume/David_Pinheiro_Resume.pdf';
+	if (!frame.src || !frame.src.includes(resumePath)) {
+		frame.src = resumePath;
+	}
+}
+
 function switchTab(id) {
 	if (!openTabs.includes(id)) openTabs.push(id);
 	activeTab = id;
@@ -51,6 +65,8 @@ function switchTab(id) {
 		el.classList.toggle('active', el.dataset.tab === id);
 	});
 	renderTabs();
+	if (location.hash !== '#' + id) history.replaceState(null, '', '#' + id);
+	if (id === 'resume') loadResumePdf();
 }
 
 function closeTab(id) {
@@ -331,14 +347,14 @@ const menuDefs = {
 		{
 			label: 'GitHub',
 			action: () => {
-				window.open('https://github.com/0xpiners', '_blank');
+				window.open('https://github.com/0xpiners', '_blank', 'noopener,noreferrer');
 				closeDropdown();
 			},
 		},
 		{
 			label: 'LinkedIn',
 			action: () => {
-				window.open('https://www.linkedin.com/in/davidmbp', '_blank');
+				window.open('https://www.linkedin.com/in/davidmbp', '_blank', 'noopener,noreferrer');
 				closeDropdown();
 			},
 		},
@@ -520,9 +536,7 @@ document.getElementById('btnViewGrid').addEventListener('click', () => {
 	});
 	document.getElementById('smMyDocumentsItem').addEventListener('click', () => {
 		closeMenu();
-		document.getElementById('xpMyDocuments').style.display = '';
-		document.getElementById('xpMyDocTaskbtn').style.display = '';
-		document.getElementById('xpMyDocTaskbtn').classList.add('active');
+		if (window.openMyDocuments) window.openMyDocuments();
 	});
 	document.getElementById('smRecycleBinItem').addEventListener('click', () => {
 		closeMenu();
@@ -538,9 +552,7 @@ document.getElementById('btnViewGrid').addEventListener('click', () => {
 	});
 	document.getElementById('smRMyDocuments').addEventListener('click', () => {
 		closeMenu();
-		document.getElementById('xpMyDocuments').style.display = '';
-		document.getElementById('xpMyDocTaskbtn').style.display = '';
-		document.getElementById('xpMyDocTaskbtn').classList.add('active');
+		if (window.openMyDocuments) window.openMyDocuments();
 	});
 	document.getElementById('smLogOff').addEventListener('click', () => {
 		closeMenu();
@@ -611,7 +623,7 @@ document.getElementById('termInput').addEventListener('keydown', (e) => {
 	if (e.key !== 'Enter') return;
 	const input = e.target.value.trim();
 	e.target.value = '';
-	termPrint(`<span style="color:#e74c3c">[ piners ~ ]#</span> ${input}`);
+	termPrint(`<span style="color:#e74c3c">[ piners ~ ]#</span> ${escHtml(input)}`);
 	if (!input) return;
 	const raw = termCmds[input.toLowerCase()];
 	const resp = typeof raw === 'function' ? raw() : raw;
@@ -622,7 +634,7 @@ document.getElementById('termInput').addEventListener('keydown', (e) => {
 	} else if (resp) {
 		resp.split('\n').forEach((line) => termPrint(`<span style="color:#aaa">${line}</span>`));
 	} else {
-		termPrint(`<span style="color:#e74c3c">bash: ${input}: command not found</span>`);
+		termPrint(`<span style="color:#e74c3c">bash: ${escHtml(input)}: command not found</span>`);
 	}
 });
 
@@ -684,14 +696,16 @@ function bringToFront(win) {
 		taskbtn.style.display = 'none';
 	}
 
-	window.openTorBrowser = restore;
+	window.openTorBrowser = function () {
+		taskbtn.style.display = '';
+		restore();
+		bringToFront(win);
+	};
 
 	document.getElementById('xpTorMin').addEventListener('click', minimize);
 	document.getElementById('xpTorClose').addEventListener('click', close);
 	document.getElementById('iconTorBrowser').addEventListener('dblclick', () => {
-		taskbtn.style.display = '';
-		restore();
-		bringToFront(win);
+		window.openTorBrowser();
 	});
 	taskbtn.addEventListener('click', () => (win.style.display === 'none' ? restore() : minimize()));
 
@@ -992,6 +1006,76 @@ function bringToFront(win) {
 		dragging = false;
 		win.style.userSelect = '';
 	});
+})();
+
+// ── XP My Documents: minimize / drag / close ─────────
+(function () {
+	const win = document.getElementById('xpMyDocuments');
+	const titlebar = document.getElementById('xpMyDocTitlebar');
+	const taskbtn = document.getElementById('xpMyDocTaskbtn');
+	if (!win || !taskbtn) return;
+
+	win.addEventListener('mousedown', () => bringToFront(win));
+
+	function open() {
+		win.style.display = '';
+		taskbtn.style.display = '';
+		taskbtn.classList.add('active');
+		bringToFront(win);
+	}
+	function close() {
+		win.style.display = 'none';
+		taskbtn.style.display = 'none';
+	}
+	function minimize() {
+		win.style.display = 'none';
+		taskbtn.classList.remove('active');
+	}
+	function restore() {
+		win.style.display = '';
+		taskbtn.classList.add('active');
+	}
+
+	window.openMyDocuments = open;
+
+	document.getElementById('iconMyDocuments').addEventListener('dblclick', open);
+	document.getElementById('xpMyDocClose').addEventListener('click', close);
+	document.getElementById('xpMyDocMin').addEventListener('click', minimize);
+	document.getElementById('xpMyDocMax').addEventListener('click', () => {
+		if (win.classList.contains('xp-maximized')) {
+			win.classList.remove('xp-maximized');
+			win.style.left = saved.l; win.style.top = saved.t;
+			win.style.width = saved.w; win.style.height = saved.h;
+		} else {
+			saved = { l: win.style.left || '220px', t: win.style.top || '70px', w: win.style.width || '480px', h: win.style.height || '320px' };
+			win.classList.add('xp-maximized');
+			win.style.left = win.style.top = win.style.width = win.style.height = '';
+		}
+	});
+	taskbtn.addEventListener('click', () => (win.style.display === 'none' ? restore() : minimize()));
+
+	let saved = { l: '220px', t: '70px', w: '480px', h: '320px' };
+	let dragging = false, ox = 0, oy = 0;
+	titlebar.addEventListener('mousedown', (e) => {
+		if (e.target.closest('.xp-ctrl')) return;
+		e.preventDefault();
+		if (win.classList.contains('xp-maximized')) return;
+		dragging = true;
+		const areaRect = document.getElementById('xpArea').getBoundingClientRect();
+		const winRect = win.getBoundingClientRect();
+		ox = e.clientX - winRect.left;
+		oy = e.clientY - winRect.top;
+		win.style.userSelect = 'none';
+		bringToFront(win);
+	});
+	document.addEventListener('mousemove', (e) => {
+		if (!dragging) return;
+		const area = document.getElementById('xpArea');
+		const areaRect = area.getBoundingClientRect();
+		win.style.left = Math.max(0, Math.min(area.clientWidth - win.offsetWidth, e.clientX - areaRect.left - ox)) + 'px';
+		win.style.top = Math.max(0, Math.min(area.clientHeight - win.offsetHeight, e.clientY - areaRect.top - oy)) + 'px';
+	});
+	document.addEventListener('mouseup', () => { dragging = false; win.style.userSelect = ''; });
 })();
 
 // ── XP Desktop Icons & Context Menu ───────────────────
@@ -1305,6 +1389,7 @@ const projects = [
 			"URL shortener deployed on Cloudflare's edge. Supports user accounts with email verification, a link dashboard with click analytics, and uses D1, KV, and R2 — zero origin server.",
 		tags: ['TypeScript', 'Cloudflare Workers', 'D1', 'KV'],
 		url: 'https://github.com/0xpiners/smalito',
+		liveUrl: 'https://smalito.com',
 		date: '2026',
 		status: 'live',
 		category: 'web',
@@ -1335,6 +1420,7 @@ const projects = [
 			'Interactive portfolio built as a Cloudflare Workers app with a custom desktop-style UI, tabbed navigation, and dedicated sections for projects, resume, and CTF work. Designed to feel like a retro operating system while staying fully web-native.',
 		tags: ['JavaScript', 'Cloudflare Workers', 'Frontend'],
 		url: 'https://github.com/0xpiners/portfolio',
+		liveUrl: 'https://piners.fyi',
 		date: '2026',
 		status: 'live',
 		category: 'web',
@@ -1509,9 +1595,10 @@ function openProjModal(p) {
 			<div class="proj-modal__actions">
 				${
 					p.url
-						? `<a class="proj-modal__link" href="${p.url}" target="_blank">Open on GitHub &rarr;</a>`
+						? `<a class="proj-modal__link" href="${p.url}" target="_blank" rel="noopener noreferrer">Open on GitHub &rarr;</a>`
 						: '<span class="proj-modal__link proj-modal__link--na">Private</span>'
 				}
+				${p.liveUrl ? `<a class="proj-modal__link proj-modal__link--live" href="${p.liveUrl}" target="_blank" rel="noopener noreferrer">See Live &rarr;</a>` : ''}
 			</div>
 		</div>`;
 	document.getElementById('projOnionContent').appendChild(modal);
@@ -1524,8 +1611,9 @@ function renderProjects() {
 	const container = document.getElementById('projOnionContent');
 	if (!container) return;
 	const indexed = projects.map((p, i) => ({ ...p, _idx: i }));
+	const countFor = (fid) => fid === 'all' ? indexed.length : indexed.filter((p) => fid === 'ai' ? (p.category === 'ai' || p.category === 'games') : p.category === fid).length;
 	const filterTabs = PROJ_FILTERS.map(
-		(f) => `<button class="proj-filter-tab${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}">${f.label}</button>`,
+		(f) => `<button class="proj-filter-tab${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}">${f.label} <span class="proj-filter-count">${countFor(f.id)}</span></button>`,
 	).join('');
 	const lightSvg = `<svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 2a6 6 0 010 12V2z"/></svg>`;
 	container.innerHTML = `
@@ -1553,7 +1641,8 @@ function renderProjects() {
 		if (!clickable) return;
 		const card = clickable.closest('.proj-card');
 		if (!card) return;
-		openProjModal(projects[+card.dataset.idx]);
+		const idx = +card.dataset.idx;
+		if (idx >= 0 && idx < projects.length) openProjModal(projects[idx]);
 	});
 }
 
@@ -3329,7 +3418,7 @@ function renderTemposCtfs() {
 				}
 			}
 		} catch (err) {
-			app.innerHTML = `<div class="tempos-loading" style="color:#ff5555">Error: ${err.message}<br><button class="tempos-back-btn" style="margin-top:12px">&#x25C4; Back</button></div>`;
+			app.innerHTML = `<div class="tempos-loading" style="color:#ff5555">Error: ${escHtml(err.message)}<br><button class="tempos-back-btn" style="margin-top:12px">&#x25C4; Back</button></div>`;
 			app.querySelector('.tempos-back-btn')?.addEventListener('click', () => showEvent(fromEvent || c.event));
 		}
 	}
@@ -3524,8 +3613,8 @@ makeResizable(
 	}
 
 	function prompt(cmd) {
-		print(`<span style="color:#3af097">┌──(piners㉿parrot)-[<span style="color:#fff">${cwd}</span>]</span>`);
-		print(`<span style="color:#3af097">└─$</span> <span style="color:#e0e0e0">${cmd}</span>`);
+		print(`<span style="color:#3af097">┌──(piners㉿parrot)-[<span style="color:#fff">${escHtml(cwd)}</span>]</span>`);
+		print(`<span style="color:#3af097">└─$</span> <span style="color:#e0e0e0">${escHtml(cmd)}</span>`);
 	}
 
 	const commands = {
@@ -3575,19 +3664,19 @@ makeResizable(
 		hostname() { print('parrot'); },
 		date() { print(new Date().toString()); },
 		clear() { body.innerHTML = ''; },
-		echo(args) { print(args.join(' ')); },
+		echo(args) { print(escHtml(args.join(' '))); },
 		cd(args) {
 			const target = args[0] || '~';
 			const resolved = target === '~' ? '~' : target.startsWith('/') ? target : cwd + '/' + target.replace(/\/$/, '');
 			const key = resolved.replace('/home/piners', '~');
 			if (fs[key] !== undefined || key === '~') { cwd = key; }
-			else { print(`<span style="color:#f87171">bash: cd: ${target}: No such file or directory</span>`); }
+			else { print(`<span style="color:#f87171">bash: cd: ${escHtml(target)}: No such file or directory</span>`); }
 		},
 		cat(args) {
 			if (!args[0]) { print('<span style="color:#f87171">cat: missing file operand</span>'); return; }
 			const content = fileContents[args[0]];
 			if (content) { content.split('\n').forEach((l) => print(l || '&nbsp;')); }
-			else { print(`<span style="color:#f87171">cat: ${args[0]}: No such file or directory</span>`); }
+			else { print(`<span style="color:#f87171">cat: ${escHtml(args[0])}: No such file or directory</span>`); }
 		},
 		uname(args) {
 			if (args.includes('-a')) print('Linux parrot 6.1.0-parrot1-amd64 #1 SMP PREEMPT_DYNAMIC Parrot 6.1.15-1parrot1 (2023-04-25) x86_64 GNU/Linux');
@@ -3608,7 +3697,7 @@ makeResizable(
 		},
 		ping(args) {
 			if (!args[0]) { print('<span style="color:#f87171">ping: missing host operand</span>'); return; }
-			const host = args[0];
+			const host = escHtml(args[0]);
 			print(`PING ${host}: 56 data bytes`);
 			[1, 2, 3, 4].forEach((i) => {
 				const ms = (Math.random() * 20 + 5).toFixed(3);
@@ -3620,7 +3709,7 @@ makeResizable(
 		nmap(args) {
 			if (!args[0]) { print('<span style="color:#f87171">nmap: requires a target</span>'); return; }
 			print(`Starting Nmap 7.94 ( https://nmap.org )`);
-			print(`Nmap scan report for ${args[0]}`);
+			print(`Nmap scan report for ${escHtml(args[0])}`);
 			print('PORT     STATE SERVICE');
 			print('22/tcp   open  ssh');
 			print('80/tcp   open  http');
@@ -3643,7 +3732,7 @@ makeResizable(
 		const [cmd, ...args] = trimmed.split(/\s+/);
 		prompt(trimmed);
 		if (commands[cmd]) commands[cmd](args);
-		else print(`<span style="color:#f87171">bash: ${cmd}: command not found</span>`);
+		else print(`<span style="color:#f87171">bash: ${escHtml(cmd)}: command not found</span>`);
 	}
 
 	function open() {
@@ -3732,6 +3821,13 @@ makeResizable(
 	bg.innerHTML = lines.join('<br>');
 })();
 
+// ── XP Start Menu: Run… opens easter-egg terminal ─────
+document.getElementById('smRun')?.addEventListener('click', () => {
+	document.getElementById('xpStartMenu').style.display = 'none';
+	document.getElementById('termOverlay').classList.add('open');
+	document.getElementById('termInput').focus();
+});
+
 // ── Tor tab close buttons ──────────────────────────────
 document.querySelector('#xpTorBrowser .tor-tab__close')?.addEventListener('click', () => {
 	document.getElementById('xpTorClose').click();
@@ -3744,4 +3840,15 @@ document.querySelector('#parrotTorBrowser .tor-tab__close')?.addEventListener('c
 renderTabs();
 renderProjects();
 renderTemposCtfs();
-switchTab('home');
+
+// Restore tab from URL hash (deep-link support)
+(function () {
+	function applyHash() {
+		const id = location.hash.replace('#', '');
+		if (id && tabs.find((t) => t.id === id)) switchTab(id);
+		else if (!activeTab) switchTab('home');
+	}
+	applyHash();
+	window.addEventListener('hashchange', applyHash);
+	if (!location.hash) switchTab('home');
+})();

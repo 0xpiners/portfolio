@@ -8,7 +8,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/style.css?v=45" />
+		<link rel="stylesheet" href="/style.css?v=46" />
 		<style>
 			/* override the portfolio's global overflow: hidden */
 			html,
@@ -71,14 +71,18 @@
 	</head>
 	<body>
 		<div class="standalone-topbar">
-			<a href="/" class="standalone-topbar__brand">&#9664; piners.sh</a>
+			<a href="/" class="standalone-topbar__brand" rel="noopener noreferrer">&#9664; piners.sh</a>
 			<span class="standalone-topbar__slug" id="topbarSlug"></span>
 		</div>
 		<div class="standalone-page">
 			<div id="writeupContent"><div class="standalone-status">Loading writeup…</div></div>
 		</div>
-		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-948ahk4ZmxYVYOc+rxN1H2gM1EJ2Duhp7uHtZ4WSLkV4Vtx5MUqnV+l7u9B+jFv+" crossorigin="anonymous"></script>
 		<script>
+			function escHtml(s) {
+				return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+			}
+
 			(async function () {
 				const params = new URLSearchParams(location.search);
 				const markdownPath = params.get('path');
@@ -105,6 +109,11 @@
 					return;
 				}
 
+				if (!markdownPath.startsWith('/ctf/')) {
+					container.innerHTML = '<div class="standalone-status">Invalid writeup path.</div>';
+					return;
+				}
+
 				try {
 					const res = await fetch(markdownPath);
 					if (!res.ok) throw new Error(res.statusText);
@@ -121,16 +130,16 @@
 					container.innerHTML = `
 						<div class="ctf-writeup-page__header">
 							<div>
-								<div class="ctf-writeup-page__title">${title}</div>
-								<div class="ctf-writeup-page__meta">${event}${date ? ' &nbsp;&middot;&nbsp; ' + date : ''}</div>
+								<div class="ctf-writeup-page__title">${escHtml(title)}</div>
+								<div class="ctf-writeup-page__meta">${escHtml(event)}${date ? ' &nbsp;&middot;&nbsp; ' + escHtml(date) : ''}</div>
 							</div>
 							<div class="ctf-writeup-page__badges">
-								${tags.map((t) => `<span class="proj-card__tag">${t}</span>`).join('')}
+								${tags.map((t) => `<span class="proj-card__tag">${escHtml(t)}</span>`).join('')}
 							</div>
 						</div>
 						<div class="ctf-writeup__body">${bodyHtml}</div>`;
 				} catch (err) {
-					container.innerHTML = `<div class="standalone-status" style="color:#ef4444;">Failed to load writeup: ${err.message}</div>`;
+					container.innerHTML = `<div class="standalone-status" style="color:#ef4444;">Failed to load writeup: ${escHtml(err.message)}</div>`;
 				}
 			})();
 		</script>

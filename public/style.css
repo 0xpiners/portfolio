@@ -395,6 +395,53 @@ body {
 	justify-content: stretch;
 }
 
+/* resume fallback (shown when PDF object fails to load) */
+.resume-fallback {
+	position: relative;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	height: 100%;
+	color: #a06eff;
+	font-family: 'Roboto Mono', monospace;
+}
+.resume-fallback__name {
+	font-size: 22px;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+.resume-fallback__sub {
+	font-size: 12px;
+	color: #555;
+}
+.resume-fallback__actions {
+	display: flex;
+	gap: 12px;
+	margin-top: 8px;
+}
+.resume-fallback__btn {
+	padding: 8px 20px;
+	background: #a06eff;
+	color: #0a0a0a;
+	font-family: inherit;
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	transition: opacity 0.15s;
+}
+.resume-fallback__btn:hover { opacity: 0.8; }
+.resume-fallback__btn--outline {
+	background: transparent;
+	color: #a06eff;
+	border: 1px solid #a06eff;
+}
+.resume-fallback__btn--outline:hover { background: rgba(160,110,255,0.1); opacity: 1; }
+
 /* scrolling code background */
 .vm-bg {
 	position: absolute;
@@ -960,6 +1007,9 @@ body {
 }
 .parrot-maximized .parrot-titlebar {
 	display: none;
+}
+#parrotTerminal.parrot-maximized .parrot-titlebar {
+	display: flex;
 }
 #xpTorBrowser .xp-titlebar,
 #parrotTorBrowser .parrot-titlebar,
@@ -2180,6 +2230,20 @@ body {
 	opacity: 0.35;
 	cursor: default;
 	pointer-events: none;
+}
+.proj-modal__link--live {
+	color: #3cb371;
+	border-color: #3cb371;
+}
+.proj-modal__link--live:hover {
+	color: #fff;
+	border-color: #3cb371;
+	background: rgba(60,179,113,0.12);
+}
+.proj-filter-count {
+	font-size: 11px;
+	opacity: 0.55;
+	margin-left: 3px;
 }
 
 /* ── CTF full-page writeup view ─────────────────── */

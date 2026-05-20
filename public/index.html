@@ -8,7 +8,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/style.css?v=46" />
+		<link rel="stylesheet" href="/style.css?v=48" />
 	</head>
 	<body>
 		<div class="mobile-overlay" id="mobileOverlay">
@@ -565,18 +565,20 @@
 													<div class="hb-widget">
 														<div class="hb-widget__title">Links</div>
 														<div class="hb-widget__body">
-															<a href="https://github.com/0xpiners" target="_blank" class="hb-widget__link"
+															<a href="https://github.com/0xpiners" target="_blank" rel="noopener noreferrer" class="hb-widget__link"
 																>GitHub</a
 															>
 															<a
 																href="https://www.linkedin.com/in/davidmbp"
 																target="_blank"
+																rel="noopener noreferrer"
 																class="hb-widget__link"
 																>LinkedIn</a
 															>
 															<a
 																href="/resume/David_Pinheiro_Resume.pdf"
 																target="_blank"
+																rel="noopener noreferrer"
 																class="hb-widget__link"
 																>Resume</a
 															>
@@ -941,6 +943,7 @@
 					</div>
 					<iframe
 						src="/resume/David_Pinheiro_Resume.pdf"
+						id="resumeFrame"
 						style="position: relative; z-index: 10; flex: 1; width: 100%; border: none"
 						title="Resume"
 					></iframe>
@@ -999,7 +1002,7 @@
 			</div>
 		</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-		<script src="/app.js?v=32"></script>
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-948ahk4ZmxYVYOc+rxN1H2gM1EJ2Duhp7uHtZ4WSLkV4Vtx5MUqnV+l7u9B+jFv+" crossorigin="anonymous"></script>
+		<script src="/app.js?v=35"></script>
 	</body>
 </html>
