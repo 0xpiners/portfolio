@@ -93,19 +93,17 @@ document.querySelectorAll('.tree-item[data-tab]').forEach((el) => {
 	el.addEventListener('click', () => switchTab(el.dataset.tab));
 });
 
-// ── Mobile warning overlay ─────────────────────────────
+// ── Mobile nav active state ────────────────────────────
 (function () {
-	const overlay = document.getElementById('mobileOverlay');
-	const continueBtn = document.getElementById('mobileContinue');
-	if (!overlay || !continueBtn) return;
-	const key = 'pinersMobileOverlayDismissed';
-	if (localStorage.getItem(key) === 'true') {
-		document.body.classList.add('mobile-overlay--dismissed');
-	}
-	continueBtn.addEventListener('click', () => {
-		document.body.classList.add('mobile-overlay--dismissed');
-		localStorage.setItem(key, 'true');
-	});
+	const nav = document.getElementById('mobileNav');
+	if (!nav) return;
+	const _orig = switchTab;
+	switchTab = function (id) {
+		_orig(id);
+		nav.querySelectorAll('.mobile-nav__btn').forEach((btn) => {
+			btn.classList.toggle('active', btn.dataset.tab === id);
+		});
+	};
 })();
 
 // ── My Computer tree collapse / expand ────────────────

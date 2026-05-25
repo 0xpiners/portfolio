@@ -8,16 +8,9 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/style.css?v=52" />
+		<link rel="stylesheet" href="/style.css?v=63" />
 	</head>
 	<body>
-		<div class="mobile-overlay" id="mobileOverlay">
-			<div class="mobile-overlay__panel">
-				<button class="mobile-overlay__notice" type="button">The website doesn't look good on the phone.</button>
-				<button class="mobile-overlay__continue" id="mobileContinue" type="button">Continue anyway</button>
-			</div>
-		</div>
-
 		<!-- Title bar -->
 		<div class="title-bar">
 			<div class="title-bar__left">
@@ -346,7 +339,7 @@
 															<div class="hb-about__bullet">
 																security researcher & software engineer focused on offensive security
 															</div>
-															<div class="hb-about__bullet">3rd place Portugal on CTFTime (2024)</div>
+															<div class="hb-about__bullet">4th place Portugal on CTFTime (2024)</div>
 															<div class="hb-about__bullet">
 																penetration testing &middot; web exploitation &middot; malware analysis
 																&middot; programming
@@ -459,7 +452,7 @@
 															</div>
 															<ul class="hb-timeline__points">
 																<li class="hb-timeline__point">
-																	CTF team &mdash; 3rd place Portugal on CTFTime (2024)
+																	CTF team &mdash; 4th place Portugal on CTFTime (2024)
 																</li>
 																<li class="hb-timeline__point">
 																	Co-organized FISTA 2024, a major cybersecurity CTF event at ISCTE
@@ -573,7 +566,11 @@
 													<div class="hb-widget">
 														<div class="hb-widget__title">Links</div>
 														<div class="hb-widget__body">
-															<a href="https://github.com/0xpiners" target="_blank" rel="noopener noreferrer" class="hb-widget__link"
+															<a
+																href="https://github.com/0xpiners"
+																target="_blank"
+																rel="noopener noreferrer"
+																class="hb-widget__link"
 																>GitHub</a
 															>
 															<a
@@ -944,17 +941,16 @@
 				</div>
 
 				<div class="vm-screen" id="screen-resume" style="background: #130d1a">
-					<div class="vm-bg">
-						<div class="vm-bg__col" style="color: #a06eff"></div>
-						<div class="vm-bg__col" style="color: #a06eff"></div>
-						<div class="vm-bg__col" style="color: #a06eff"></div>
-					</div>
 					<iframe
 						src="/resume/David_Pinheiro_Resume.pdf"
 						id="resumeFrame"
+						class="resume-iframe"
 						style="position: relative; z-index: 10; flex: 1; width: 100%; border: none"
 						title="Resume"
 					></iframe>
+					<div class="resume-fallback resume-fallback--mobile">
+						<a class="resume-fallback__btn" href="/resume/David_Pinheiro_Resume.pdf" download>Download PDF</a>
+					</div>
 				</div>
 				<div class="vm-screen" id="screen-ctfs">
 					<div class="tempos-desktop">
@@ -1010,7 +1006,73 @@
 			</div>
 		</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-948ahk4ZmxYVYOc+rxN1H2gM1EJ2Duhp7uHtZ4WSLkV4Vtx5MUqnV+l7u9B+jFv+" crossorigin="anonymous"></script>
+		<!-- Mobile bottom nav -->
+		<nav class="mobile-nav" id="mobileNav">
+			<button class="mobile-nav__btn active" data-tab="home" onclick="switchTab('home')">
+				<svg
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path d="M3 12L12 3l9 9M5 10v9h5v-5h4v5h5v-9" />
+				</svg>
+				Home
+			</button>
+			<button class="mobile-nav__btn" data-tab="projects" onclick="switchTab('projects')">
+				<svg
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<rect x="3" y="3" width="8" height="8" rx="1" />
+					<rect x="13" y="3" width="8" height="8" rx="1" />
+					<rect x="3" y="13" width="8" height="8" rx="1" />
+					<rect x="13" y="13" width="8" height="8" rx="1" />
+				</svg>
+				Projects
+			</button>
+			<button class="mobile-nav__btn" data-tab="ctfs" onclick="switchTab('ctfs')">
+				<svg
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+				</svg>
+				CTFs
+			</button>
+			<button class="mobile-nav__btn" data-tab="resume" onclick="switchTab('resume')">
+				<svg
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+					<polyline points="14 2 14 8 20 8" />
+					<line x1="8" y1="13" x2="16" y2="13" />
+					<line x1="8" y1="17" x2="16" y2="17" />
+				</svg>
+				Resume
+			</button>
+		</nav>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+			integrity="sha384-948ahk4ZmxYVYOc+rxN1H2gM1EJ2Duhp7uHtZ4WSLkV4Vtx5MUqnV+l7u9B+jFv+"
+			crossorigin="anonymous"
+		></script>
 		<script src="/app.js?v=35"></script>
 	</body>
 </html>
