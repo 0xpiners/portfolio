@@ -3,7 +3,8 @@
     "allow": [
       "Bash(python3 -c ' *)",
       "Bash(ls /mnt/c/Users/User/Documents/Projects/portfolio/.claude/worktrees/agent-a8d5af05521636bfe/public/)",
-      "Bash(dir \"C:\\\\Users\\\\User\\\\Documents\\\\Projects\\\\portfolio\\\\.claude\\\\worktrees\\\\agent-a8d5af05521636bfe\\\\public\")"
+      "Bash(dir \"C:\\\\Users\\\\User\\\\Documents\\\\Projects\\\\portfolio\\\\.claude\\\\worktrees\\\\agent-a8d5af05521636bfe\\\\public\")",
+      "Bash(rm \"/c/Users/User/Documents/Projects/portfolio/public/images/random/banner.jpeg\" \\\\ *)"
     ]
   }
 }
